@@ -1,65 +1,122 @@
 import Image from "next/image";
+import { getAllChaptersData, SegmentData } from "@/lib/strava";
+import ChapterCard from "@/components/ChapterCard";
+import CountdownTimer from "@/components/CountdownTimer";
+import GlobalStats from "@/components/GlobalStats";
 
-export default function Home() {
+export const revalidate = 900; // Revalidate every 15 minutes
+
+function parseNumber(str: string): number {
+  return parseFloat(str.replace(/,/g, '')) || 0;
+}
+
+function parseMiles(str: string): number {
+  return parseFloat(str.replace(/,/g, '').replace(' mi', '')) || 0;
+}
+
+function calculateGlobalStats(chapters: SegmentData[]) {
+  return chapters.reduce(
+    (acc, chapter) => ({
+      totalEfforts: acc.totalEfforts + parseNumber(chapter.totalEfforts),
+      totalMiles: acc.totalMiles + parseMiles(chapter.totalDistance),
+      totalAthletes: acc.totalAthletes + parseNumber(chapter.totalAthletes),
+    }),
+    { totalEfforts: 0, totalMiles: 0, totalAthletes: 0 }
+  );
+}
+
+export default async function Home() {
+  let chaptersData: SegmentData[] = [];
+
+  try {
+    chaptersData = await getAllChaptersData();
+  } catch (error) {
+    console.error("Failed to fetch chapters data:", error);
+  }
+
+  const globalStats = calculateGlobalStats(chaptersData);
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+    <div
+      className="min-h-screen bg-cover bg-center bg-fixed"
+      style={{
+        backgroundImage: "url('/wood-bg.png')",
+        backgroundSize: "cover",
+      }}
+    >
+      <div className="min-h-screen bg-black/10">
+        <main className="max-w-6xl mx-auto px-4 py-8">
+          {/* Logo */}
+          <div className="flex justify-center mb-4">
             <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+              src="/logo.png"
+              alt="Burrito League"
+              width={280}
+              height={120}
+              priority
+              className="drop-shadow-2xl"
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+          </div>
+
+          {/* Tagline */}
+          <p className="text-center text-white/80 text-sm mb-8 drop-shadow-md">
+            wtf is burrito league?{" "}
+            <a
+              href="https://www.mountainoutpost.com/burritoleague/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white font-semibold hover:underline"
+            >
+              learn more at mountainoutpost!
+            </a>
+          </p>
+
+          {/* Countdown Timer */}
+          <div className="mb-8">
+            <CountdownTimer />
+          </div>
+
+          {/* Global Stats */}
+          {chaptersData.length > 0 && (
+            <GlobalStats
+              totalChapters={chaptersData.length}
+              totalEfforts={globalStats.totalEfforts}
+              totalMiles={globalStats.totalMiles}
+              totalAthletes={globalStats.totalAthletes}
+            />
+          )}
+
+          {/* Chapter Cards Grid */}
+          {chaptersData.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {chaptersData.map((chapter) => (
+                <ChapterCard
+                  key={chapter.segmentId}
+                  city={chapter.city}
+                  state={chapter.state}
+                  totalEfforts={chapter.totalEfforts}
+                  maleLeader={chapter.maleLeader}
+                  femaleLeader={chapter.femaleLeader}
+                  segmentUrl={`https://www.strava.com/segments/${chapter.segmentId}`}
+                />
+              ))}
+            </div>
+          ) : (
+            <div className="bg-black/40 backdrop-blur-sm rounded-2xl p-8 text-center">
+              <p className="text-white/70">
+                Unable to load segment data. Please try again later.
+              </p>
+            </div>
+          )}
+
+          {/* Footer */}
+          <footer className="mt-12 pb-4 text-center">
+            <p className="text-white/40 text-sm">
+              vibecoded with ❤️ by k-money
+            </p>
+          </footer>
+        </main>
+      </div>
     </div>
   );
 }

@@ -1,26 +1,43 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'Avenir';
+  src: local('Avenir'), local('Avenir-Book');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Avenir';
+  src: local('Avenir-Heavy'), local('Avenir Heavy');
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Avenir';
+  src: local('Avenir-Black'), local('Avenir Black');
+  font-weight: 900;
+  font-style: normal;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-burrito-pink: #FE0A5F;
+  --color-burrito-yellow: #FDDF58;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Avenir', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  min-height: 100vh;
+}
+
+/* Custom flip clock styles */
+.flip-clock {
+  --fcc-digit-block-width: 32px;
+  --fcc-digit-block-height: 48px;
+  --fcc-digit-font-size: 30px;
+  --fcc-background: #1a1a1a;
+  --fcc-digit-color: #ffffff;
+  --fcc-label-color: #ffffff;
+  --fcc-divider-color: #333333;
 }
