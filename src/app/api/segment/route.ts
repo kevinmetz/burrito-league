@@ -18,6 +18,17 @@ export async function GET() {
     // Fetch fresh data
     const data = await getSegmentData(TEMPE_SEGMENT_ID);
 
+    if (!data) {
+      // Return cached data if available, or error
+      if (cachedData) {
+        return NextResponse.json(cachedData.data);
+      }
+      return NextResponse.json(
+        { error: 'No segment data available' },
+        { status: 404 }
+      );
+    }
+
     // Update cache
     cachedData = {
       data,
