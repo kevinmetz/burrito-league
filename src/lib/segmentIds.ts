@@ -152,24 +152,30 @@ const cityFallback: Record<string, number> = {
   'auburn': 40757275,
   'la quinta': 40760530,
   'oceanside': 40761585,
-  'lompoc': 40757613,
   'palm springs': 40761605,
+  'palm desert': 40761605,
   'guadalajara': 40760766,
+  'guadalajara jalisco': 40760766,
+  'koloa': 40750718,
+  'red deer': 40751328,
+  'st george': 40748892,
+  'westfield': 40759112,
+  'arcata': 40759628,
 };
 
 export function getSegmentId(segmentName: string, city?: string): number | null {
-  // Try segment name first
-  const normalizedName = segmentName.toLowerCase().trim();
-  if (segmentIds[normalizedName]) {
-    return segmentIds[normalizedName];
-  }
-
-  // Fall back to city lookup
+  // Try city lookup first (more reliable)
   if (city) {
     const normalizedCity = city.toLowerCase().trim();
     if (cityFallback[normalizedCity]) {
       return cityFallback[normalizedCity];
     }
+  }
+
+  // Fall back to segment name lookup (for duplicates like Atlanta)
+  const normalizedName = segmentName.toLowerCase().trim();
+  if (segmentIds[normalizedName]) {
+    return segmentIds[normalizedName];
   }
 
   return null;
