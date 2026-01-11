@@ -182,18 +182,39 @@ export async function getAllChaptersData(): Promise<ChapterWithData[]> {
   // Fetch chapters from Google Sheet
   const sheetChapters = await fetchChaptersFromSheet();
   const results: ChapterWithData[] = [];
-  const seenLocations = new Set<string>();
+
+  // Track location counts for numbering duplicates
+  const locationCounts: Record<string, number> = {};
+  const seenSegments = new Set<number>();
 
   for (const chapter of sheetChapters) {
-    const displayLocation = formatLocation(chapter.city, chapter.state, chapter.country);
+    const baseLocation = formatLocation(chapter.city, chapter.state, chapter.country);
 
-    // Skip duplicates
-    if (seenLocations.has(displayLocation)) {
+    // Look up segment by name first, then city
+    const segmentId = getSegmentId(chapter.segmentName, chapter.city);
+
+    // Skip if we've already seen this segment ID (true duplicate)
+    if (segmentId && seenSegments.has(segmentId)) {
       continue;
     }
-    seenLocations.add(displayLocation);
+    if (segmentId) {
+      seenSegments.add(segmentId);
+    }
 
-    const segmentId = getSegmentId(chapter.city);
+    // Number duplicate locations (e.g., Atlanta, GA #1, Atlanta, GA #2)
+    locationCounts[baseLocation] = (locationCounts[baseLocation] || 0) + 1;
+    const count = locationCounts[baseLocation];
+
+    // Check if this location will have duplicates by scanning ahead
+    const totalForLocation = sheetChapters.filter(
+      c => formatLocation(c.city, c.state, c.country) === baseLocation &&
+           getSegmentId(c.segmentName, c.city) !== null
+    ).length;
+
+    const displayLocation = totalForLocation > 1
+      ? `${baseLocation} #${count}`
+      : baseLocation;
+
     let segmentData: SegmentData | null = null;
 
     if (segmentId) {
