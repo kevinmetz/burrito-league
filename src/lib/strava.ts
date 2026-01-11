@@ -127,8 +127,10 @@ export async function getSegmentData(
 ): Promise<SegmentData | null> {
   // Use mock data for development (set USE_MOCK_DATA=true in env)
   if (process.env.USE_MOCK_DATA === 'true') {
+    console.log('Using mock data for segment', segmentId);
     return getMockSegmentData(segmentId, chapterInfo);
   }
+  console.log('USE_MOCK_DATA is:', process.env.USE_MOCK_DATA);
 
   const token = await getAccessToken();
 
