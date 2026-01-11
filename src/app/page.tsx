@@ -6,7 +6,7 @@ import LoadingSegmentCard from "@/components/LoadingSegmentCard";
 import CountdownTimer from "@/components/CountdownTimer";
 import GlobalStats from "@/components/GlobalStats";
 
-export const revalidate = 900; // Revalidate every 15 minutes
+export const revalidate = 10800; // Revalidate every 3 hours
 
 function parseNumber(str: string): number {
   return parseFloat(str.replace(/,/g, '')) || 0;
