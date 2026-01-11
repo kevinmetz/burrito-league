@@ -79,6 +79,14 @@ function parseCSV(csv: string): string[][] {
   return rows;
 }
 
+// Country code to full name for display
+const COUNTRY_NAMES: Record<string, string> = {
+  'AUS': 'Australia',
+  'MEX': 'Mexico',
+  'NZ': 'New Zealand',
+  'CAN': 'Canada',
+};
+
 export function formatLocation(city: string, state: string, country: string): string {
   const cleanCity = city.trim();
   const cleanState = state.trim();
@@ -88,9 +96,13 @@ export function formatLocation(city: string, state: string, country: string): st
     // US: City, STATE_ABBREV
     const abbrev = US_STATE_ABBREV[cleanState.toLowerCase()] || cleanState;
     return `${cleanCity}, ${abbrev}`;
-  } else {
-    // International: City, Full State/Province
+  } else if (cleanState) {
+    // International with state/province: City, State
     return `${cleanCity}, ${cleanState}`;
+  } else {
+    // International without state: City, Country
+    const countryName = COUNTRY_NAMES[cleanCountry] || cleanCountry;
+    return `${cleanCity}, ${countryName}`;
   }
 }
 
