@@ -108,7 +108,7 @@ export default async function Home() {
               {sortedChapters.map((chapter) =>
                 chapter.segmentData && chapter.segmentUrl ? (
                   <ChapterCard
-                    key={chapter.segmentId}
+                    key={chapter.displayLocation}
                     displayLocation={chapter.displayLocation}
                     totalEfforts={chapter.segmentData.totalEfforts}
                     maleLeader={chapter.segmentData.maleLeader}
@@ -117,7 +117,7 @@ export default async function Home() {
                   />
                 ) : (
                   <MissingSegmentCard
-                    key={chapter.city}
+                    key={chapter.displayLocation}
                     displayLocation={chapter.displayLocation}
                   />
                 )

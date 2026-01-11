@@ -182,11 +182,18 @@ export async function getAllChaptersData(): Promise<ChapterWithData[]> {
   // Fetch chapters from Google Sheet
   const sheetChapters = await fetchChaptersFromSheet();
   const results: ChapterWithData[] = [];
+  const seenLocations = new Set<string>();
 
   for (const chapter of sheetChapters) {
-    const segmentId = getSegmentId(chapter.city);
     const displayLocation = formatLocation(chapter.city, chapter.state, chapter.country);
 
+    // Skip duplicates
+    if (seenLocations.has(displayLocation)) {
+      continue;
+    }
+    seenLocations.add(displayLocation);
+
+    const segmentId = getSegmentId(chapter.city);
     let segmentData: SegmentData | null = null;
 
     if (segmentId) {
