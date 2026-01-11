@@ -5,7 +5,7 @@ export const segmentIds: Record<string, number> = {
   // Canada - Alberta
   'burrito league calgary': 40748818,
   'burrito league blairmore': 40748430,
-  'sawback beerrito league': 40757836, // Red Deer - need to verify
+  'sawback beerrito league': 40751328, // Red Deer
 
   // Canada - British Columbia
   // 'burrito league-chilliwack': ROUTE not segment
@@ -31,8 +31,8 @@ export const segmentIds: Record<string, number> = {
   'burrito league, auburn': 40757275,
   'burrito league - la quinta': 40760530,
   'the oceanside bombers burrito league': 40761585,
-  'roseville-rocklin burrito league': 40753557, // Need to verify - was app link
-  'lompoc burrito league start at floriano\'s': 40757613,
+  // 'roseville-rocklin burrito league': E-BIKE segment, not running
+  // 'lompoc burrito league start at floriano\'s': segment ID needed
   'palm springs burrito league': 40761605,
   // 'burrito league-joshua tree, ca': ROUTE not segment
 
@@ -55,13 +55,13 @@ export const segmentIds: Record<string, number> = {
   'westside atl burrito league 2026': 40759130, // Atlanta #2
 
   // Hawaii
-  'bloodhound hawaii x tl burrito league': 40762001, // Koloa - need to verify
+  'bloodhound hawaii x tl burrito league': 40750718, // Koloa
 
   // Idaho
   'boise burrito league': 40752498,
 
   // Michigan
-  'burrito league - great lakes': 40752439, // Madison Heights
+  // 'burrito league - great lakes': WALK segment, not running
 
   // Montana
   'burrito league bozeman': 40756889,
@@ -82,14 +82,14 @@ export const segmentIds: Record<string, number> = {
   'chucky burrito': 40750978, // Henryville
 
   // Tennessee
-  'chattanooga burrito league official segment': 40752705,
+  'chattanooga burrito league official segment': 40758296,
   'nashville burrito league': 40756595,
 
   // Texas
   'burrito league - tio trompo houston, tx': 40747282,
 
   // Utah
-  'burrito segment - don pedro\'s green valley': 40762200, // St George - need to verify
+  'burrito segment - don pedro\'s green valley': 40748892, // St George
 
   // Washington
   'burrito league - methow valley': 40752506, // Winthrop
@@ -106,7 +106,7 @@ export const segmentIds: Record<string, number> = {
   'burrito league west': 40758106, // Auckland
 
   // Indiana
-  'burrito league westfield': 40762300, // Need to verify
+  'burrito league westfield': 40759112, // Indiana
 
   // Other
   'backwoods burrito league': 40759628,
@@ -133,9 +133,9 @@ const cityFallback: Record<string, number> = {
   'golden': 40756636,
   'salida': 40757148,
   'ponte vedra': 40752662,
-  'madison heights': 40752439,
+  // 'madison heights': WALK segment
   'henryville': 40750978,
-  'chattanooga': 40752705,
+  'chattanooga': 40758296,
   'nashville': 40756595,
   'houston': 40747282,
   'toronto': 40748081,
