@@ -31,24 +31,52 @@ const US_STATE_ABBREV: Record<string, string> = {
   'wa': 'WA',
 };
 
-function parseCSVLine(line: string): string[] {
-  const result: string[] = [];
-  let current = '';
+// Parse full CSV handling multi-line quoted fields
+function parseCSV(csv: string): string[][] {
+  const rows: string[][] = [];
+  let currentRow: string[] = [];
+  let currentField = '';
   let inQuotes = false;
 
-  for (let i = 0; i < line.length; i++) {
-    const char = line[i];
+  for (let i = 0; i < csv.length; i++) {
+    const char = csv[i];
+
     if (char === '"') {
-      inQuotes = !inQuotes;
+      if (inQuotes && csv[i + 1] === '"') {
+        // Escaped quote
+        currentField += '"';
+        i++;
+      } else {
+        inQuotes = !inQuotes;
+      }
     } else if (char === ',' && !inQuotes) {
-      result.push(current.trim());
-      current = '';
+      currentRow.push(currentField.trim());
+      currentField = '';
+    } else if ((char === '\n' || char === '\r') && !inQuotes) {
+      // End of row (skip \r in \r\n)
+      if (char === '\r' && csv[i + 1] === '\n') {
+        i++;
+      }
+      currentRow.push(currentField.trim());
+      if (currentRow.some(f => f)) {
+        rows.push(currentRow);
+      }
+      currentRow = [];
+      currentField = '';
     } else {
-      current += char;
+      currentField += char;
     }
   }
-  result.push(current.trim());
-  return result;
+
+  // Don't forget the last field/row
+  if (currentField || currentRow.length > 0) {
+    currentRow.push(currentField.trim());
+    if (currentRow.some(f => f)) {
+      rows.push(currentRow);
+    }
+  }
+
+  return rows;
 }
 
 export function formatLocation(city: string, state: string, country: string): string {
@@ -77,12 +105,12 @@ export async function fetchChaptersFromSheet(): Promise<SheetChapter[]> {
     }
 
     const csv = await response.text();
-    const lines = csv.split('\n').filter(line => line.trim());
+    const rows = parseCSV(csv);
 
     // Skip header row
     const chapters: SheetChapter[] = [];
-    for (let i = 1; i < lines.length; i++) {
-      const cols = parseCSVLine(lines[i]);
+    for (let i = 1; i < rows.length; i++) {
+      const cols = rows[i];
 
       // Skip rows without city data
       if (!cols[1] || !cols[1].trim()) continue;
