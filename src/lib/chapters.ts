@@ -13,7 +13,7 @@ export const chapters: Chapter[] = [
   // Alphabetical by city
   { id: 'atlanta', city: 'Atlanta', state: 'GA', segmentId: 40747724 },
   { id: 'berthoud', city: 'Berthoud', state: 'CO', segmentId: 40746992 },
-  { id: 'boulder', city: 'Boulder', state: 'CO', segmentId: 40751499 },
+  { id: 'boulder', city: 'Boulder', state: 'CO', segmentId: 40763570 },
   { id: 'calgary', city: 'Calgary', state: 'Alberta', segmentId: 40748818 },
   { id: 'castle-rock', city: 'Castle Rock', state: 'CO', segmentId: 40744240 },
   { id: 'chattanooga', city: 'Chattanooga', state: 'TN', segmentId: 40752705 },
