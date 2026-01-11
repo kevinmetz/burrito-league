@@ -2,6 +2,7 @@ import Image from "next/image";
 import { getAllChaptersData, ChapterWithData } from "@/lib/strava";
 import ChapterCard from "@/components/ChapterCard";
 import MissingSegmentCard from "@/components/MissingSegmentCard";
+import LoadingSegmentCard from "@/components/LoadingSegmentCard";
 import CountdownTimer from "@/components/CountdownTimer";
 import GlobalStats from "@/components/GlobalStats";
 
@@ -105,23 +106,37 @@ export default async function Home() {
           {/* Chapter Cards Grid */}
           {sortedChapters.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {sortedChapters.map((chapter) =>
-                chapter.segmentData && chapter.segmentUrl ? (
-                  <ChapterCard
-                    key={chapter.displayLocation}
-                    displayLocation={chapter.displayLocation}
-                    totalEfforts={chapter.segmentData.totalEfforts}
-                    maleLeader={chapter.segmentData.maleLeader}
-                    femaleLeader={chapter.segmentData.femaleLeader}
-                    segmentUrl={chapter.segmentUrl}
-                  />
-                ) : (
-                  <MissingSegmentCard
-                    key={chapter.displayLocation}
-                    displayLocation={chapter.displayLocation}
-                  />
-                )
-              )}
+              {sortedChapters.map((chapter) => {
+                if (chapter.segmentData && chapter.segmentUrl) {
+                  return (
+                    <ChapterCard
+                      key={chapter.displayLocation}
+                      displayLocation={chapter.displayLocation}
+                      totalEfforts={chapter.segmentData.totalEfforts}
+                      maleLeader={chapter.segmentData.maleLeader}
+                      femaleLeader={chapter.segmentData.femaleLeader}
+                      segmentUrl={chapter.segmentUrl}
+                    />
+                  );
+                } else if (chapter.segmentUrl) {
+                  // Has segment ID but data failed to load (API rate limit, etc)
+                  return (
+                    <LoadingSegmentCard
+                      key={chapter.displayLocation}
+                      displayLocation={chapter.displayLocation}
+                      segmentUrl={chapter.segmentUrl}
+                    />
+                  );
+                } else {
+                  // No segment ID yet
+                  return (
+                    <MissingSegmentCard
+                      key={chapter.displayLocation}
+                      displayLocation={chapter.displayLocation}
+                    />
+                  );
+                }
+              })}
             </div>
           ) : (
             <div className="bg-black/40 backdrop-blur-sm rounded-2xl p-8 text-center">
