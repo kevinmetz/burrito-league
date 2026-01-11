@@ -1,6 +1,7 @@
 import Image from "next/image";
-import { getAllChaptersData, SegmentData } from "@/lib/strava";
+import { getAllChaptersData, ChapterWithData } from "@/lib/strava";
 import ChapterCard from "@/components/ChapterCard";
+import MissingSegmentCard from "@/components/MissingSegmentCard";
 import CountdownTimer from "@/components/CountdownTimer";
 import GlobalStats from "@/components/GlobalStats";
 
@@ -14,19 +15,24 @@ function parseMiles(str: string): number {
   return parseFloat(str.replace(/,/g, '').replace(' mi', '')) || 0;
 }
 
-function calculateGlobalStats(chapters: SegmentData[]) {
+function calculateGlobalStats(chapters: ChapterWithData[]) {
   return chapters.reduce(
-    (acc, chapter) => ({
-      totalEfforts: acc.totalEfforts + parseNumber(chapter.totalEfforts),
-      totalMiles: acc.totalMiles + parseMiles(chapter.totalDistance),
-      totalAthletes: acc.totalAthletes + parseNumber(chapter.totalAthletes),
-    }),
+    (acc, chapter) => {
+      if (chapter.segmentData) {
+        return {
+          totalEfforts: acc.totalEfforts + parseNumber(chapter.segmentData.totalEfforts),
+          totalMiles: acc.totalMiles + parseMiles(chapter.segmentData.totalDistance),
+          totalAthletes: acc.totalAthletes + parseNumber(chapter.segmentData.totalAthletes),
+        };
+      }
+      return acc;
+    },
     { totalEfforts: 0, totalMiles: 0, totalAthletes: 0 }
   );
 }
 
 export default async function Home() {
-  let chaptersData: SegmentData[] = [];
+  let chaptersData: ChapterWithData[] = [];
 
   try {
     chaptersData = await getAllChaptersData();
@@ -35,6 +41,16 @@ export default async function Home() {
   }
 
   const globalStats = calculateGlobalStats(chaptersData);
+
+  // Sort by total efforts (highest first), chapters without data go to end
+  const sortedChapters = [...chaptersData].sort((a, b) => {
+    const aEfforts = a.segmentData ? parseNumber(a.segmentData.totalEfforts) : -1;
+    const bEfforts = b.segmentData ? parseNumber(b.segmentData.totalEfforts) : -1;
+    return bEfforts - aEfforts;
+  });
+
+  // Count chapters with valid segment data
+  const validChapters = chaptersData.filter(c => c.segmentData).length;
 
   return (
     <div
@@ -77,9 +93,9 @@ export default async function Home() {
           </div>
 
           {/* Global Stats */}
-          {chaptersData.length > 0 && (
+          {validChapters > 0 && (
             <GlobalStats
-              totalChapters={chaptersData.length}
+              totalChapters={validChapters}
               totalEfforts={globalStats.totalEfforts}
               totalMiles={globalStats.totalMiles}
               totalAthletes={globalStats.totalAthletes}
@@ -87,19 +103,25 @@ export default async function Home() {
           )}
 
           {/* Chapter Cards Grid */}
-          {chaptersData.length > 0 ? (
+          {sortedChapters.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {chaptersData.map((chapter) => (
-                <ChapterCard
-                  key={chapter.segmentId}
-                  city={chapter.city}
-                  state={chapter.state}
-                  totalEfforts={chapter.totalEfforts}
-                  maleLeader={chapter.maleLeader}
-                  femaleLeader={chapter.femaleLeader}
-                  segmentUrl={`https://www.strava.com/segments/${chapter.segmentId}`}
-                />
-              ))}
+              {sortedChapters.map((chapter) =>
+                chapter.segmentData && chapter.segmentUrl ? (
+                  <ChapterCard
+                    key={chapter.segmentId}
+                    displayLocation={chapter.displayLocation}
+                    totalEfforts={chapter.segmentData.totalEfforts}
+                    maleLeader={chapter.segmentData.maleLeader}
+                    femaleLeader={chapter.segmentData.femaleLeader}
+                    segmentUrl={chapter.segmentUrl}
+                  />
+                ) : (
+                  <MissingSegmentCard
+                    key={chapter.city}
+                    displayLocation={chapter.displayLocation}
+                  />
+                )
+              )}
             </div>
           ) : (
             <div className="bg-black/40 backdrop-blur-sm rounded-2xl p-8 text-center">

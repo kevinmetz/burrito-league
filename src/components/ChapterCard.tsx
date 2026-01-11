@@ -9,8 +9,7 @@ interface Leader {
 }
 
 interface ChapterCardProps {
-  city: string;
-  state: string;
+  displayLocation: string;
   totalEfforts: string;
   maleLeader: Leader;
   femaleLeader: Leader;
@@ -47,8 +46,7 @@ function LeaderRow({ label, leader }: { label: string; leader: Leader }) {
 }
 
 export default function ChapterCard({
-  city,
-  state,
+  displayLocation,
   totalEfforts,
   maleLeader,
   femaleLeader,
@@ -59,7 +57,7 @@ export default function ChapterCard({
       {/* Header */}
       <div className="text-center mb-4">
         <h2 className="text-[#FE0A5F] text-2xl font-black tracking-tight">
-          {city}, {state}
+          {displayLocation}
         </h2>
         <p className="text-white/70 text-sm mt-1">
           City Segments: <span className="text-white font-semibold">{totalEfforts}</span>

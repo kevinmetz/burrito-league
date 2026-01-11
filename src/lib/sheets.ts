@@ -1,0 +1,103 @@
+// Fetches chapter data from the Mountain Outpost Google Sheet
+
+const SHEET_CSV_URL =
+  'https://docs.google.com/spreadsheets/d/14IryBvhyVun3fXbHCdDD6q6kWe5JwoqIj2TeRbYptxo/gviz/tq?tqx=out:csv';
+
+export interface SheetChapter {
+  segmentName: string;
+  city: string;
+  state: string;
+  country: string;
+}
+
+// US state abbreviations
+const US_STATE_ABBREV: Record<string, string> = {
+  'alabama': 'AL', 'alaska': 'AK', 'arizona': 'AZ', 'arkansas': 'AR',
+  'california': 'CA', 'colorado': 'CO', 'connecticut': 'CT', 'delaware': 'DE',
+  'florida': 'FL', 'georgia': 'GA', 'hawaii': 'HI', 'idaho': 'ID',
+  'illinois': 'IL', 'indiana': 'IN', 'iowa': 'IA', 'kansas': 'KS',
+  'kentucky': 'KY', 'louisiana': 'LA', 'maine': 'ME', 'maryland': 'MD',
+  'massachusetts': 'MA', 'michigan': 'MI', 'minnesota': 'MN', 'mississippi': 'MS',
+  'missouri': 'MO', 'montana': 'MT', 'nebraska': 'NE', 'nevada': 'NV',
+  'new hampshire': 'NH', 'new jersey': 'NJ', 'new mexico': 'NM', 'new york': 'NY',
+  'north carolina': 'NC', 'north dakota': 'ND', 'ohio': 'OH', 'oklahoma': 'OK',
+  'oregon': 'OR', 'pennsylvania': 'PA', 'rhode island': 'RI', 'south carolina': 'SC',
+  'south dakota': 'SD', 'tennessee': 'TN', 'texas': 'TX', 'utah': 'UT',
+  'vermont': 'VT', 'virginia': 'VA', 'washington': 'WA', 'west virginia': 'WV',
+  'wisconsin': 'WI', 'wyoming': 'WY',
+  // Common abbreviations in sheet
+  'az': 'AZ', 'ca': 'CA', 'co': 'CO', 'fl': 'FL', 'ga': 'GA', 'hi': 'HI',
+  'mi': 'MI', 'nv': 'NV', 'ny': 'NY', 'pa': 'PA', 'tn': 'TN', 'tx': 'TX',
+  'wa': 'WA',
+};
+
+function parseCSVLine(line: string): string[] {
+  const result: string[] = [];
+  let current = '';
+  let inQuotes = false;
+
+  for (let i = 0; i < line.length; i++) {
+    const char = line[i];
+    if (char === '"') {
+      inQuotes = !inQuotes;
+    } else if (char === ',' && !inQuotes) {
+      result.push(current.trim());
+      current = '';
+    } else {
+      current += char;
+    }
+  }
+  result.push(current.trim());
+  return result;
+}
+
+export function formatLocation(city: string, state: string, country: string): string {
+  const cleanCity = city.trim();
+  const cleanState = state.trim();
+  const cleanCountry = country.trim().toUpperCase();
+
+  if (cleanCountry === 'USA' || cleanCountry === 'US') {
+    // US: City, STATE_ABBREV
+    const abbrev = US_STATE_ABBREV[cleanState.toLowerCase()] || cleanState;
+    return `${cleanCity}, ${abbrev}`;
+  } else {
+    // International: City, Full State/Province
+    return `${cleanCity}, ${cleanState}`;
+  }
+}
+
+export async function fetchChaptersFromSheet(): Promise<SheetChapter[]> {
+  try {
+    const response = await fetch(SHEET_CSV_URL, {
+      next: { revalidate: 900 }, // Cache for 15 minutes
+    });
+
+    if (!response.ok) {
+      throw new Error(`Failed to fetch sheet: ${response.status}`);
+    }
+
+    const csv = await response.text();
+    const lines = csv.split('\n').filter(line => line.trim());
+
+    // Skip header row
+    const chapters: SheetChapter[] = [];
+    for (let i = 1; i < lines.length; i++) {
+      const cols = parseCSVLine(lines[i]);
+
+      // Skip rows without city data
+      if (!cols[1] || !cols[1].trim()) continue;
+
+      chapters.push({
+        segmentName: cols[0] || '',
+        city: cols[1] || '',
+        state: cols[2] || '',
+        country: cols[3] || 'USA',
+      });
+    }
+
+    return chapters;
+  } catch (error) {
+    console.error('Error fetching chapters from sheet:', error);
+    return [];
+  }
+}

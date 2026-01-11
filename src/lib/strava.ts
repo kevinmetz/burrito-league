@@ -166,24 +166,48 @@ export async function getSegmentData(
   };
 }
 
-import { chapters, Chapter } from './chapters';
+import { fetchChaptersFromSheet, formatLocation, SheetChapter } from './sheets';
+import { getSegmentId } from './segmentIds';
 
-export async function getAllChaptersData(): Promise<SegmentData[]> {
-  const results: SegmentData[] = [];
+export interface ChapterWithData {
+  city: string;
+  state: string;
+  displayLocation: string;
+  segmentId: number | null;
+  segmentData: SegmentData | null;
+  segmentUrl: string | null;
+}
 
-  // Fetch in batches to avoid rate limits
-  for (const chapter of chapters) {
-    try {
-      const data = await getSegmentData(chapter.segmentId, {
-        city: chapter.city,
-        state: chapter.state,
-      });
-      if (data) {
-        results.push(data);
+export async function getAllChaptersData(): Promise<ChapterWithData[]> {
+  // Fetch chapters from Google Sheet
+  const sheetChapters = await fetchChaptersFromSheet();
+  const results: ChapterWithData[] = [];
+
+  for (const chapter of sheetChapters) {
+    const segmentId = getSegmentId(chapter.city);
+    const displayLocation = formatLocation(chapter.city, chapter.state, chapter.country);
+
+    let segmentData: SegmentData | null = null;
+
+    if (segmentId) {
+      try {
+        segmentData = await getSegmentData(segmentId, {
+          city: chapter.city,
+          state: chapter.state,
+        });
+      } catch (error) {
+        console.error(`Failed to fetch data for ${chapter.city}:`, error);
       }
-    } catch (error) {
-      console.error(`Failed to fetch data for ${chapter.city}:`, error);
     }
+
+    results.push({
+      city: chapter.city,
+      state: chapter.state,
+      displayLocation,
+      segmentId,
+      segmentData,
+      segmentUrl: segmentId ? `https://www.strava.com/segments/${segmentId}` : null,
+    });
   }
 
   return results;
