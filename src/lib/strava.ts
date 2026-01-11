@@ -95,10 +95,41 @@ async function fetchLocalLegend(
   return data?.[0] || null;
 }
 
+function getMockSegmentData(
+  segmentId: number,
+  chapterInfo?: { city: string; state: string }
+): SegmentData {
+  return {
+    segmentId,
+    segmentName: 'Mock Segment',
+    city: chapterInfo?.city || 'Mock City',
+    state: chapterInfo?.state || 'Mock State',
+    totalEfforts: '1,234',
+    totalAthletes: '567',
+    totalDistance: '890 mi',
+    maleLeader: {
+      name: 'Test Runner M',
+      profilePic: '',
+      efforts: 42,
+    },
+    femaleLeader: {
+      name: 'Test Runner F',
+      profilePic: '',
+      efforts: 38,
+    },
+    lastUpdated: new Date().toISOString(),
+  };
+}
+
 export async function getSegmentData(
   segmentId: number,
   chapterInfo?: { city: string; state: string }
 ): Promise<SegmentData | null> {
+  // Use mock data for development (set USE_MOCK_DATA=true in env)
+  if (process.env.USE_MOCK_DATA === 'true') {
+    return getMockSegmentData(segmentId, chapterInfo);
+  }
+
   const token = await getAccessToken();
 
   // Fetch both categories in parallel
