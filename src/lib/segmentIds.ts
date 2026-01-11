@@ -44,7 +44,7 @@ export const segmentIds: Record<string, number> = {
   'burrito league berthoud': 40746992,
   'windsor co burrito league': 40753323,
   'golden roost burrito league': 40756636,
-  'salida burrito league': 40757148,
+  'salida burrito league': 40770250,
 
   // Florida
   'ponte vedra burrito league 🌯': 40752662,
@@ -131,7 +131,7 @@ const cityFallback: Record<string, number> = {
   'berthoud': 40746992,
   'windsor': 40753323,
   'golden': 40756636,
-  'salida': 40757148,
+  'salida': 40770250,
   'ponte vedra': 40752662,
   // 'madison heights': WALK segment
   'henryville': 40750978,
@@ -161,6 +161,15 @@ const cityFallback: Record<string, number> = {
   'st george': 40748892,
   'westfield': 40759112,
   'arcata': 40759628,
+  'lompoc': 40768724,
+  'colwood': 40752650,
+  'vancouver': 40757542,
+  'roseville-rocklin': 40747610,
+  'winnipeg': 40756079,
+  'hanover': 40769531,
+  'dartmouth': 40751687,
+  'new york': 40755642,
+  'washington dc': 40754824,
 };
 
 export function getSegmentId(segmentName: string, city?: string): number | null {
