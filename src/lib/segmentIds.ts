@@ -68,7 +68,7 @@ export const segmentIds: Record<string, number> = {
   'higgins river hop': 18766988, // Missoula
 
   // Nevada
-  'burrito league: vegas edition': 40762145, // Las Vegas - need to verify
+  'burrito league: vegas edition': 40748264, // Las Vegas
 
   // New York
   'the village grind': 40747964, // New Paltz
@@ -170,6 +170,7 @@ const cityFallback: Record<string, number> = {
   'dartmouth': 40751687,
   'new york': 40755642,
   'washington dc': 40754824,
+  'las vegas': 40748264,
 };
 
 export function getSegmentId(segmentName: string, city?: string): number | null {
