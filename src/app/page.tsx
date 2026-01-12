@@ -1,12 +1,27 @@
 import Image from "next/image";
 import { getAllChaptersData, ChapterWithData } from "@/lib/strava";
 import ChapterCard from "@/components/ChapterCard";
+import ConferenceCard from "@/components/ConferenceCard";
 import MissingSegmentCard from "@/components/MissingSegmentCard";
 import LoadingSegmentCard from "@/components/LoadingSegmentCard";
 import CountdownTimer from "@/components/CountdownTimer";
 import GlobalStats from "@/components/GlobalStats";
 
 export const revalidate = 10800; // Revalidate every 3 hours
+
+// Official Mount to Coast Conference cities (displayed first)
+const CONFERENCE_CITIES = [
+  'tempe',
+  'san francisco',
+  'redlands',
+  'new york',
+  'denver / wheat ridge',
+  'flagstaff',
+];
+
+function isConferenceCity(city: string): boolean {
+  return CONFERENCE_CITIES.includes(city.toLowerCase().trim());
+}
 
 function parseNumber(str: string): number {
   return parseFloat(str.replace(/,/g, '')) || 0;
@@ -43,8 +58,19 @@ export default async function Home() {
 
   const globalStats = calculateGlobalStats(chaptersData);
 
-  // Sort by total efforts (highest first), chapters without data go to end
-  const sortedChapters = [...chaptersData].sort((a, b) => {
+  // Separate conference cities from others
+  const conferenceChapters = chaptersData.filter(c => isConferenceCity(c.city));
+  const otherChapters = chaptersData.filter(c => !isConferenceCity(c.city));
+
+  // Sort conference cities by the defined order
+  const sortedConference = [...conferenceChapters].sort((a, b) => {
+    const aIndex = CONFERENCE_CITIES.indexOf(a.city.toLowerCase().trim());
+    const bIndex = CONFERENCE_CITIES.indexOf(b.city.toLowerCase().trim());
+    return aIndex - bIndex;
+  });
+
+  // Sort other chapters by total efforts (highest first), chapters without data go to end
+  const sortedOthers = [...otherChapters].sort((a, b) => {
     const aEfforts = a.segmentData ? parseNumber(a.segmentData.totalEfforts) : -1;
     const bEfforts = b.segmentData ? parseNumber(b.segmentData.totalEfforts) : -1;
     return bEfforts - aEfforts;
@@ -103,10 +129,47 @@ export default async function Home() {
             />
           )}
 
-          {/* Chapter Cards Grid */}
-          {sortedChapters.length > 0 ? (
+          {/* Conference Cards */}
+          {sortedConference.length > 0 && (
+            <div className="mb-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {sortedConference.map((chapter) => {
+                  if (chapter.segmentData && chapter.segmentUrl) {
+                    return (
+                      <ConferenceCard
+                        key={chapter.displayLocation}
+                        displayLocation={chapter.displayLocation}
+                        totalEfforts={chapter.segmentData.totalEfforts}
+                        maleLeader={chapter.segmentData.maleLeader}
+                        femaleLeader={chapter.segmentData.femaleLeader}
+                        segmentUrl={chapter.segmentUrl}
+                      />
+                    );
+                  } else if (chapter.segmentUrl) {
+                    return (
+                      <LoadingSegmentCard
+                        key={chapter.displayLocation}
+                        displayLocation={chapter.displayLocation}
+                        segmentUrl={chapter.segmentUrl}
+                      />
+                    );
+                  } else {
+                    return (
+                      <MissingSegmentCard
+                        key={chapter.displayLocation}
+                        displayLocation={chapter.displayLocation}
+                      />
+                    );
+                  }
+                })}
+              </div>
+            </div>
+          )}
+
+          {/* Other Chapter Cards Grid */}
+          {sortedOthers.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {sortedChapters.map((chapter) => {
+              {sortedOthers.map((chapter) => {
                 if (chapter.segmentData && chapter.segmentUrl) {
                   return (
                     <ChapterCard
@@ -119,7 +182,6 @@ export default async function Home() {
                     />
                   );
                 } else if (chapter.segmentUrl) {
-                  // Has segment ID but data failed to load (API rate limit, etc)
                   return (
                     <LoadingSegmentCard
                       key={chapter.displayLocation}
@@ -128,7 +190,6 @@ export default async function Home() {
                     />
                   );
                 } else {
-                  // No segment ID yet
                   return (
                     <MissingSegmentCard
                       key={chapter.displayLocation}
