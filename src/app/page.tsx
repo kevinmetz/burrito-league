@@ -7,7 +7,7 @@ import LoadingSegmentCard from "@/components/LoadingSegmentCard";
 import CountdownTimer from "@/components/CountdownTimer";
 import GlobalStats from "@/components/GlobalStats";
 
-export const revalidate = 10800; // Revalidate every 3 hours
+export const revalidate = 14400; // Revalidate every 4 hours
 
 // Official Mount to Coast Conference cities (displayed first)
 const CONFERENCE_CITIES = [
@@ -31,8 +31,16 @@ function parseMiles(str: string): number {
   return parseFloat(str.replace(/,/g, '').replace(' mi', '')) || 0;
 }
 
+// Fallback global stats from Jan 12, 2026 backup
+const FALLBACK_GLOBAL_STATS = {
+  totalChapters: 56,
+  totalEfforts: 57809,
+  totalAthletes: 3818,
+  totalMiles: 13972,
+};
+
 function calculateGlobalStats(chapters: ChapterWithData[]) {
-  return chapters.reduce(
+  const calculated = chapters.reduce(
     (acc, chapter) => {
       if (chapter.segmentData) {
         return {
@@ -45,6 +53,17 @@ function calculateGlobalStats(chapters: ChapterWithData[]) {
     },
     { totalEfforts: 0, totalMiles: 0, totalAthletes: 0 }
   );
+
+  // Use fallback if calculated values seem too low (likely rate limited)
+  if (calculated.totalEfforts < 1000) {
+    return {
+      totalEfforts: FALLBACK_GLOBAL_STATS.totalEfforts,
+      totalMiles: FALLBACK_GLOBAL_STATS.totalMiles,
+      totalAthletes: FALLBACK_GLOBAL_STATS.totalAthletes,
+    };
+  }
+
+  return calculated;
 }
 
 export default async function Home() {
@@ -76,8 +95,8 @@ export default async function Home() {
     return bEfforts - aEfforts;
   });
 
-  // Count chapters with valid segment data
-  const validChapters = chaptersData.filter(c => c.segmentData).length;
+  // Count chapters with valid segment data (use fallback if too low)
+  const validChapters = chaptersData.filter(c => c.segmentData).length || FALLBACK_GLOBAL_STATS.totalChapters;
 
   return (
     <div

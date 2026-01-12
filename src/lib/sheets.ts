@@ -109,7 +109,7 @@ export function formatLocation(city: string, state: string, country: string): st
 export async function fetchChaptersFromSheet(): Promise<SheetChapter[]> {
   try {
     const response = await fetch(SHEET_CSV_URL, {
-      next: { revalidate: 900 }, // Cache for 15 minutes
+      next: { revalidate: 14400 }, // Cache for 4 hours
     });
 
     if (!response.ok) {
