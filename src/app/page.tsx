@@ -54,8 +54,8 @@ function calculateGlobalStats(chapters: ChapterWithData[]) {
     { totalEfforts: 0, totalMiles: 0, totalAthletes: 0 }
   );
 
-  // Use fallback if calculated values seem too low (likely rate limited)
-  if (calculated.totalEfforts < 1000) {
+  // Use fallback if athletes is 0 (means we're using fallback chapter data)
+  if (calculated.totalAthletes === 0) {
     return {
       totalEfforts: FALLBACK_GLOBAL_STATS.totalEfforts,
       totalMiles: FALLBACK_GLOBAL_STATS.totalMiles,
