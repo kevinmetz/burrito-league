@@ -1,4 +1,10 @@
 import { getFallbackData, FALLBACK_DATA_DATE } from './fallbackData';
+import { saveAllChaptersSnapshot, loadCachedChapters } from './supabase';
+
+// Data priority:
+// 1. Fresh Strava API data (save to Supabase on success)
+// 2. Supabase cached data (from last successful poll)
+// 3. Hardcoded fallback data (ensures site never shows empty)
 
 interface TokenResponse {
   access_token: string;
@@ -228,6 +234,9 @@ export async function getAllChaptersData(): Promise<ChapterWithData[]> {
   const locationCounts: Record<string, number> = {};
   const seenSegments = new Set<number>();
 
+  // Track if we got any fresh data from Strava
+  let gotFreshData = false;
+
   for (const chapter of sheetChapters) {
     const baseLocation = formatLocation(chapter.city, chapter.state, chapter.country);
 
@@ -266,29 +275,12 @@ export async function getAllChaptersData(): Promise<ChapterWithData[]> {
             city: chapter.city,
             state: chapter.state,
           });
+          if (segmentData) {
+            gotFreshData = true;
+          }
         }
       } catch (error) {
         console.error(`Failed to fetch data for ${chapter.city}:`, error);
-      }
-
-      // Use fallback data if API returned nothing (rate limited or error)
-      if (!segmentData) {
-        const fallback = getFallbackData(chapter.city);
-        if (fallback) {
-          console.log(`Using fallback data for ${chapter.city}`);
-          segmentData = {
-            segmentId,
-            segmentName: '',
-            city: chapter.city,
-            state: chapter.state,
-            totalEfforts: fallback.totalEfforts,
-            totalAthletes: '0',
-            totalDistance: '0 mi',
-            maleLeader: fallback.maleLeader,
-            femaleLeader: fallback.femaleLeader,
-            lastUpdated: FALLBACK_DATA_DATE,
-          };
-        }
       }
     }
 
@@ -300,6 +292,48 @@ export async function getAllChaptersData(): Promise<ChapterWithData[]> {
       segmentData,
       segmentUrl: segmentId ? `https://www.strava.com/segments/${segmentId}` : null,
     });
+  }
+
+  // If we got fresh data, save to Supabase cache
+  if (gotFreshData && !isRateLimited) {
+    console.log('Saving fresh data to Supabase cache...');
+    saveAllChaptersSnapshot(results).catch(err =>
+      console.error('Failed to save to Supabase:', err)
+    );
+    return results;
+  }
+
+  // If rate limited or no fresh data, try Supabase cache first
+  if (isRateLimited || !gotFreshData) {
+    console.log('Trying Supabase cache...');
+    const cachedData = await loadCachedChapters();
+
+    if (cachedData && cachedData.length > 0) {
+      console.log(`Using ${cachedData.length} chapters from Supabase cache`);
+      return cachedData;
+    }
+
+    // Tier 3: Fall back to hardcoded data if Supabase is empty
+    console.log('Supabase empty, using hardcoded fallback data...');
+    for (const result of results) {
+      if (result.segmentId && !result.segmentData) {
+        const fallback = getFallbackData(result.city);
+        if (fallback) {
+          result.segmentData = {
+            segmentId: result.segmentId,
+            segmentName: '',
+            city: result.city,
+            state: result.state,
+            totalEfforts: fallback.totalEfforts,
+            totalAthletes: '0',
+            totalDistance: '0 mi',
+            maleLeader: fallback.maleLeader,
+            femaleLeader: fallback.femaleLeader,
+            lastUpdated: FALLBACK_DATA_DATE,
+          };
+        }
+      }
+    }
   }
 
   return results;

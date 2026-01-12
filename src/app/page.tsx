@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { getAllChaptersData, ChapterWithData } from "@/lib/strava";
+import { saveGlobalStatsSnapshot, loadCachedGlobalStats } from "@/lib/supabase";
 import ChapterCard from "@/components/ChapterCard";
 import ConferenceCard from "@/components/ConferenceCard";
 import MissingSegmentCard from "@/components/MissingSegmentCard";
@@ -39,7 +40,15 @@ const FALLBACK_GLOBAL_STATS = {
   totalMiles: 13972,
 };
 
-function calculateGlobalStats(chapters: ChapterWithData[]) {
+// Calculate global stats with three-tier fallback:
+// 1. Fresh calculated data (save to Supabase)
+// 2. Supabase cached data
+// 3. Hardcoded fallback data
+async function calculateGlobalStats(chapters: ChapterWithData[]): Promise<{
+  totalEfforts: number;
+  totalMiles: number;
+  totalAthletes: number;
+}> {
   const calculated = chapters.reduce(
     (acc, chapter) => {
       if (chapter.segmentData) {
@@ -54,16 +63,37 @@ function calculateGlobalStats(chapters: ChapterWithData[]) {
     { totalEfforts: 0, totalMiles: 0, totalAthletes: 0 }
   );
 
-  // Use fallback if athletes is 0 (means we're using fallback chapter data)
-  if (calculated.totalAthletes === 0) {
+  // If we have fresh data (athletes > 0), save to Supabase and return
+  if (calculated.totalAthletes > 0) {
+    const validChapters = chapters.filter(c => c.segmentData).length;
+    saveGlobalStatsSnapshot({
+      totalChapters: validChapters,
+      totalEfforts: calculated.totalEfforts,
+      totalAthletes: calculated.totalAthletes,
+      totalMiles: calculated.totalMiles,
+    }).catch(err => console.error('Failed to save global stats:', err));
+
+    return calculated;
+  }
+
+  // Tier 2: Try Supabase cache
+  const cachedStats = await loadCachedGlobalStats();
+  if (cachedStats) {
+    console.log('Using cached global stats from Supabase');
     return {
-      totalEfforts: FALLBACK_GLOBAL_STATS.totalEfforts,
-      totalMiles: FALLBACK_GLOBAL_STATS.totalMiles,
-      totalAthletes: FALLBACK_GLOBAL_STATS.totalAthletes,
+      totalEfforts: cachedStats.totalEfforts,
+      totalMiles: cachedStats.totalMiles,
+      totalAthletes: cachedStats.totalAthletes,
     };
   }
 
-  return calculated;
+  // Tier 3: Use hardcoded fallback
+  console.log('Using hardcoded fallback global stats');
+  return {
+    totalEfforts: FALLBACK_GLOBAL_STATS.totalEfforts,
+    totalMiles: FALLBACK_GLOBAL_STATS.totalMiles,
+    totalAthletes: FALLBACK_GLOBAL_STATS.totalAthletes,
+  };
 }
 
 export default async function Home() {
@@ -75,7 +105,7 @@ export default async function Home() {
     console.error("Failed to fetch chapters data:", error);
   }
 
-  const globalStats = calculateGlobalStats(chaptersData);
+  const globalStats = await calculateGlobalStats(chaptersData);
 
   // Separate conference cities from others
   const conferenceChapters = chaptersData.filter(c => isConferenceCity(c.city));
