@@ -35,11 +35,11 @@ interface GlobalStatsRow {
   snapshot_date: string;
 }
 
-// Save chapter data to Supabase
+// Save single chapter data to Supabase (keeps history)
 export async function saveChapterSnapshot(chapter: ChapterWithData): Promise<void> {
   const { error } = await supabase
     .from('chapter_snapshots')
-    .upsert({
+    .insert({
       city: chapter.city,
       state: chapter.state,
       display_location: chapter.displayLocation,
@@ -55,8 +55,6 @@ export async function saveChapterSnapshot(chapter: ChapterWithData): Promise<voi
       female_leader_pic: chapter.segmentData?.femaleLeader.profilePic || null,
       female_leader_efforts: chapter.segmentData?.femaleLeader.efforts || null,
       snapshot_date: new Date().toISOString(),
-    }, {
-      onConflict: 'city,segment_id',
     });
 
   if (error) {
@@ -93,9 +91,7 @@ export async function saveAllChaptersSnapshot(chapters: ChapterWithData[]): Prom
 
   const { error } = await supabase
     .from('chapter_snapshots')
-    .upsert(rows, {
-      onConflict: 'city,segment_id',
-    });
+    .insert(rows);
 
   if (error) {
     console.error('Failed to save chapters snapshot:', error);
