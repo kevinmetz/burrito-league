@@ -90,6 +90,14 @@ export default function Globe({ onNavigateToChapter }: GlobeProps) {
     setHoveredChapter(null);
   }, [onNavigateToChapter]);
 
+  const handleResetGlobe = useCallback(() => {
+    if (globeRef.current) {
+      // Animate back to initial position
+      globeRef.current.pointOfView({ lat: 30, lng: -95, altitude: 2.2 }, 1000);
+      setHoveredChapter(null);
+    }
+  }, []);
+
   const handleGlobeReady = useCallback(() => {
     setGlobeReady(true);
   }, []);
@@ -162,24 +170,35 @@ export default function Globe({ onNavigateToChapter }: GlobeProps) {
         />
       </div>
 
-      {/* Info card - below the globe */}
-      <div className="mt-2 bg-white/90 backdrop-blur-sm rounded-lg px-4 py-2 shadow-lg min-w-[200px] text-center">
-        {hoveredChapter ? (
-          <>
-            <h3 className="text-[#FE1860] font-bold text-sm">{hoveredChapter.city}</h3>
-            <p className="text-gray-600 text-xs">{hoveredChapter.state}, {hoveredChapter.country}</p>
-            <button
-              onClick={() => handleNavigate(hoveredChapter.city)}
-              className="mt-2 w-full bg-[#FE1860] text-white text-xs py-1.5 px-3 rounded hover:bg-[#e01555] transition-colors"
-            >
-              View Chapter →
-            </button>
-          </>
-        ) : (
-          <p className="text-gray-700 text-sm font-medium">
-            🌯 Tap a burrito to learn more
-          </p>
-        )}
+      {/* Info card and reset button - below the globe */}
+      <div className="mt-2 flex items-center gap-2">
+        <div className="bg-white/90 backdrop-blur-sm rounded-lg px-4 py-2 shadow-lg min-w-[200px] text-center">
+          {hoveredChapter ? (
+            <>
+              <h3 className="text-[#FE1860] font-bold text-sm">{hoveredChapter.city}</h3>
+              <p className="text-gray-600 text-xs">{hoveredChapter.state}, {hoveredChapter.country}</p>
+              <button
+                onClick={() => handleNavigate(hoveredChapter.city)}
+                className="mt-2 w-full bg-[#FE1860] text-white text-xs py-1.5 px-3 rounded hover:bg-[#e01555] transition-colors"
+              >
+                View Chapter →
+              </button>
+            </>
+          ) : (
+            <p className="text-gray-700 text-sm font-medium">
+              🌯 Tap a burrito to learn more
+            </p>
+          )}
+        </div>
+        <button
+          onClick={handleResetGlobe}
+          className="bg-white/90 backdrop-blur-sm rounded-lg px-3 py-2 shadow-lg text-gray-500 hover:text-gray-700 transition-colors"
+          title="Reset globe view"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+          </svg>
+        </button>
       </div>
     </div>
   );
