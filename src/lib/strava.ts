@@ -1,8 +1,13 @@
+import { getFallbackData, FALLBACK_DATA_DATE } from './fallbackData';
+
 interface TokenResponse {
   access_token: string;
   refresh_token: string;
   expires_at: number;
 }
+
+// Track if we're rate limited
+let isRateLimited = false;
 
 interface LocalLegend {
   athlete_id: number;
@@ -87,7 +92,13 @@ async function fetchLocalLegend(
   });
 
   if (!response.ok) {
-    console.error(`Failed to fetch local legend for ${segmentId}: ${response.status}`);
+    // Check for rate limit (429)
+    if (response.status === 429) {
+      console.error(`Rate limited by Strava API (429) - using fallback data`);
+      isRateLimited = true;
+    } else {
+      console.error(`Failed to fetch local legend for ${segmentId}: ${response.status}`);
+    }
     return null;
   }
 
@@ -250,12 +261,35 @@ export async function getAllChaptersData(): Promise<ChapterWithData[]> {
 
     if (segmentId) {
       try {
-        segmentData = await getSegmentData(segmentId, {
-          city: chapter.city,
-          state: chapter.state,
-        });
+        // Skip API call if we're already rate limited
+        if (!isRateLimited) {
+          segmentData = await getSegmentData(segmentId, {
+            city: chapter.city,
+            state: chapter.state,
+          });
+        }
       } catch (error) {
         console.error(`Failed to fetch data for ${chapter.city}:`, error);
+      }
+
+      // Use fallback data if API returned nothing (rate limited or error)
+      if (!segmentData) {
+        const fallback = getFallbackData(chapter.city);
+        if (fallback) {
+          console.log(`Using fallback data for ${chapter.city}`);
+          segmentData = {
+            segmentId,
+            segmentName: '',
+            city: chapter.city,
+            state: chapter.state,
+            totalEfforts: fallback.totalEfforts,
+            totalAthletes: '0',
+            totalDistance: '0 mi',
+            maleLeader: fallback.maleLeader,
+            femaleLeader: fallback.femaleLeader,
+            lastUpdated: FALLBACK_DATA_DATE,
+          };
+        }
       }
     }
 
