@@ -209,7 +209,6 @@ export async function getSegmentData(
 }
 
 import { fetchChaptersFromSheet, formatLocation, SheetChapter } from './sheets';
-import { getSegmentId } from './segmentIds';
 
 export interface ChapterWithData {
   city: string;
@@ -218,6 +217,7 @@ export interface ChapterWithData {
   segmentId: number | null;
   segmentData: SegmentData | null;
   segmentUrl: string | null;
+  status: 'valid' | 'need_segment';
 }
 
 export async function getAllChaptersData(): Promise<ChapterWithData[]> {
@@ -225,41 +225,36 @@ export async function getAllChaptersData(): Promise<ChapterWithData[]> {
   const sheetChapters = await fetchChaptersFromSheet();
   const results: ChapterWithData[] = [];
 
-  // Track location counts for numbering duplicates
-  const locationCounts: Record<string, number> = {};
-  const seenSegments = new Set<number>();
+  // Filter out duplicates first
+  const validChapters = sheetChapters.filter(c => c.status !== 'duplicate');
 
-  for (const chapter of sheetChapters) {
+  // Pre-calculate location counts for numbering (only count valid segments)
+  const locationTotals: Record<string, number> = {};
+  for (const chapter of validChapters) {
     const baseLocation = formatLocation(chapter.city, chapter.state, chapter.country);
-
-    // Look up segment by name first, then city
-    const segmentId = getSegmentId(chapter.segmentName, chapter.city);
-
-    // Skip if we've already seen this segment ID (true duplicate)
-    if (segmentId && seenSegments.has(segmentId)) {
-      continue;
+    if (chapter.status === 'valid') {
+      locationTotals[baseLocation] = (locationTotals[baseLocation] || 0) + 1;
     }
-    if (segmentId) {
-      seenSegments.add(segmentId);
-    }
+  }
+
+  // Track current count per location for numbering
+  const locationCounts: Record<string, number> = {};
+
+  for (const chapter of validChapters) {
+    const baseLocation = formatLocation(chapter.city, chapter.state, chapter.country);
+    const segmentId = chapter.segmentId;
 
     // Number duplicate locations (e.g., Atlanta, GA #1, Atlanta, GA #2)
-    locationCounts[baseLocation] = (locationCounts[baseLocation] || 0) + 1;
-    const count = locationCounts[baseLocation];
-
-    // Check if this location will have duplicates by scanning ahead
-    const totalForLocation = sheetChapters.filter(
-      c => formatLocation(c.city, c.state, c.country) === baseLocation &&
-           getSegmentId(c.segmentName, c.city) !== null
-    ).length;
-
-    const displayLocation = totalForLocation > 1
-      ? `${baseLocation} #${count}`
-      : baseLocation;
+    // Only number if there are multiple valid segments for this location
+    let displayLocation = baseLocation;
+    if (chapter.status === 'valid' && locationTotals[baseLocation] > 1) {
+      locationCounts[baseLocation] = (locationCounts[baseLocation] || 0) + 1;
+      displayLocation = `${baseLocation} #${locationCounts[baseLocation]}`;
+    }
 
     let segmentData: SegmentData | null = null;
 
-    if (segmentId) {
+    if (segmentId && chapter.status === 'valid') {
       try {
         // Skip API call if we're already rate limited
         if (!isRateLimited) {
@@ -299,7 +294,8 @@ export async function getAllChaptersData(): Promise<ChapterWithData[]> {
       displayLocation,
       segmentId,
       segmentData,
-      segmentUrl: segmentId ? `https://www.strava.com/segments/${segmentId}` : null,
+      segmentUrl: chapter.segmentUrl,
+      status: chapter.status === 'valid' ? 'valid' : 'need_segment',
     });
   }
 
