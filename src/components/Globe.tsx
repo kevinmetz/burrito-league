@@ -172,22 +172,23 @@ export default function Globe({ onNavigateToChapter }: GlobeProps) {
 
       {/* Info card and reset button - below the globe */}
       <div className="mt-2 flex items-center gap-2">
-        <div className="bg-white/90 backdrop-blur-sm rounded-lg px-4 py-2 shadow-lg min-w-[200px] text-center">
+        <div className="bg-white/90 backdrop-blur-sm rounded-lg px-4 py-2 shadow-lg flex items-center gap-3">
           {hoveredChapter ? (
             <>
-              <h3 className="text-[#FE1860] font-bold text-sm">{hoveredChapter.city}</h3>
-              <p className="text-gray-600 text-xs">{hoveredChapter.state}, {hoveredChapter.country}</p>
+              <span className="text-gray-700 text-sm font-medium">
+                🌯 {hoveredChapter.city}, {hoveredChapter.state}
+              </span>
               <button
                 onClick={() => handleNavigate(hoveredChapter.city)}
-                className="mt-2 w-full bg-[#FE1860] text-white text-xs py-1.5 px-3 rounded hover:bg-[#e01555] transition-colors"
+                className="bg-[#FE1860] text-white text-xs py-1 px-3 rounded hover:bg-[#e01555] transition-colors whitespace-nowrap"
               >
-                View Chapter →
+                View →
               </button>
             </>
           ) : (
-            <p className="text-gray-700 text-sm font-medium">
+            <span className="text-gray-700 text-sm font-medium">
               🌯 Tap a burrito to learn more
-            </p>
+            </span>
           )}
         </div>
         <button

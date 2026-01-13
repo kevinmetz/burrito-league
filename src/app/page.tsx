@@ -125,12 +125,12 @@ export default async function Home() {
           <p className="text-center text-white/80 text-sm mb-8 drop-shadow-md">
             wtf is burrito league?{" "}
             <a
-              href="https://www.mountainoutpost.com/burritoleague/"
+              href="https://burrito-league.com/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-white font-semibold hover:underline"
             >
-              learn more at mountainoutpost!
+              learn more at burrito-league.com
             </a>
           </p>
 
