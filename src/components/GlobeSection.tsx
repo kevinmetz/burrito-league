@@ -10,9 +10,9 @@ export default function GlobeSection() {
 
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      element.classList.add('ring-4', 'ring-[#FE1860]', 'ring-opacity-75');
+      element.classList.add('ring-4', 'ring-[#FE1860]', 'ring-opacity-75', 'rounded-2xl');
       setTimeout(() => {
-        element.classList.remove('ring-4', 'ring-[#FE1860]', 'ring-opacity-75');
+        element.classList.remove('ring-4', 'ring-[#FE1860]', 'ring-opacity-75', 'rounded-2xl');
       }, 2000);
     } else {
       // Try partial match
@@ -20,9 +20,9 @@ export default function GlobeSection() {
       for (const card of allCards) {
         if (card.id.includes(slug) || slug.includes(card.id.replace('chapter-', ''))) {
           card.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          card.classList.add('ring-4', 'ring-[#FE1860]', 'ring-opacity-75');
+          card.classList.add('ring-4', 'ring-[#FE1860]', 'ring-opacity-75', 'rounded-2xl');
           setTimeout(() => {
-            card.classList.remove('ring-4', 'ring-[#FE1860]', 'ring-opacity-75');
+            card.classList.remove('ring-4', 'ring-[#FE1860]', 'ring-opacity-75', 'rounded-2xl');
           }, 2000);
           return;
         }
