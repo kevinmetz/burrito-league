@@ -95,8 +95,8 @@ export default function Globe({ onNavigateToChapter }: GlobeProps) {
   }, []);
 
   return (
-    <div className="w-full flex items-center justify-center px-3" ref={containerRef}>
-      {/* No white container - globe directly on wood background */}
+    <div className="w-full flex flex-col items-center px-3" ref={containerRef}>
+      {/* Globe container */}
       <div
         className="relative"
         style={{ width: dimensions.width, height: dimensions.height }}
@@ -160,26 +160,26 @@ export default function Globe({ onNavigateToChapter }: GlobeProps) {
           width={dimensions.width}
           height={dimensions.height}
         />
+      </div>
 
-        {/* Legend / Chapter info area */}
-        <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 bg-white/90 backdrop-blur-sm rounded-lg px-4 py-2 shadow-lg min-w-[200px] text-center">
-          {hoveredChapter ? (
-            <>
-              <h3 className="text-[#FE1860] font-bold text-sm">{hoveredChapter.city}</h3>
-              <p className="text-gray-600 text-xs">{hoveredChapter.state}, {hoveredChapter.country}</p>
-              <button
-                onClick={() => handleNavigate(hoveredChapter.city)}
-                className="mt-2 w-full bg-[#FE1860] text-white text-xs py-1.5 px-3 rounded hover:bg-[#e01555] transition-colors"
-              >
-                View Chapter →
-              </button>
-            </>
-          ) : (
-            <p className="text-gray-700 text-sm font-medium">
-              🌯 Tap a burrito to learn more
-            </p>
-          )}
-        </div>
+      {/* Info card - below the globe */}
+      <div className="mt-2 bg-white/90 backdrop-blur-sm rounded-lg px-4 py-2 shadow-lg min-w-[200px] text-center">
+        {hoveredChapter ? (
+          <>
+            <h3 className="text-[#FE1860] font-bold text-sm">{hoveredChapter.city}</h3>
+            <p className="text-gray-600 text-xs">{hoveredChapter.state}, {hoveredChapter.country}</p>
+            <button
+              onClick={() => handleNavigate(hoveredChapter.city)}
+              className="mt-2 w-full bg-[#FE1860] text-white text-xs py-1.5 px-3 rounded hover:bg-[#e01555] transition-colors"
+            >
+              View Chapter →
+            </button>
+          </>
+        ) : (
+          <p className="text-gray-700 text-sm font-medium">
+            🌯 Tap a burrito to learn more
+          </p>
+        )}
       </div>
     </div>
   );
