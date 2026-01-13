@@ -8,6 +8,9 @@ export interface SheetChapter {
   city: string;
   state: string;
   country: string;
+  segmentId: number | null;
+  segmentUrl: string | null;
+  status: 'valid' | 'need_segment' | 'duplicate';
 }
 
 // US state abbreviations
@@ -106,6 +109,32 @@ export function formatLocation(city: string, state: string, country: string): st
   }
 }
 
+// Extract segment ID from Strava URL
+function extractSegmentId(url: string): number | null {
+  if (!url) return null;
+  const match = url.match(/strava\.com\/segments\/(\d+)/);
+  return match ? parseInt(match[1], 10) : null;
+}
+
+// Determine chapter status from Column K
+function parseColumnK(value: string): { segmentId: number | null; segmentUrl: string | null; status: 'valid' | 'need_segment' | 'duplicate' } {
+  const trimmed = value?.trim().toLowerCase() || '';
+
+  // Check for duplicate
+  if (trimmed === 'duplicate') {
+    return { segmentId: null, segmentUrl: null, status: 'duplicate' };
+  }
+
+  // Check for valid Strava segment URL
+  const segmentId = extractSegmentId(value);
+  if (segmentId) {
+    return { segmentId, segmentUrl: value.trim(), status: 'valid' };
+  }
+
+  // Everything else is "need segment" (empty, "route linked, need segment", "need segment", etc.)
+  return { segmentId: null, segmentUrl: null, status: 'need_segment' };
+}
+
 export async function fetchChaptersFromSheet(): Promise<SheetChapter[]> {
   try {
     const response = await fetch(SHEET_CSV_URL, {
@@ -127,11 +156,18 @@ export async function fetchChaptersFromSheet(): Promise<SheetChapter[]> {
       // Skip rows without city data
       if (!cols[1] || !cols[1].trim()) continue;
 
+      // Parse Column K (index 10) for segment URL
+      const columnK = cols[10] || '';
+      const { segmentId, segmentUrl, status } = parseColumnK(columnK);
+
       chapters.push({
         segmentName: cols[0] || '',
         city: cols[1] || '',
         state: cols[2] || '',
         country: cols[3] || 'USA',
+        segmentId,
+        segmentUrl,
+        status,
       });
     }
 

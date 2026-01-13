@@ -1,12 +1,12 @@
 import Image from "next/image";
 import { getAllChaptersData, ChapterWithData } from "@/lib/strava";
-import { saveGlobalStatsSnapshot, loadCachedGlobalStats } from "@/lib/supabase";
 import ChapterCard from "@/components/ChapterCard";
 import ConferenceCard from "@/components/ConferenceCard";
 import MissingSegmentCard from "@/components/MissingSegmentCard";
 import LoadingSegmentCard from "@/components/LoadingSegmentCard";
 import CountdownTimer from "@/components/CountdownTimer";
 import GlobalStats from "@/components/GlobalStats";
+import GlobeSection from "@/components/GlobeSection";
 
 export const revalidate = 14400; // Revalidate every 4 hours
 
@@ -40,15 +40,7 @@ const FALLBACK_GLOBAL_STATS = {
   totalMiles: 13972,
 };
 
-// Calculate global stats with three-tier fallback:
-// 1. Fresh calculated data (save to Supabase)
-// 2. Supabase cached data
-// 3. Hardcoded fallback data
-async function calculateGlobalStats(chapters: ChapterWithData[]): Promise<{
-  totalEfforts: number;
-  totalMiles: number;
-  totalAthletes: number;
-}> {
+function calculateGlobalStats(chapters: ChapterWithData[]) {
   const calculated = chapters.reduce(
     (acc, chapter) => {
       if (chapter.segmentData) {
@@ -63,37 +55,16 @@ async function calculateGlobalStats(chapters: ChapterWithData[]): Promise<{
     { totalEfforts: 0, totalMiles: 0, totalAthletes: 0 }
   );
 
-  // If we have fresh data (athletes > 0), save to Supabase and return
-  if (calculated.totalAthletes > 0) {
-    const validChapters = chapters.filter(c => c.segmentData).length;
-    saveGlobalStatsSnapshot({
-      totalChapters: validChapters,
-      totalEfforts: calculated.totalEfforts,
-      totalAthletes: calculated.totalAthletes,
-      totalMiles: calculated.totalMiles,
-    }).catch(err => console.error('Failed to save global stats:', err));
-
-    return calculated;
-  }
-
-  // Tier 2: Try Supabase cache
-  const cachedStats = await loadCachedGlobalStats();
-  if (cachedStats) {
-    console.log('Using cached global stats from Supabase');
+  // Use fallback if calculated values seem too low (likely rate limited)
+  if (calculated.totalEfforts < 1000) {
     return {
-      totalEfforts: cachedStats.totalEfforts,
-      totalMiles: cachedStats.totalMiles,
-      totalAthletes: cachedStats.totalAthletes,
+      totalEfforts: FALLBACK_GLOBAL_STATS.totalEfforts,
+      totalMiles: FALLBACK_GLOBAL_STATS.totalMiles,
+      totalAthletes: FALLBACK_GLOBAL_STATS.totalAthletes,
     };
   }
 
-  // Tier 3: Use hardcoded fallback
-  console.log('Using hardcoded fallback global stats');
-  return {
-    totalEfforts: FALLBACK_GLOBAL_STATS.totalEfforts,
-    totalMiles: FALLBACK_GLOBAL_STATS.totalMiles,
-    totalAthletes: FALLBACK_GLOBAL_STATS.totalAthletes,
-  };
+  return calculated;
 }
 
 export default async function Home() {
@@ -105,7 +76,7 @@ export default async function Home() {
     console.error("Failed to fetch chapters data:", error);
   }
 
-  const globalStats = await calculateGlobalStats(chaptersData);
+  const globalStats = calculateGlobalStats(chaptersData);
 
   // Separate conference cities from others
   const conferenceChapters = chaptersData.filter(c => isConferenceCity(c.city));
@@ -154,18 +125,23 @@ export default async function Home() {
           <p className="text-center text-white/80 text-sm mb-8 drop-shadow-md">
             wtf is burrito league?{" "}
             <a
-              href="https://www.mountainoutpost.com/burritoleague/"
+              href="https://burrito-league.com/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-white font-semibold hover:underline"
             >
-              learn more at mountainoutpost!
+              learn more at burrito-league.com
             </a>
           </p>
 
           {/* Countdown Timer */}
-          <div className="mb-8">
+          <div className="-mb-4">
             <CountdownTimer />
+          </div>
+
+          {/* 3D Globe */}
+          <div className="mb-6">
+            <GlobeSection />
           </div>
 
           {/* Global Stats */}
@@ -183,31 +159,35 @@ export default async function Home() {
             <div className="mb-8">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {sortedConference.map((chapter) => {
+                  const chapterId = `chapter-${chapter.city.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}`;
                   if (chapter.segmentData && chapter.segmentUrl) {
                     return (
-                      <ConferenceCard
-                        key={chapter.displayLocation}
-                        displayLocation={chapter.displayLocation}
-                        totalEfforts={chapter.segmentData.totalEfforts}
-                        maleLeader={chapter.segmentData.maleLeader}
-                        femaleLeader={chapter.segmentData.femaleLeader}
-                        segmentUrl={chapter.segmentUrl}
-                      />
+                      <div key={chapter.displayLocation} id={chapterId} className="transition-all duration-300">
+                        <ConferenceCard
+                          displayLocation={chapter.displayLocation}
+                          totalEfforts={chapter.segmentData.totalEfforts}
+                          maleLeader={chapter.segmentData.maleLeader}
+                          femaleLeader={chapter.segmentData.femaleLeader}
+                          segmentUrl={chapter.segmentUrl}
+                        />
+                      </div>
                     );
                   } else if (chapter.segmentUrl) {
                     return (
-                      <LoadingSegmentCard
-                        key={chapter.displayLocation}
-                        displayLocation={chapter.displayLocation}
-                        segmentUrl={chapter.segmentUrl}
-                      />
+                      <div key={chapter.displayLocation} id={chapterId} className="transition-all duration-300">
+                        <LoadingSegmentCard
+                          displayLocation={chapter.displayLocation}
+                          segmentUrl={chapter.segmentUrl}
+                        />
+                      </div>
                     );
                   } else {
                     return (
-                      <MissingSegmentCard
-                        key={chapter.displayLocation}
-                        displayLocation={chapter.displayLocation}
-                      />
+                      <div key={chapter.displayLocation} id={chapterId} className="transition-all duration-300">
+                        <MissingSegmentCard
+                          displayLocation={chapter.displayLocation}
+                        />
+                      </div>
                     );
                   }
                 })}
@@ -219,31 +199,35 @@ export default async function Home() {
           {sortedOthers.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {sortedOthers.map((chapter) => {
+                const chapterId = `chapter-${chapter.city.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}`;
                 if (chapter.segmentData && chapter.segmentUrl) {
                   return (
-                    <ChapterCard
-                      key={chapter.displayLocation}
-                      displayLocation={chapter.displayLocation}
-                      totalEfforts={chapter.segmentData.totalEfforts}
-                      maleLeader={chapter.segmentData.maleLeader}
-                      femaleLeader={chapter.segmentData.femaleLeader}
-                      segmentUrl={chapter.segmentUrl}
-                    />
+                    <div key={chapter.displayLocation} id={chapterId} className="transition-all duration-300">
+                      <ChapterCard
+                        displayLocation={chapter.displayLocation}
+                        totalEfforts={chapter.segmentData.totalEfforts}
+                        maleLeader={chapter.segmentData.maleLeader}
+                        femaleLeader={chapter.segmentData.femaleLeader}
+                        segmentUrl={chapter.segmentUrl}
+                      />
+                    </div>
                   );
                 } else if (chapter.segmentUrl) {
                   return (
-                    <LoadingSegmentCard
-                      key={chapter.displayLocation}
-                      displayLocation={chapter.displayLocation}
-                      segmentUrl={chapter.segmentUrl}
-                    />
+                    <div key={chapter.displayLocation} id={chapterId} className="transition-all duration-300">
+                      <LoadingSegmentCard
+                        displayLocation={chapter.displayLocation}
+                        segmentUrl={chapter.segmentUrl}
+                      />
+                    </div>
                   );
                 } else {
                   return (
-                    <MissingSegmentCard
-                      key={chapter.displayLocation}
-                      displayLocation={chapter.displayLocation}
-                    />
+                    <div key={chapter.displayLocation} id={chapterId} className="transition-all duration-300">
+                      <MissingSegmentCard
+                        displayLocation={chapter.displayLocation}
+                      />
+                    </div>
                   );
                 }
               })}

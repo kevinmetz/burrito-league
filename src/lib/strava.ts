@@ -1,10 +1,4 @@
 import { getFallbackData, FALLBACK_DATA_DATE } from './fallbackData';
-import { saveAllChaptersSnapshot, loadCachedChapters } from './supabase';
-
-// Data priority:
-// 1. Fresh Strava API data (save to Supabase on success)
-// 2. Supabase cached data (from last successful poll)
-// 3. Hardcoded fallback data (ensures site never shows empty)
 
 interface TokenResponse {
   access_token: string;
@@ -98,6 +92,7 @@ async function fetchLocalLegend(
   });
 
   if (!response.ok) {
+    // Check for rate limit (429)
     if (response.status === 429) {
       console.error(`Rate limited by Strava API (429) - using fallback data`);
       isRateLimited = true;
@@ -214,7 +209,6 @@ export async function getSegmentData(
 }
 
 import { fetchChaptersFromSheet, formatLocation, SheetChapter } from './sheets';
-import { getSegmentId } from './segmentIds';
 
 export interface ChapterWithData {
   city: string;
@@ -223,6 +217,7 @@ export interface ChapterWithData {
   segmentId: number | null;
   segmentData: SegmentData | null;
   segmentUrl: string | null;
+  status: 'valid' | 'need_segment';
 }
 
 export async function getAllChaptersData(): Promise<ChapterWithData[]> {
@@ -230,44 +225,36 @@ export async function getAllChaptersData(): Promise<ChapterWithData[]> {
   const sheetChapters = await fetchChaptersFromSheet();
   const results: ChapterWithData[] = [];
 
-  // Track location counts for numbering duplicates
-  const locationCounts: Record<string, number> = {};
-  const seenSegments = new Set<number>();
+  // Filter out duplicates first
+  const validChapters = sheetChapters.filter(c => c.status !== 'duplicate');
 
-  // Track if we got any fresh data from Strava
-  let gotFreshData = false;
-
-  for (const chapter of sheetChapters) {
+  // Pre-calculate location counts for numbering (only count valid segments)
+  const locationTotals: Record<string, number> = {};
+  for (const chapter of validChapters) {
     const baseLocation = formatLocation(chapter.city, chapter.state, chapter.country);
-
-    // Look up segment by name first, then city
-    const segmentId = getSegmentId(chapter.segmentName, chapter.city);
-
-    // Skip if we've already seen this segment ID (true duplicate)
-    if (segmentId && seenSegments.has(segmentId)) {
-      continue;
+    if (chapter.status === 'valid') {
+      locationTotals[baseLocation] = (locationTotals[baseLocation] || 0) + 1;
     }
-    if (segmentId) {
-      seenSegments.add(segmentId);
-    }
+  }
+
+  // Track current count per location for numbering
+  const locationCounts: Record<string, number> = {};
+
+  for (const chapter of validChapters) {
+    const baseLocation = formatLocation(chapter.city, chapter.state, chapter.country);
+    const segmentId = chapter.segmentId;
 
     // Number duplicate locations (e.g., Atlanta, GA #1, Atlanta, GA #2)
-    locationCounts[baseLocation] = (locationCounts[baseLocation] || 0) + 1;
-    const count = locationCounts[baseLocation];
-
-    // Check if this location will have duplicates by scanning ahead
-    const totalForLocation = sheetChapters.filter(
-      c => formatLocation(c.city, c.state, c.country) === baseLocation &&
-           getSegmentId(c.segmentName, c.city) !== null
-    ).length;
-
-    const displayLocation = totalForLocation > 1
-      ? `${baseLocation} #${count}`
-      : baseLocation;
+    // Only number if there are multiple valid segments for this location
+    let displayLocation = baseLocation;
+    if (chapter.status === 'valid' && locationTotals[baseLocation] > 1) {
+      locationCounts[baseLocation] = (locationCounts[baseLocation] || 0) + 1;
+      displayLocation = `${baseLocation} #${locationCounts[baseLocation]}`;
+    }
 
     let segmentData: SegmentData | null = null;
 
-    if (segmentId) {
+    if (segmentId && chapter.status === 'valid') {
       try {
         // Skip API call if we're already rate limited
         if (!isRateLimited) {
@@ -275,55 +262,21 @@ export async function getAllChaptersData(): Promise<ChapterWithData[]> {
             city: chapter.city,
             state: chapter.state,
           });
-          if (segmentData) {
-            gotFreshData = true;
-          }
         }
       } catch (error) {
         console.error(`Failed to fetch data for ${chapter.city}:`, error);
       }
-    }
 
-    results.push({
-      city: chapter.city,
-      state: chapter.state,
-      displayLocation,
-      segmentId,
-      segmentData,
-      segmentUrl: segmentId ? `https://www.strava.com/segments/${segmentId}` : null,
-    });
-  }
-
-  // If we got fresh data, save to Supabase cache
-  if (gotFreshData && !isRateLimited) {
-    console.log('Saving fresh data to Supabase cache...');
-    saveAllChaptersSnapshot(results).catch(err =>
-      console.error('Failed to save to Supabase:', err)
-    );
-    return results;
-  }
-
-  // If rate limited or no fresh data, try Supabase cache first
-  if (isRateLimited || !gotFreshData) {
-    console.log('Trying Supabase cache...');
-    const cachedData = await loadCachedChapters();
-
-    if (cachedData && cachedData.length > 0) {
-      console.log(`Using ${cachedData.length} chapters from Supabase cache`);
-      return cachedData;
-    }
-
-    // Tier 3: Fall back to hardcoded data if Supabase is empty
-    console.log('Supabase empty, using hardcoded fallback data...');
-    for (const result of results) {
-      if (result.segmentId && !result.segmentData) {
-        const fallback = getFallbackData(result.city);
+      // Use fallback data if API returned nothing (rate limited or error)
+      if (!segmentData) {
+        const fallback = getFallbackData(chapter.city);
         if (fallback) {
-          result.segmentData = {
-            segmentId: result.segmentId,
+          console.log(`Using fallback data for ${chapter.city}`);
+          segmentData = {
+            segmentId,
             segmentName: '',
-            city: result.city,
-            state: result.state,
+            city: chapter.city,
+            state: chapter.state,
             totalEfforts: fallback.totalEfforts,
             totalAthletes: '0',
             totalDistance: '0 mi',
@@ -334,6 +287,16 @@ export async function getAllChaptersData(): Promise<ChapterWithData[]> {
         }
       }
     }
+
+    results.push({
+      city: chapter.city,
+      state: chapter.state,
+      displayLocation,
+      segmentId,
+      segmentData,
+      segmentUrl: chapter.segmentUrl,
+      status: chapter.status === 'valid' ? 'valid' : 'need_segment',
+    });
   }
 
   return results;
