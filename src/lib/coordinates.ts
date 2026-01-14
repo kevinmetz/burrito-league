@@ -12,6 +12,7 @@ export interface ChapterCoordinates {
 export const chapterCoordinates: ChapterCoordinates[] = [
   // Canada - Alberta
   { city: 'Calgary', state: 'Alberta', country: 'Canada', lat: 51.0447, lng: -114.0719 },
+  { city: 'Coaldale', state: 'Alberta', country: 'Canada', lat: 49.7264, lng: -112.6178 },
   { city: 'Crowsnest Pass', state: 'Alberta', country: 'Canada', lat: 49.5958, lng: -114.4128 },
   { city: 'Red Deer', state: 'Alberta', country: 'Canada', lat: 52.2681, lng: -113.8112 },
 
@@ -31,6 +32,9 @@ export const chapterCoordinates: ChapterCoordinates[] = [
   { city: 'Toronto', state: 'Ontario', country: 'Canada', lat: 43.6532, lng: -79.3832 },
   { city: 'Hamilton', state: 'Ontario', country: 'Canada', lat: 43.2557, lng: -79.8711 },
 
+  // Canada - Quebec
+  { city: 'Montreal', state: 'Quebec', country: 'Canada', lat: 45.5017, lng: -73.5673 },
+
   // USA - Arizona
   { city: 'Tempe', state: 'Arizona', country: 'USA', lat: 33.4255, lng: -111.9400 },
   { city: 'Flagstaff', state: 'Arizona', country: 'USA', lat: 35.1983, lng: -111.6513 },
@@ -47,10 +51,12 @@ export const chapterCoordinates: ChapterCoordinates[] = [
   { city: 'Lompoc', state: 'California', country: 'USA', lat: 34.6392, lng: -120.4579 },
   { city: 'Los Angeles', state: 'California', country: 'USA', lat: 34.0522, lng: -118.2437 },
   { city: 'Oceanside', state: 'California', country: 'USA', lat: 33.1959, lng: -117.3795 },
+  { city: 'Ojai', state: 'California', country: 'USA', lat: 34.4480, lng: -119.2429 },
   { city: 'Palm Desert', state: 'California', country: 'USA', lat: 33.7222, lng: -116.3744 },
   { city: 'Redlands', state: 'California', country: 'USA', lat: 34.0556, lng: -117.1825 },
   { city: 'Roseville-Rocklin', state: 'California', country: 'USA', lat: 38.7521, lng: -121.2880 },
   { city: 'San Francisco', state: 'California', country: 'USA', lat: 37.7749, lng: -122.4194 },
+  { city: 'San Ramon', state: 'California', country: 'USA', lat: 37.7799, lng: -121.9780 },
   { city: 'Santa Barbara', state: 'California', country: 'USA', lat: 34.4208, lng: -119.6982 },
   { city: 'West Hollywood', state: 'California', country: 'USA', lat: 34.0900, lng: -118.3617 },
 
@@ -106,6 +112,7 @@ export const chapterCoordinates: ChapterCoordinates[] = [
 
   // USA - North Carolina
   { city: 'Spindale', state: 'North Carolina', country: 'USA', lat: 35.3593, lng: -81.9276 },
+  { city: 'Wake Forest', state: 'North Carolina', country: 'USA', lat: 35.9799, lng: -78.5097 },
 
   // USA - Oregon
   { city: 'Bend', state: 'Oregon', country: 'USA', lat: 44.0582, lng: -121.3153 },
@@ -130,6 +137,7 @@ export const chapterCoordinates: ChapterCoordinates[] = [
   // USA - Washington
   { city: 'Aberdeen', state: 'Washington', country: 'USA', lat: 46.9754, lng: -123.8157 },
   { city: 'Pullman', state: 'Washington', country: 'USA', lat: 46.7298, lng: -117.1817 },
+  { city: 'Seattle', state: 'Washington', country: 'USA', lat: 47.6062, lng: -122.3321 },
   { city: 'Wenatchee', state: 'Washington', country: 'USA', lat: 47.4235, lng: -120.3103 },
   { city: 'Winthrop', state: 'Washington', country: 'USA', lat: 48.4793, lng: -120.1862 },
 
