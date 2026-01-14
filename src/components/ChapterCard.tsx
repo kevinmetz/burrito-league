@@ -32,9 +32,9 @@ function LeaderRow({ label, leader }: { label: string; leader: Leader }) {
           <span className="text-white/50 text-lg">?</span>
         )}
       </div>
-      <div className="flex-1">
+      <div className="flex-1 min-w-0">
         <p className="text-xs text-white/60 uppercase tracking-wide">{label}</p>
-        <p className="text-white text-lg font-semibold drop-shadow-md">
+        <p className="text-white text-lg font-semibold drop-shadow-md truncate">
           {leader.name}
         </p>
       </div>
@@ -56,7 +56,7 @@ export default function ChapterCard({
     <div className="bg-black/40 backdrop-blur-sm rounded-2xl p-5 w-full border border-white/10">
       {/* Header */}
       <div className="text-center mb-4">
-        <h2 className="text-[#FE0A5F] text-2xl font-black tracking-tight">
+        <h2 className="text-[#FE0A5F] text-2xl font-black tracking-tight truncate">
           {displayLocation}
         </h2>
         <p className="text-white/70 text-sm mt-1">

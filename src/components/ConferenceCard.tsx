@@ -32,9 +32,9 @@ function LeaderRow({ label, leader }: { label: string; leader: Leader }) {
           <span className="text-black/30 text-lg">?</span>
         )}
       </div>
-      <div className="flex-1">
+      <div className="flex-1 min-w-0">
         <p className="text-xs text-black/50 uppercase tracking-wide">{label}</p>
-        <p className="text-black text-lg font-semibold">
+        <p className="text-black text-lg font-semibold truncate">
           {leader.name}
         </p>
       </div>
@@ -70,7 +70,7 @@ export default function ConferenceCard({
       <div className="p-5">
         {/* Header */}
         <div className="text-center mb-4">
-          <h2 className="text-[#FE0A5F] text-2xl font-black tracking-tight">
+          <h2 className="text-[#FE0A5F] text-2xl font-black tracking-tight truncate">
             {displayLocation}
           </h2>
           <p className="text-black/60 text-sm mt-1">
