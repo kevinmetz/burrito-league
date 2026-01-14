@@ -2,11 +2,11 @@
   "crons": [
     {
       "path": "/api/cron/pre-poll",
-      "schedule": "50 1,6,13,18 * * *"
+      "schedule": "50 13 * * *"
     },
     {
       "path": "/api/cron/poll-strava",
-      "schedule": "0 2,7,14,19 * * *"
+      "schedule": "0 14 * * *"
     }
   ]
 }
