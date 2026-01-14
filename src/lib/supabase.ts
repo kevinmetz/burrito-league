@@ -19,6 +19,8 @@ export interface SegmentSnapshot {
   country: string | null;
   display_location: string | null;
   total_efforts: number | null;
+  total_athletes: number | null;
+  total_distance: string | null;
   male_leader_name: string | null;
   male_leader_efforts: number | null;
   male_leader_profile_pic: string | null;
@@ -359,8 +361,8 @@ export async function getChaptersFromSupabase(): Promise<{
         city: snapshot.city,
         state: snapshot.state || '',
         totalEfforts: snapshot.total_efforts?.toLocaleString() || '0',
-        totalAthletes: '0', // Not stored in snapshots currently
-        totalDistance: '0 mi', // Not stored in snapshots currently
+        totalAthletes: snapshot.total_athletes?.toLocaleString() || '0',
+        totalDistance: snapshot.total_distance || '0 mi',
         maleLeader: {
           name: snapshot.male_leader_name || 'No leader yet',
           profilePic: snapshot.male_leader_profile_pic || '',
@@ -487,6 +489,8 @@ export async function bootstrapIfEmpty(): Promise<boolean> {
         country: null,
         display_location: chapter.displayLocation,
         total_efforts: parseEfforts(data?.totalEfforts),
+        total_athletes: parseEfforts(data?.totalAthletes),
+        total_distance: data?.totalDistance || null,
         male_leader_name: data?.maleLeader?.name || null,
         male_leader_efforts: data?.maleLeader?.efforts || null,
         male_leader_profile_pic: data?.maleLeader?.profilePic || null,

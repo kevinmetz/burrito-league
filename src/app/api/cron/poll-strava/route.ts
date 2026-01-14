@@ -90,6 +90,8 @@ export async function GET(request: NextRequest) {
         country: null, // Not stored in current structure, could be added
         display_location: chapter.displayLocation,
         total_efforts: parseEfforts(data?.totalEfforts),
+        total_athletes: parseEfforts(data?.totalAthletes),
+        total_distance: data?.totalDistance || null,
         male_leader_name: data?.maleLeader?.name || null,
         male_leader_efforts: data?.maleLeader?.efforts || null,
         male_leader_profile_pic: data?.maleLeader?.profilePic || null,
