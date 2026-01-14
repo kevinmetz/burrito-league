@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { getAllChaptersData, ChapterWithData } from "@/lib/strava";
+import { getChaptersFromSupabase, ChapterFromSupabase, bootstrapIfEmpty } from "@/lib/supabase";
 import ChapterCard from "@/components/ChapterCard";
 import ConferenceCard from "@/components/ConferenceCard";
 import MissingSegmentCard from "@/components/MissingSegmentCard";
@@ -8,7 +9,8 @@ import CountdownTimer from "@/components/CountdownTimer";
 import GlobalStats from "@/components/GlobalStats";
 import GlobeSection from "@/components/GlobeSection";
 
-export const revalidate = 14400; // Revalidate every 4 hours
+// Revalidate every 15 minutes - Supabase reads are cheap, and we want fresh sheet data
+export const revalidate = 900;
 
 // Official Mount to Coast Conference cities (displayed first)
 const CONFERENCE_CITIES = [
@@ -40,7 +42,10 @@ const FALLBACK_GLOBAL_STATS = {
   totalMiles: 13972,
 };
 
-function calculateGlobalStats(chapters: ChapterWithData[]) {
+// Union type for both data sources
+type ChapterData = ChapterWithData | ChapterFromSupabase;
+
+function calculateGlobalStats(chapters: ChapterData[]) {
   const calculated = chapters.reduce(
     (acc, chapter) => {
       if (chapter.segmentData) {
@@ -68,12 +73,43 @@ function calculateGlobalStats(chapters: ChapterWithData[]) {
 }
 
 export default async function Home() {
-  let chaptersData: ChapterWithData[] = [];
+  let chaptersData: ChapterData[] = [];
+  let dataSource: 'supabase' | 'strava' | 'fallback' = 'fallback';
+  let lastUpdated: string | null = null;
 
+  // Try Supabase first (fast, no API calls)
   try {
-    chaptersData = await getAllChaptersData();
+    let supabaseResult = await getChaptersFromSupabase();
+
+    // If Supabase is empty, bootstrap with initial poll
+    if (!supabaseResult) {
+      console.log('Page: Supabase empty, bootstrapping...');
+      const didBootstrap = await bootstrapIfEmpty();
+      if (didBootstrap) {
+        // Retry fetching from Supabase after bootstrap
+        supabaseResult = await getChaptersFromSupabase();
+      }
+    }
+
+    if (supabaseResult && supabaseResult.chapters.length > 0) {
+      chaptersData = supabaseResult.chapters;
+      dataSource = 'supabase';
+      lastUpdated = supabaseResult.lastUpdated;
+      console.log(`Page: Loaded ${chaptersData.length} chapters from Supabase`);
+    }
   } catch (error) {
-    console.error("Failed to fetch chapters data:", error);
+    console.error("Failed to fetch from Supabase:", error);
+  }
+
+  // Fall back to direct Strava API if Supabase still empty (bootstrap failed)
+  if (chaptersData.length === 0) {
+    try {
+      console.log('Page: Supabase still empty, falling back to direct Strava API');
+      chaptersData = await getAllChaptersData();
+      dataSource = 'strava';
+    } catch (error) {
+      console.error("Failed to fetch chapters data:", error);
+    }
   }
 
   const globalStats = calculateGlobalStats(chaptersData);

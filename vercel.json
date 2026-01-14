@@ -1,0 +1,12 @@
+{
+  "crons": [
+    {
+      "path": "/api/cron/pre-poll",
+      "schedule": "50 1,6,13,18 * * *"
+    },
+    {
+      "path": "/api/cron/poll-strava",
+      "schedule": "0 2,7,14,19 * * *"
+    }
+  ]
+}

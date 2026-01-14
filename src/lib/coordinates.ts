@@ -168,3 +168,57 @@ export function latLngToVector3(lat: number, lng: number, radius: number = 1): [
 
   return [x, y, z];
 }
+
+// Helper to create lookup key for a city
+function cityKey(city: string, state: string | null, country: string): string {
+  return `${city.toLowerCase()}|${(state || '').toLowerCase()}|${country.toLowerCase()}`;
+}
+
+/**
+ * Get all coordinates merged from static + Supabase sources
+ * Supabase coordinates override static if there's a conflict
+ */
+export async function getAllCoordinates(): Promise<ChapterCoordinates[]> {
+  // Start with static coordinates
+  const coordsMap = new Map<string, ChapterCoordinates>();
+
+  for (const coord of chapterCoordinates) {
+    const key = cityKey(coord.city, coord.state, coord.country);
+    coordsMap.set(key, coord);
+  }
+
+  // Try to fetch dynamic coordinates from Supabase
+  try {
+    const { getChapterCoordinates } = await import('./supabase');
+    const supabaseCoords = await getChapterCoordinates();
+
+    for (const coord of supabaseCoords) {
+      const key = cityKey(coord.city, coord.state, coord.country);
+      // Supabase overrides static
+      coordsMap.set(key, {
+        city: coord.city,
+        state: coord.state || '',
+        country: coord.country,
+        lat: Number(coord.lat),
+        lng: Number(coord.lng),
+      });
+    }
+
+    console.log(`Coordinates: ${chapterCoordinates.length} static + ${supabaseCoords.length} from Supabase = ${coordsMap.size} total`);
+  } catch (error) {
+    // Supabase not configured or failed - use static only
+    console.warn('Could not fetch Supabase coordinates, using static only:', error);
+  }
+
+  return Array.from(coordsMap.values());
+}
+
+/**
+ * Check if a city has coordinates (in either static or Supabase)
+ */
+export function hasStaticCoordinates(city: string, state: string | null, country: string): boolean {
+  const key = cityKey(city, state, country);
+  return chapterCoordinates.some(
+    (c) => cityKey(c.city, c.state, c.country) === key
+  );
+}
