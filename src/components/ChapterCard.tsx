@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 interface Leader {
   name: string;
@@ -48,6 +48,28 @@ function LeaderRow({ label, leader }: { label: string; leader: Leader }) {
 
 function HiddenMaleLeaderRow() {
   const [showTooltip, setShowTooltip] = useState(false);
+  const tooltipRef = useRef<HTMLDivElement>(null);
+
+  // Close tooltip on outside tap or scroll
+  useEffect(() => {
+    if (!showTooltip) return;
+
+    const handleClose = () => setShowTooltip(false);
+
+    const handleClickOutside = (e: TouchEvent | MouseEvent) => {
+      if (tooltipRef.current && !tooltipRef.current.contains(e.target as Node)) {
+        setShowTooltip(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleClose, true);
+    document.addEventListener('touchstart', handleClickOutside);
+
+    return () => {
+      window.removeEventListener('scroll', handleClose, true);
+      document.removeEventListener('touchstart', handleClickOutside);
+    };
+  }, [showTooltip]);
 
   return (
     <div className="relative">
@@ -98,7 +120,7 @@ function HiddenMaleLeaderRow() {
 
       {/* Tooltip */}
       {showTooltip && (
-        <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 z-50 w-64">
+        <div ref={tooltipRef} className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 z-50 w-64">
           <div className="bg-gray-900 text-white text-xs rounded-lg p-3 shadow-xl border border-white/20">
             <p className="font-semibold mb-1">Here for the women&apos;s race!</p>
             <p className="text-white/70">
