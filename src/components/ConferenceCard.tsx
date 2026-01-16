@@ -99,7 +99,7 @@ function HiddenMaleLeaderRow() {
           <div className="bg-gray-900 text-white text-xs rounded-lg p-3 shadow-xl border border-white/20">
             <p className="font-semibold mb-1">Here for the women&apos;s race!</p>
             <p className="text-white/70">
-              When a woman leads the segment, Strava&apos;s API doesn&apos;t expose male leader data.
+              When a woman leads the segment, Strava doesn&apos;t expose male leader data.
             </p>
             <div className="absolute left-1/2 -translate-x-1/2 top-full w-0 h-0 border-l-8 border-r-8 border-t-8 border-transparent border-t-gray-900"></div>
           </div>
