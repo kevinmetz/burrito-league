@@ -8,6 +8,7 @@ import LoadingSegmentCard from "@/components/LoadingSegmentCard";
 import CountdownTimer from "@/components/CountdownTimer";
 import GlobalStats from "@/components/GlobalStats";
 import GlobeSection from "@/components/GlobeSection";
+import ScrollHint from "@/components/ScrollHint";
 
 // Revalidate every 15 minutes - Supabase reads are cheap, and we want fresh sheet data
 export const revalidate = 900;
@@ -144,7 +145,8 @@ export default async function Home() {
       }}
     >
       <div className="min-h-screen bg-black/10">
-        <main className="max-w-6xl mx-auto px-4 py-8">
+        <main className="max-w-6xl mx-auto px-4 pt-3 pb-8 md:pt-8">
+          <ScrollHint />
           {/* Logo */}
           <div className="flex justify-center mb-4">
             <Image
