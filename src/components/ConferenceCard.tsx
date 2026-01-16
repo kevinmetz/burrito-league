@@ -189,7 +189,7 @@ export default function ConferenceCard({
             href="#globe"
             className="text-black/50 text-sm hover:text-black transition-colors"
           >
-            ← Back to globe
+            ↑ Back to globe
           </a>
           <a
             href={segmentUrl}

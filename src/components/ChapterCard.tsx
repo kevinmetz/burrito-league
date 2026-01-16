@@ -175,7 +175,7 @@ export default function ChapterCard({
           href="#globe"
           className="text-white/60 text-sm hover:text-white transition-colors"
         >
-          ← Back to globe
+          ↑ Back to globe
         </a>
         <a
           href={segmentUrl}
