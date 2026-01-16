@@ -138,7 +138,7 @@ function parseColumnK(value: string): { segmentId: number | null; segmentUrl: st
 export async function fetchChaptersFromSheet(): Promise<SheetChapter[]> {
   try {
     const response = await fetch(SHEET_CSV_URL, {
-      next: { revalidate: 14400 }, // Cache for 4 hours
+      cache: 'no-store', // Always fetch fresh data
     });
 
     if (!response.ok) {
