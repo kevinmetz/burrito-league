@@ -13,7 +13,7 @@ export default function ScrollHint() {
     // Check if user has already scrolled this session
     if (sessionStorage.getItem('hasSeenScrollHint')) return;
 
-    // Small delay to let page render
+    // Wait for globe to load and settle before hinting scroll
     const timeout = setTimeout(() => {
       // Animate scroll down then back up
       window.scrollTo({ top: 60, behavior: 'smooth' });
@@ -23,7 +23,7 @@ export default function ScrollHint() {
         sessionStorage.setItem('hasSeenScrollHint', 'true');
         setHasScrolled(true);
       }, 400);
-    }, 800);
+    }, 2500);
 
     return () => clearTimeout(timeout);
   }, []);
