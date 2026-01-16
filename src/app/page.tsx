@@ -178,7 +178,7 @@ export default async function Home() {
           </div>
 
           {/* 3D Globe */}
-          <div className="mb-6">
+          <div id="globe" className="mb-6">
             <GlobeSection />
           </div>
 

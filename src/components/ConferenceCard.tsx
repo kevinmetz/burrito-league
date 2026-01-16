@@ -183,8 +183,14 @@ export default function ConferenceCard({
           <LeaderRow label="Female" leader={femaleLeader} />
         </div>
 
-        {/* Strava Link */}
-        <div className="mt-5 text-center">
+        {/* Links */}
+        <div className="mt-5 flex justify-between items-center">
+          <a
+            href="#globe"
+            className="text-black/50 text-sm hover:text-black transition-colors"
+          >
+            ← Back to globe
+          </a>
           <a
             href={segmentUrl}
             target="_blank"
