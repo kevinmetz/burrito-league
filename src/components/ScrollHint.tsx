@@ -16,10 +16,10 @@ export default function ScrollHint() {
     // Wait for globe to load and settle before hinting scroll
     const timeout = setTimeout(() => {
       // Scroll down to hint there's more content
-      window.scrollTo({ top: 120, behavior: 'smooth' });
+      window.scrollTo({ top: 100, behavior: 'smooth' });
       sessionStorage.setItem('hasSeenScrollHint', 'true');
       setHasScrolled(true);
-    }, 1000);
+    }, 800);
 
     return () => clearTimeout(timeout);
   }, []);
