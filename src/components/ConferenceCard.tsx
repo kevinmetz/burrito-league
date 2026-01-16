@@ -74,7 +74,10 @@ function HiddenMaleLeaderRow() {
         className="absolute inset-0 flex items-center justify-center cursor-help"
         onMouseEnter={() => setShowTooltip(true)}
         onMouseLeave={() => setShowTooltip(false)}
-        onClick={() => setShowTooltip(!showTooltip)}
+        onTouchEnd={(e) => {
+          e.preventDefault();
+          setShowTooltip(!showTooltip);
+        }}
       >
         <div className="bg-black/5 backdrop-blur-sm rounded-full p-2 border border-black/10">
           <svg
