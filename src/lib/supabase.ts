@@ -296,7 +296,7 @@ export async function getChaptersFromSupabase(): Promise<{
     return null;
   }
 
-  // 1. Get the latest poll run
+  // 1. Get the latest poll run (for metadata)
   const { data: pollRun, error: pollError } = await supabase
     .from('poll_runs')
     .select('*')
@@ -309,16 +309,37 @@ export async function getChaptersFromSupabase(): Promise<{
     return null;
   }
 
-  // 2. Get all snapshots for this poll run
-  const { data: snapshots, error: snapshotsError } = await supabase
+  // 2. Get the latest snapshot for each segment (with valid data preferred)
+  // First get all recent snapshots, then pick the best one per segment
+  const { data: allSnapshots, error: snapshotsError } = await supabase
     .from('segment_snapshots')
     .select('*')
-    .eq('poll_run_id', pollRun.id);
+    .order('polled_at', { ascending: false })
+    .limit(1000); // Get enough to cover all segments across recent polls
 
-  if (snapshotsError || !snapshots || snapshots.length === 0) {
-    console.log('No snapshots found for poll run, will use direct Strava fetch');
+  if (snapshotsError || !allSnapshots || allSnapshots.length === 0) {
+    console.log('No snapshots found, will use direct Strava fetch');
     return null;
   }
+
+  // For each segment, pick the most recent snapshot that has valid data
+  // Fall back to most recent snapshot if no valid data exists
+  const snapshotsBySegment = new Map<number, typeof allSnapshots[0]>();
+
+  for (const snapshot of allSnapshots) {
+    const existing = snapshotsBySegment.get(snapshot.segment_id);
+
+    if (!existing) {
+      // First snapshot for this segment - use it
+      snapshotsBySegment.set(snapshot.segment_id, snapshot);
+    } else if (existing.total_efforts === null && snapshot.total_efforts !== null) {
+      // Current best has null data, this one has real data - use this one
+      snapshotsBySegment.set(snapshot.segment_id, snapshot);
+    }
+    // Otherwise keep the existing one (it's more recent and has data, or both have null)
+  }
+
+  const snapshots = Array.from(snapshotsBySegment.values());
 
   // 3. Fetch Google Sheet for segment URLs and missing chapters
   const { fetchChaptersFromSheet, formatLocation } = await import('./sheets');
