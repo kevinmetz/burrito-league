@@ -23,7 +23,7 @@ export default function ScrollHint() {
         sessionStorage.setItem('hasSeenScrollHint', 'true');
         setHasScrolled(true);
       }, 400);
-    }, 2500);
+    }, 1500);
 
     return () => clearTimeout(timeout);
   }, []);
