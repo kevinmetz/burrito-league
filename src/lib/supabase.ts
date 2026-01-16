@@ -359,11 +359,17 @@ export async function getChaptersFromSupabase(): Promise<{
   }
 
   // 4. Convert snapshots to ChapterFromSupabase format
+  // Only include snapshots that are still in the current sheet (filter out orphaned/old segments)
   const chapters: ChapterFromSupabase[] = [];
   const processedSegmentIds = new Set<number>();
 
   for (const snapshot of snapshots) {
     const sheetData = sheetBySegmentId.get(snapshot.segment_id);
+
+    // Skip snapshots that are no longer in the sheet (orphaned segments)
+    if (!sheetData) {
+      continue;
+    }
 
     processedSegmentIds.add(snapshot.segment_id);
 
