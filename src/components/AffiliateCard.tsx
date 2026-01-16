@@ -9,7 +9,7 @@ interface Leader {
   efforts: number;
 }
 
-interface ConferenceCardProps {
+interface AffiliateCardProps {
   displayLocation: string;
   totalEfforts: string;
   maleLeader: Leader;
@@ -20,7 +20,7 @@ interface ConferenceCardProps {
 function LeaderRow({ label, leader }: { label: string; leader: Leader }) {
   return (
     <div className="flex items-center gap-3">
-      <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-white/30 shadow-lg bg-gray-700 flex items-center justify-center">
+      <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-black/10 shadow-lg bg-gray-200 flex items-center justify-center">
         {leader.profilePic ? (
           <Image
             src={leader.profilePic}
@@ -30,16 +30,16 @@ function LeaderRow({ label, leader }: { label: string; leader: Leader }) {
             unoptimized
           />
         ) : (
-          <span className="text-white/50 text-lg">?</span>
+          <span className="text-black/30 text-lg">?</span>
         )}
       </div>
       <div className="flex-1 min-w-0">
-        <p className="text-xs text-white/60 uppercase tracking-wide">{label}</p>
-        <p className="text-white text-lg font-semibold drop-shadow-md truncate">
+        <p className="text-xs text-black/50 uppercase tracking-wide">{label}</p>
+        <p className="text-black text-lg font-semibold truncate">
           {leader.name}
         </p>
       </div>
-      <div className="text-[#FDDF58] text-3xl font-black drop-shadow-md">
+      <div className="text-[#FE0A5F] text-3xl font-black">
         {leader.efforts}
       </div>
     </div>
@@ -77,16 +77,16 @@ function HiddenMaleLeaderRow() {
         className="flex items-center gap-3 blur-[2px] opacity-50 select-none"
         aria-hidden="true"
       >
-        <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-white/30 shadow-lg bg-gray-700 flex items-center justify-center">
-          <span className="text-white/50 text-lg">?</span>
+        <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-black/10 shadow-lg bg-gray-200 flex items-center justify-center">
+          <span className="text-black/30 text-lg">?</span>
         </div>
         <div className="flex-1 min-w-0">
-          <p className="text-xs text-white/60 uppercase tracking-wide">Male</p>
-          <p className="text-white text-lg font-semibold drop-shadow-md truncate">
+          <p className="text-xs text-black/50 uppercase tracking-wide">Male</p>
+          <p className="text-black text-lg font-semibold truncate">
             Hidden
           </p>
         </div>
-        <div className="text-[#FDDF58] text-3xl font-black drop-shadow-md">
+        <div className="text-[#FE0A5F] text-3xl font-black">
           ?
         </div>
       </div>
@@ -101,9 +101,9 @@ function HiddenMaleLeaderRow() {
           setShowTooltip(!showTooltip);
         }}
       >
-        <div className="bg-white/10 backdrop-blur-sm rounded-full p-2 border border-white/20">
+        <div className="bg-black/5 backdrop-blur-sm rounded-full p-2 border border-black/10">
           <svg
-            className="w-5 h-5 text-white/70"
+            className="w-5 h-5 text-black/50"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -134,25 +134,25 @@ function HiddenMaleLeaderRow() {
   );
 }
 
-export default function ConferenceCard({
+export default function AffiliateCard({
   displayLocation,
   totalEfforts,
   maleLeader,
   femaleLeader,
   segmentUrl,
-}: ConferenceCardProps) {
+}: AffiliateCardProps) {
   return (
-    <div className="bg-black/90 backdrop-blur-sm rounded-2xl overflow-hidden w-full border border-white/10">
-      {/* Flagship Header Bar */}
-      <div className="bg-black px-4 py-2 flex items-center justify-between border-b border-white/20">
+    <div className="bg-white/80 backdrop-blur-sm rounded-2xl overflow-hidden w-full border border-black/10">
+      {/* Affiliate Header Bar */}
+      <div className="bg-white px-4 py-2 flex items-center justify-between border-b border-black/10">
         <Image
-          src="/m2clogowhite.png"
+          src="/m2clogo.png"
           alt="Mount to Coast"
           width={100}
           height={32}
           className="h-6 w-auto"
         />
-        <span className="text-white font-bold text-sm tracking-wider">FLAGSHIP LEAGUE</span>
+        <span className="text-black font-bold text-sm tracking-wider">AFFILIATE LEAGUE</span>
       </div>
 
       {/* Card Content */}
@@ -162,13 +162,13 @@ export default function ConferenceCard({
           <h2 className="text-[#FE0A5F] text-2xl font-black tracking-tight truncate">
             {displayLocation}
           </h2>
-          <p className="text-white/70 text-sm mt-1">
-            City Segments: <span className="text-white font-semibold">{totalEfforts}</span>
+          <p className="text-black/60 text-sm mt-1">
+            City Segments: <span className="text-black font-semibold">{totalEfforts}</span>
           </p>
         </div>
 
         {/* Divider */}
-        <div className="h-px bg-white/20 my-4" />
+        <div className="h-px bg-black/10 my-4" />
 
         {/* Leaders */}
         <div className="space-y-4">
@@ -187,7 +187,7 @@ export default function ConferenceCard({
         <div className="mt-5 flex justify-between items-center">
           <a
             href="#globe"
-            className="text-white/60 text-sm hover:text-white transition-colors"
+            className="text-black/50 text-sm hover:text-black transition-colors"
           >
             ↑ Back to globe
           </a>
@@ -195,7 +195,7 @@ export default function ConferenceCard({
             href={segmentUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-white/60 text-sm hover:text-white transition-colors underline"
+            className="text-black/50 text-sm hover:text-black transition-colors underline"
           >
             View the Strava Segment →
           </a>

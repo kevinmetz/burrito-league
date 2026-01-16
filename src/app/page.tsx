@@ -3,6 +3,7 @@ import { getAllChaptersData, ChapterWithData } from "@/lib/strava";
 import { getChaptersFromSupabase, ChapterFromSupabase, bootstrapIfEmpty } from "@/lib/supabase";
 import ChapterCard from "@/components/ChapterCard";
 import ConferenceCard from "@/components/ConferenceCard";
+import AffiliateCard from "@/components/AffiliateCard";
 import MissingSegmentCard from "@/components/MissingSegmentCard";
 import LoadingSegmentCard from "@/components/LoadingSegmentCard";
 import CountdownTimer from "@/components/CountdownTimer";
@@ -13,18 +14,42 @@ import ScrollHint from "@/components/ScrollHint";
 // Revalidate every 15 minutes - Supabase reads are cheap, and we want fresh sheet data
 export const revalidate = 900;
 
-// Official Mount to Coast Conference cities (displayed first)
-const CONFERENCE_CITIES = [
+// Mount to Coast Flagship League cities (displayed first)
+const FLAGSHIP_CITIES = [
   'tempe',
   'san francisco',
   'redlands',
   'new york',
   'denver / wheat ridge',
   'flagstaff',
+  'chattanooga',
+  'boston',
 ];
 
-function isConferenceCity(city: string): boolean {
-  return CONFERENCE_CITIES.includes(city.toLowerCase().trim());
+// Atlanta segment 40747724 is also flagship (handled specially below)
+const FLAGSHIP_ATLANTA_SEGMENT_ID = 40747724;
+
+// Mount to Coast Affiliate League cities (displayed second)
+const AFFILIATE_CITIES = [
+  'salida',
+  'bend',
+  'reno',
+  'castle rock',
+  'nashville',
+  'ogden',
+];
+
+function isFlagshipCity(chapter: ChapterData): boolean {
+  const cityLower = chapter.city.toLowerCase().trim();
+  // Atlanta is flagship only if it's segment 40747724
+  if (cityLower === 'atlanta') {
+    return chapter.segmentId === FLAGSHIP_ATLANTA_SEGMENT_ID;
+  }
+  return FLAGSHIP_CITIES.includes(cityLower);
+}
+
+function isAffiliateCity(city: string): boolean {
+  return AFFILIATE_CITIES.includes(city.toLowerCase().trim());
 }
 
 function parseNumber(str: string): number {
@@ -115,14 +140,25 @@ export default async function Home() {
 
   const globalStats = calculateGlobalStats(chaptersData);
 
-  // Separate conference cities from others
-  const conferenceChapters = chaptersData.filter(c => isConferenceCity(c.city));
-  const otherChapters = chaptersData.filter(c => !isConferenceCity(c.city));
+  // Separate chapters into Flagship, Affiliate, and Others
+  const flagshipChapters = chaptersData.filter(c => isFlagshipCity(c));
+  const affiliateChapters = chaptersData.filter(c => !isFlagshipCity(c) && isAffiliateCity(c.city));
+  const otherChapters = chaptersData.filter(c => !isFlagshipCity(c) && !isAffiliateCity(c.city));
 
-  // Sort conference cities by the defined order
-  const sortedConference = [...conferenceChapters].sort((a, b) => {
-    const aIndex = CONFERENCE_CITIES.indexOf(a.city.toLowerCase().trim());
-    const bIndex = CONFERENCE_CITIES.indexOf(b.city.toLowerCase().trim());
+  // Sort flagship cities by the defined order (Atlanta handled by segment ID check)
+  const sortedFlagship = [...flagshipChapters].sort((a, b) => {
+    const aCity = a.city.toLowerCase().trim();
+    const bCity = b.city.toLowerCase().trim();
+    // Atlanta flagship goes at the end of flagship list
+    const aIndex = aCity === 'atlanta' ? FLAGSHIP_CITIES.length : FLAGSHIP_CITIES.indexOf(aCity);
+    const bIndex = bCity === 'atlanta' ? FLAGSHIP_CITIES.length : FLAGSHIP_CITIES.indexOf(bCity);
+    return aIndex - bIndex;
+  });
+
+  // Sort affiliate cities by the defined order
+  const sortedAffiliate = [...affiliateChapters].sort((a, b) => {
+    const aIndex = AFFILIATE_CITIES.indexOf(a.city.toLowerCase().trim());
+    const bIndex = AFFILIATE_CITIES.indexOf(b.city.toLowerCase().trim());
     return aIndex - bIndex;
   });
 
@@ -192,16 +228,57 @@ export default async function Home() {
             />
           )}
 
-          {/* Conference Cards */}
-          {sortedConference.length > 0 && (
+          {/* Flagship League Cards */}
+          {sortedFlagship.length > 0 && (
             <div className="mb-8">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {sortedConference.map((chapter) => {
+                {sortedFlagship.map((chapter) => {
                   const chapterId = `chapter-${chapter.city.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}`;
                   if (chapter.segmentData && chapter.segmentUrl) {
                     return (
                       <div key={chapter.displayLocation} id={chapterId} className="transition-all duration-300">
                         <ConferenceCard
+                          displayLocation={chapter.displayLocation}
+                          totalEfforts={chapter.segmentData.totalEfforts}
+                          maleLeader={chapter.segmentData.maleLeader}
+                          femaleLeader={chapter.segmentData.femaleLeader}
+                          segmentUrl={chapter.segmentUrl}
+                        />
+                      </div>
+                    );
+                  } else if (chapter.segmentUrl) {
+                    return (
+                      <div key={chapter.displayLocation} id={chapterId} className="transition-all duration-300">
+                        <LoadingSegmentCard
+                          displayLocation={chapter.displayLocation}
+                          segmentUrl={chapter.segmentUrl}
+                        />
+                      </div>
+                    );
+                  } else {
+                    return (
+                      <div key={chapter.displayLocation} id={chapterId} className="transition-all duration-300">
+                        <MissingSegmentCard
+                          displayLocation={chapter.displayLocation}
+                        />
+                      </div>
+                    );
+                  }
+                })}
+              </div>
+            </div>
+          )}
+
+          {/* Affiliate League Cards */}
+          {sortedAffiliate.length > 0 && (
+            <div className="mb-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {sortedAffiliate.map((chapter) => {
+                  const chapterId = `chapter-${chapter.city.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}`;
+                  if (chapter.segmentData && chapter.segmentUrl) {
+                    return (
+                      <div key={chapter.displayLocation} id={chapterId} className="transition-all duration-300">
+                        <AffiliateCard
                           displayLocation={chapter.displayLocation}
                           totalEfforts={chapter.segmentData.totalEfforts}
                           maleLeader={chapter.segmentData.maleLeader}

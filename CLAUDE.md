@@ -254,3 +254,49 @@ Poll Strava API 4x daily at specific Arizona times:
 
 ### UI Changes
 - Card highlight border-radius matches card styling (rounded-2xl) ✅
+
+---
+
+## Milestone: Flagship & Affiliate Leagues - January 16, 2026
+
+### Overview
+Restructured the Mount to Coast conference system into two tiers: Flagship League and Affiliate League, with distinct visual treatments for each.
+
+### Flagship League (Black Cards)
+Premium tier cities displayed first with dark styling:
+- Tempe
+- San Francisco
+- Redlands
+- New York
+- Denver / Wheat Ridge
+- Flagstaff
+- Chattanooga
+- Boston
+- Atlanta (segment #40747724 only)
+
+**Styling:** Black background (`bg-black/90`), white text, gold accent numbers (`#FDDF58`), "FLAGSHIP LEAGUE" header with white M2C logo
+
+### Affiliate League (White Cards)
+Secondary tier cities displayed after Flagship:
+- Salida
+- Bend
+- Reno
+- Castle Rock
+- Nashville
+- Ogden
+
+**Styling:** White background (`bg-white/80`), black text, pink accent numbers (`#FE0A5F`), "AFFILIATE LEAGUE" header with dark M2C logo
+
+### Rendering Order
+1. Flagship League cards (9 cities)
+2. Affiliate League cards (6 cities)
+3. All other chapters sorted by total efforts
+
+### Files Changed
+- `src/app/page.tsx` - Added FLAGSHIP_CITIES, AFFILIATE_CITIES arrays, updated filtering/sorting logic
+- `src/components/ConferenceCard.tsx` - Restyled to black for Flagship League
+- `src/components/AffiliateCard.tsx` - New component with white styling for Affiliate League
+
+### Notes
+- Atlanta has multiple segments; only segment 40747724 is Flagship, others render as regular cards
+- Boston needs to be added to Google Sheet with valid Strava segment URL
