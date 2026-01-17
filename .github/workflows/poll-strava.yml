@@ -6,7 +6,7 @@ on:
       - cron: '0 2 * * *'
     workflow_dispatch:
 
-  jobs:
+jobs:
     poll:
       runs-on: ubuntu-latest
       steps:
