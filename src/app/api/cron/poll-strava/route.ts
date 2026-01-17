@@ -101,9 +101,13 @@ export async function GET(request: NextRequest) {
       });
     }
 
-    // 5. Insert snapshots
+    // 5. Insert snapshots - but SKIP if rate limited to preserve existing good data
     let snapshotsInserted = false;
-    if (snapshots.length > 0) {
+    if (wasRateLimited) {
+      console.log(
+        `Poll-Strava: Skipping snapshot insert due to rate limiting - preserving existing data`
+      );
+    } else if (snapshots.length > 0) {
       snapshotsInserted = await insertSegmentSnapshots(pollRun.id, snapshots);
       console.log(
         `Poll-Strava: ${snapshotsInserted ? 'Inserted' : 'Failed to insert'} ${snapshots.length} snapshots`
