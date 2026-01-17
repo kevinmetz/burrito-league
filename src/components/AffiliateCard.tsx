@@ -148,9 +148,9 @@ export default function AffiliateCard({
         <Image
           src="/m2clogoconf.png"
           alt="Mount to Coast"
-          width={100}
-          height={32}
-          className="h-6 w-auto"
+          width={140}
+          height={45}
+          className="h-8 w-auto"
         />
         <span className="text-black font-bold text-sm tracking-wider">AFFILIATE LEAGUE</span>
       </div>
