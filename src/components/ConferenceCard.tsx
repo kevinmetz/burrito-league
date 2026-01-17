@@ -146,7 +146,7 @@ export default function ConferenceCard({
       {/* Flagship Header Bar */}
       <div className="bg-black px-4 py-2 flex items-center justify-between border-b border-white/20">
         <Image
-          src="/m2clogowhite.png"
+          src="/m2clogoconfwhite.png"
           alt="Mount to Coast"
           width={100}
           height={32}

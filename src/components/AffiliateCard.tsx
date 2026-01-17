@@ -146,7 +146,7 @@ export default function AffiliateCard({
       {/* Affiliate Header Bar */}
       <div className="bg-white px-4 py-2 flex items-center justify-between border-b border-black/10">
         <Image
-          src="/m2clogo.png"
+          src="/m2clogoconf.png"
           alt="Mount to Coast"
           width={100}
           height={32}
