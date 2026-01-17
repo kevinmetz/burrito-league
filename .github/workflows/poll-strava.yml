@@ -2,12 +2,11 @@ name: Poll Strava
 
   on:
     schedule:
-      # 4x daily in UTC (Arizona MST = UTC-7)
-      - cron: '0 7 * * *'   # 12:00 AM Arizona
-      - cron: '0 14 * * *'  # 7:00 AM Arizona
-      - cron: '0 19 * * *'  # 12:00 PM Arizona
-      - cron: '0 2 * * *'   # 7:00 PM Arizona
-    workflow_dispatch: # Manual trigger button in GitHub UI
+      - cron: '0 7 * * *'
+      - cron: '0 14 * * *'
+      - cron: '0 19 * * *'
+      - cron: '0 2 * * *'
+    workflow_dispatch:
 
   jobs:
     poll:
