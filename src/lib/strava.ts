@@ -1,4 +1,3 @@
-import { getFallbackData, FALLBACK_DATA_DATE } from './fallbackData';
 
 interface TokenResponse {
   access_token: string;
@@ -266,26 +265,7 @@ export async function getAllChaptersData(): Promise<ChapterWithData[]> {
       } catch (error) {
         console.error(`Failed to fetch data for ${chapter.city}:`, error);
       }
-
-      // Use fallback data if API returned nothing (rate limited or error)
-      if (!segmentData) {
-        const fallback = getFallbackData(chapter.city);
-        if (fallback) {
-          console.log(`Using fallback data for ${chapter.city}`);
-          segmentData = {
-            segmentId,
-            segmentName: '',
-            city: chapter.city,
-            state: chapter.state,
-            totalEfforts: fallback.totalEfforts,
-            totalAthletes: '0',
-            totalDistance: '0 mi',
-            maleLeader: fallback.maleLeader,
-            femaleLeader: fallback.femaleLeader,
-            lastUpdated: FALLBACK_DATA_DATE,
-          };
-        }
-      }
+      // Note: If segmentData is null, high water mark in Supabase preserves existing good data
     }
 
     results.push({

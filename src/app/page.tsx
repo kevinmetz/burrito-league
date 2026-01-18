@@ -61,19 +61,11 @@ function parseMiles(str: string): number {
   return parseFloat(str.replace(/,/g, '').replace(' mi', '')) || 0;
 }
 
-// Fallback global stats from Jan 18, 2026
-const FALLBACK_GLOBAL_STATS = {
-  totalChapters: 101,
-  totalEfforts: 191790,
-  totalAthletes: 8975,
-  totalMiles: 48150,
-};
-
 // Union type for both data sources
 type ChapterData = ChapterWithData | ChapterFromSupabase;
 
 function calculateGlobalStats(chapters: ChapterData[]) {
-  const calculated = chapters.reduce(
+  return chapters.reduce(
     (acc, chapter) => {
       if (chapter.segmentData) {
         return {
@@ -86,17 +78,7 @@ function calculateGlobalStats(chapters: ChapterData[]) {
     },
     { totalEfforts: 0, totalMiles: 0, totalAthletes: 0 }
   );
-
-  // Use fallback if calculated values seem too low (likely rate limited)
-  if (calculated.totalEfforts < 1000) {
-    return {
-      totalEfforts: FALLBACK_GLOBAL_STATS.totalEfforts,
-      totalMiles: FALLBACK_GLOBAL_STATS.totalMiles,
-      totalAthletes: FALLBACK_GLOBAL_STATS.totalAthletes,
-    };
-  }
-
-  return calculated;
+  // Note: With high water mark in Supabase, data only improves - no fallback needed
 }
 
 export default async function Home() {
@@ -167,8 +149,8 @@ export default async function Home() {
     return bEfforts - aEfforts;
   });
 
-  // Count chapters with valid segment data (use fallback if too low)
-  const validChapters = chaptersData.filter(c => c.segmentData).length || FALLBACK_GLOBAL_STATS.totalChapters;
+  // Count chapters with valid segment data
+  const validChapters = chaptersData.filter(c => c.segmentData).length;
 
   return (
     <div

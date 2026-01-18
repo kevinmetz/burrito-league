@@ -3,14 +3,6 @@ import { getChaptersFromSupabase, ChapterFromSupabase } from '@/lib/supabase';
 // Revalidate every 15 minutes to match main site
 export const revalidate = 900;
 
-// Fallback global stats from Jan 18, 2026
-const FALLBACK_GLOBAL_STATS = {
-  totalChapters: 101,
-  totalEfforts: 191790,
-  totalAthletes: 8975,
-  totalMiles: 48150,
-};
-
 function parseNumber(str: string): number {
   return parseFloat(str.replace(/,/g, '')) || 0;
 }
@@ -20,7 +12,7 @@ function parseMiles(str: string): number {
 }
 
 function calculateGlobalStats(chapters: ChapterFromSupabase[]) {
-  const calculated = chapters.reduce(
+  return chapters.reduce(
     (acc, chapter) => {
       if (chapter.segmentData) {
         return {
@@ -33,29 +25,15 @@ function calculateGlobalStats(chapters: ChapterFromSupabase[]) {
     },
     { totalEfforts: 0, totalMiles: 0, totalAthletes: 0 }
   );
-
-  // Use fallback if calculated values seem too low (likely rate limited)
-  if (calculated.totalEfforts < 1000) {
-    return {
-      totalEfforts: FALLBACK_GLOBAL_STATS.totalEfforts,
-      totalMiles: FALLBACK_GLOBAL_STATS.totalMiles,
-      totalAthletes: FALLBACK_GLOBAL_STATS.totalAthletes,
-    };
-  }
-
-  return calculated;
+  // Note: With high water mark in Supabase, data only improves - no fallback needed
 }
 
 export default async function EmbedStatsPage() {
   // Fetch data from Supabase
   const supabaseData = await getChaptersFromSupabase();
 
-  let totalChapters = FALLBACK_GLOBAL_STATS.totalChapters;
-  let stats = {
-    totalEfforts: FALLBACK_GLOBAL_STATS.totalEfforts,
-    totalMiles: FALLBACK_GLOBAL_STATS.totalMiles,
-    totalAthletes: FALLBACK_GLOBAL_STATS.totalAthletes,
-  };
+  let totalChapters = 0;
+  let stats = { totalEfforts: 0, totalMiles: 0, totalAthletes: 0 };
 
   if (supabaseData) {
     const chaptersWithData = supabaseData.chapters.filter(c => c.segmentData);

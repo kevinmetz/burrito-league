@@ -101,16 +101,13 @@ export async function GET(request: NextRequest) {
       });
     }
 
-    // 5. Insert snapshots - but SKIP if rate limited to preserve existing good data
-    let snapshotsInserted = false;
-    if (wasRateLimited) {
+    // 5. Insert snapshots - uses "high water mark" approach
+    // Only inserts snapshots that are better than existing data
+    let insertResult = { inserted: 0, skipped: 0 };
+    if (snapshots.length > 0) {
+      insertResult = await insertSegmentSnapshots(pollRun.id, snapshots);
       console.log(
-        `Poll-Strava: Skipping snapshot insert due to rate limiting - preserving existing data`
-      );
-    } else if (snapshots.length > 0) {
-      snapshotsInserted = await insertSegmentSnapshots(pollRun.id, snapshots);
-      console.log(
-        `Poll-Strava: ${snapshotsInserted ? 'Inserted' : 'Failed to insert'} ${snapshots.length} snapshots`
+        `Poll-Strava: Inserted ${insertResult.inserted} snapshots, skipped ${insertResult.skipped} (existing data was better)`
       );
     }
 
@@ -122,7 +119,8 @@ export async function GET(request: NextRequest) {
       totalChapters: chapters.length,
       validChapters: validChapters.length,
       successfulChapters: successfulChapters.length,
-      snapshotsStored: snapshotsInserted ? snapshots.length : 0,
+      snapshotsInserted: insertResult.inserted,
+      snapshotsSkipped: insertResult.skipped,
       wasRateLimited,
       durationMs: duration,
     });

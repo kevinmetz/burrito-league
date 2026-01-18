@@ -94,13 +94,113 @@ export async function createPollRun(
   return data;
 }
 
+/**
+ * Get the latest snapshot for each segment ID
+ * Used to compare against new data before inserting
+ */
+export async function getLatestSnapshots(
+  segmentIds: number[]
+): Promise<Map<number, SegmentSnapshot>> {
+  if (!supabase || segmentIds.length === 0) return new Map();
+
+  const { data, error } = await supabase
+    .from('segment_snapshots')
+    .select('*')
+    .in('segment_id', segmentIds)
+    .order('polled_at', { ascending: false });
+
+  if (error) {
+    console.error('Error fetching latest snapshots:', error);
+    return new Map();
+  }
+
+  // Keep only the most recent snapshot per segment
+  const latestBySegment = new Map<number, SegmentSnapshot>();
+  for (const snapshot of data || []) {
+    if (!latestBySegment.has(snapshot.segment_id)) {
+      latestBySegment.set(snapshot.segment_id, snapshot);
+    }
+  }
+
+  return latestBySegment;
+}
+
+/**
+ * Check if new snapshot data is "better" than existing
+ * Better means: more efforts, or has leader data where existing doesn't
+ * This implements the "high water mark" approach - data only goes up, never backwards
+ */
+function isSnapshotBetter(
+  newSnapshot: Omit<SegmentSnapshot, 'id' | 'poll_run_id' | 'polled_at'>,
+  existing: SegmentSnapshot | undefined
+): boolean {
+  // No existing data = new data is always better (if it has any data)
+  if (!existing) {
+    return (newSnapshot.total_efforts ?? 0) > 0 ||
+           !!newSnapshot.male_leader_name ||
+           !!newSnapshot.female_leader_name;
+  }
+
+  // New data is empty/null = never overwrite
+  if (!newSnapshot.total_efforts && !newSnapshot.male_leader_name && !newSnapshot.female_leader_name) {
+    return false;
+  }
+
+  // Compare total efforts - higher is better
+  const newEfforts = newSnapshot.total_efforts ?? 0;
+  const existingEfforts = existing.total_efforts ?? 0;
+  if (newEfforts > existingEfforts) {
+    return true;
+  }
+
+  // If efforts are equal, check if we have new leader data
+  if (newEfforts === existingEfforts) {
+    // Has male leader where existing didn't
+    if (newSnapshot.male_leader_name && !existing.male_leader_name) {
+      return true;
+    }
+    // Has female leader where existing didn't
+    if (newSnapshot.female_leader_name && !existing.female_leader_name) {
+      return true;
+    }
+    // Male leader has more efforts
+    if ((newSnapshot.male_leader_efforts ?? 0) > (existing.male_leader_efforts ?? 0)) {
+      return true;
+    }
+    // Female leader has more efforts
+    if ((newSnapshot.female_leader_efforts ?? 0) > (existing.female_leader_efforts ?? 0)) {
+      return true;
+    }
+  }
+
+  return false;
+}
+
 export async function insertSegmentSnapshots(
   pollRunId: string,
   snapshots: Omit<SegmentSnapshot, 'id' | 'poll_run_id' | 'polled_at'>[]
-): Promise<boolean> {
-  if (!supabaseAdmin) return false;
+): Promise<{ inserted: number; skipped: number }> {
+  if (!supabaseAdmin) return { inserted: 0, skipped: 0 };
 
-  const snapshotsWithPollId = snapshots.map((s) => ({
+  // Get existing snapshots to compare
+  const segmentIds = snapshots.map(s => s.segment_id);
+  const existingSnapshots = await getLatestSnapshots(segmentIds);
+
+  // Filter to only snapshots that are "better" than existing
+  const betterSnapshots = snapshots.filter(snapshot =>
+    isSnapshotBetter(snapshot, existingSnapshots.get(snapshot.segment_id))
+  );
+
+  const skipped = snapshots.length - betterSnapshots.length;
+
+  if (betterSnapshots.length === 0) {
+    console.log(`Poll: All ${snapshots.length} snapshots skipped (existing data is better or equal)`);
+    return { inserted: 0, skipped };
+  }
+
+  console.log(`Poll: Inserting ${betterSnapshots.length} better snapshots, skipping ${skipped}`);
+
+  const snapshotsWithPollId = betterSnapshots.map((s) => ({
     ...s,
     poll_run_id: pollRunId,
   }));
@@ -111,10 +211,10 @@ export async function insertSegmentSnapshots(
 
   if (error) {
     console.error('Error inserting segment snapshots:', error);
-    return false;
+    return { inserted: 0, skipped };
   }
 
-  return true;
+  return { inserted: betterSnapshots.length, skipped };
 }
 
 export async function getChapterCoordinates(): Promise<ChapterCoordinate[]> {
