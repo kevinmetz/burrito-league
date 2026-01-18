@@ -37,6 +37,7 @@ const AFFILIATE_CITIES = [
   'castle rock',
   'nashville',
   'ogden',
+  'healdsburg',
 ];
 
 function isFlagshipCity(chapter: ChapterData): boolean {
@@ -145,21 +146,18 @@ export default async function Home() {
   const affiliateChapters = chaptersData.filter(c => !isFlagshipCity(c) && isAffiliateCity(c.city));
   const otherChapters = chaptersData.filter(c => !isFlagshipCity(c) && !isAffiliateCity(c.city));
 
-  // Sort flagship cities by the defined order (Atlanta handled by segment ID check)
+  // Sort flagship cities by total efforts (highest first)
   const sortedFlagship = [...flagshipChapters].sort((a, b) => {
-    const aCity = a.city.toLowerCase().trim();
-    const bCity = b.city.toLowerCase().trim();
-    // Atlanta flagship goes at the end of flagship list
-    const aIndex = aCity === 'atlanta' ? FLAGSHIP_CITIES.length : FLAGSHIP_CITIES.indexOf(aCity);
-    const bIndex = bCity === 'atlanta' ? FLAGSHIP_CITIES.length : FLAGSHIP_CITIES.indexOf(bCity);
-    return aIndex - bIndex;
+    const aEfforts = a.segmentData ? parseNumber(a.segmentData.totalEfforts) : -1;
+    const bEfforts = b.segmentData ? parseNumber(b.segmentData.totalEfforts) : -1;
+    return bEfforts - aEfforts;
   });
 
-  // Sort affiliate cities by the defined order
+  // Sort affiliate cities by total efforts (highest first)
   const sortedAffiliate = [...affiliateChapters].sort((a, b) => {
-    const aIndex = AFFILIATE_CITIES.indexOf(a.city.toLowerCase().trim());
-    const bIndex = AFFILIATE_CITIES.indexOf(b.city.toLowerCase().trim());
-    return aIndex - bIndex;
+    const aEfforts = a.segmentData ? parseNumber(a.segmentData.totalEfforts) : -1;
+    const bEfforts = b.segmentData ? parseNumber(b.segmentData.totalEfforts) : -1;
+    return bEfforts - aEfforts;
   });
 
   // Sort other chapters by total efforts (highest first), chapters without data go to end
