@@ -189,6 +189,9 @@ export const chapterCoordinates: ChapterCoordinates[] = [
   // New Zealand
   { city: 'Auckland', state: 'Auckland', country: 'New Zealand', lat: -36.8509, lng: 174.7645 },
 
+  // France
+  { city: 'Paris', state: '', country: 'France', lat: 48.8566, lng: 2.3522 },
+
   // United Kingdom
   { city: 'Castle Cary', state: 'Somerset', country: 'UK', lat: 51.0952, lng: -2.5176 },
   { city: 'Failsworth', state: 'Manchester', country: 'UK', lat: 53.5102, lng: -2.1569 },
