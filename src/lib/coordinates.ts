@@ -29,11 +29,16 @@ export const chapterCoordinates: ChapterCoordinates[] = [
 
   // Canada - Ontario
   { city: 'Ottawa', state: 'Ontario', country: 'Canada', lat: 45.4215, lng: -75.6972 },
+  { city: 'Scarborough', state: 'Ontario', country: 'Canada', lat: 43.7764, lng: -79.2318 },
   { city: 'Toronto', state: 'Ontario', country: 'Canada', lat: 43.6532, lng: -79.3832 },
   { city: 'Hamilton', state: 'Ontario', country: 'Canada', lat: 43.2557, lng: -79.8711 },
 
   // Canada - Quebec
   { city: 'Montreal', state: 'Quebec', country: 'Canada', lat: 45.5017, lng: -73.5673 },
+
+  // USA - Arkansas
+  { city: 'Fayetteville', state: 'Arkansas', country: 'USA', lat: 36.0626, lng: -94.1574 },
+  { city: 'Hardy', state: 'Arkansas', country: 'USA', lat: 36.3145, lng: -91.4818 },
 
   // USA - Arizona
   { city: 'Tempe', state: 'Arizona', country: 'USA', lat: 33.4255, lng: -111.9400 },
@@ -46,6 +51,9 @@ export const chapterCoordinates: ChapterCoordinates[] = [
   // USA - California
   { city: 'Arcata', state: 'California', country: 'USA', lat: 40.8665, lng: -124.0828 },
   { city: 'Auburn', state: 'California', country: 'USA', lat: 38.8966, lng: -121.0769 },
+  { city: 'Folsom', state: 'California', country: 'USA', lat: 38.6780, lng: -121.1761 },
+  { city: 'Fresno', state: 'California', country: 'USA', lat: 36.7378, lng: -119.7871 },
+  { city: 'Healdsburg', state: 'California', country: 'USA', lat: 38.6105, lng: -122.8694 },
   { city: 'Joshua Tree', state: 'California', country: 'USA', lat: 34.1347, lng: -116.3131 },
   { city: 'La Quinta', state: 'California', country: 'USA', lat: 33.6634, lng: -116.3100 },
   { city: 'Lompoc', state: 'California', country: 'USA', lat: 34.6392, lng: -120.4579 },
@@ -65,6 +73,7 @@ export const chapterCoordinates: ChapterCoordinates[] = [
   { city: 'Boulder', state: 'Colorado', country: 'USA', lat: 40.0150, lng: -105.2705 },
   { city: 'Castle Rock', state: 'Colorado', country: 'USA', lat: 39.3722, lng: -104.8561 },
   { city: 'Colorado Springs', state: 'Colorado', country: 'USA', lat: 38.8339, lng: -104.8214 },
+  { city: 'Crested Butte', state: 'Colorado', country: 'USA', lat: 38.8697, lng: -106.9878 },
   { city: 'Denver / Wheat Ridge', state: 'Colorado', country: 'USA', lat: 39.7392, lng: -104.9903 },
   { city: 'Golden', state: 'Colorado', country: 'USA', lat: 39.7555, lng: -105.2211 },
   { city: 'Idaho Springs', state: 'Colorado', country: 'USA', lat: 39.7425, lng: -105.5144 },
@@ -77,6 +86,7 @@ export const chapterCoordinates: ChapterCoordinates[] = [
 
   // USA - Georgia
   { city: 'Atlanta', state: 'Georgia', country: 'USA', lat: 33.7490, lng: -84.3880 },
+  { city: 'Decatur', state: 'Georgia', country: 'USA', lat: 33.7748, lng: -84.2963 },
 
   // USA - Hawaii
   { city: 'Koloa', state: 'Hawaii', country: 'USA', lat: 21.9067, lng: -159.4700 },
@@ -85,7 +95,14 @@ export const chapterCoordinates: ChapterCoordinates[] = [
   { city: 'Boise', state: 'Idaho', country: 'USA', lat: 43.6150, lng: -116.2023 },
 
   // USA - Indiana
+  { city: 'Bedford', state: 'Indiana', country: 'USA', lat: 38.8612, lng: -86.4872 },
   { city: 'Westfield', state: 'Indiana', country: 'USA', lat: 40.0428, lng: -86.1275 },
+
+  // USA - Maine
+  { city: 'Scarborough', state: 'Maine', country: 'USA', lat: 43.5781, lng: -70.3478 },
+
+  // USA - Massachusetts
+  { city: 'Boston', state: 'Massachusetts', country: 'USA', lat: 42.3601, lng: -71.0589 },
 
   // USA - Michigan
   { city: 'Ann Arbor', state: 'Michigan', country: 'USA', lat: 42.2808, lng: -83.7430 },
@@ -106,8 +123,10 @@ export const chapterCoordinates: ChapterCoordinates[] = [
   { city: 'Hanover', state: 'New Hampshire', country: 'USA', lat: 43.7022, lng: -72.2896 },
 
   // USA - New York
+  { city: 'Buffalo', state: 'New York', country: 'USA', lat: 42.8864, lng: -78.8784 },
   { city: 'New Paltz', state: 'New York', country: 'USA', lat: 41.7495, lng: -74.0868 },
   { city: 'New York', state: 'New York', country: 'USA', lat: 40.7128, lng: -74.0060 },
+  { city: 'Rochester', state: 'New York', country: 'USA', lat: 43.1566, lng: -77.6088 },
   { city: 'Saratoga Springs', state: 'New York', country: 'USA', lat: 43.0831, lng: -73.7846 },
 
   // USA - North Carolina
@@ -120,9 +139,14 @@ export const chapterCoordinates: ChapterCoordinates[] = [
 
   // USA - Pennsylvania
   { city: 'Henryville', state: 'Pennsylvania', country: 'USA', lat: 41.0739, lng: -75.2793 },
+  { city: 'Philadelphia', state: 'Pennsylvania', country: 'USA', lat: 39.9526, lng: -75.1652 },
+  { city: 'West Reading', state: 'Pennsylvania', country: 'USA', lat: 40.3354, lng: -75.9471 },
 
   // USA - South Carolina
   { city: 'Greenville', state: 'South Carolina', country: 'USA', lat: 34.8526, lng: -82.3940 },
+
+  // USA - South Dakota
+  { city: 'Sioux Falls', state: 'South Dakota', country: 'USA', lat: 43.5446, lng: -96.7311 },
 
   // USA - Tennessee
   { city: 'Chattanooga', state: 'Tennessee', country: 'USA', lat: 35.0456, lng: -85.3097 },
@@ -130,19 +154,28 @@ export const chapterCoordinates: ChapterCoordinates[] = [
 
   // USA - Texas
   { city: 'Houston', state: 'Texas', country: 'USA', lat: 29.7604, lng: -95.3698 },
+  { city: 'Leander', state: 'Texas', country: 'USA', lat: 30.5788, lng: -97.8531 },
 
   // USA - Utah
+  { city: 'Ogden', state: 'Utah', country: 'USA', lat: 41.2230, lng: -111.9738 },
   { city: 'St George', state: 'Utah', country: 'USA', lat: 37.0965, lng: -113.5684 },
+
+  // USA - Virginia
+  { city: 'Virginia Beach', state: 'Virginia', country: 'USA', lat: 36.8529, lng: -75.9780 },
 
   // USA - Washington
   { city: 'Aberdeen', state: 'Washington', country: 'USA', lat: 46.9754, lng: -123.8157 },
   { city: 'Pullman', state: 'Washington', country: 'USA', lat: 46.7298, lng: -117.1817 },
   { city: 'Seattle', state: 'Washington', country: 'USA', lat: 47.6062, lng: -122.3321 },
+  { city: 'Wellpinit', state: 'Washington', country: 'USA', lat: 47.8893, lng: -117.9681 },
   { city: 'Wenatchee', state: 'Washington', country: 'USA', lat: 47.4235, lng: -120.3103 },
   { city: 'Winthrop', state: 'Washington', country: 'USA', lat: 48.4793, lng: -120.1862 },
 
   // USA - Washington DC
   { city: 'Washington DC', state: 'DC', country: 'USA', lat: 38.9072, lng: -77.0369 },
+
+  // USA - Wisconsin
+  { city: 'Madison', state: 'Wisconsin', country: 'USA', lat: 43.0731, lng: -89.4012 },
 
   // Australia
   { city: 'Sydney', state: 'New South Wales', country: 'Australia', lat: -33.8688, lng: 151.2093 },
@@ -155,6 +188,10 @@ export const chapterCoordinates: ChapterCoordinates[] = [
 
   // New Zealand
   { city: 'Auckland', state: 'Auckland', country: 'New Zealand', lat: -36.8509, lng: 174.7645 },
+
+  // United Kingdom
+  { city: 'Castle Cary', state: 'Somerset', country: 'UK', lat: 51.0952, lng: -2.5176 },
+  { city: 'Failsworth', state: 'Manchester', country: 'UK', lat: 53.5102, lng: -2.1569 },
 ];
 
 // Helper to convert lat/lng to 3D sphere coordinates
