@@ -61,12 +61,12 @@ function parseMiles(str: string): number {
   return parseFloat(str.replace(/,/g, '').replace(' mi', '')) || 0;
 }
 
-// Fallback global stats from Jan 12, 2026 backup
+// Fallback global stats from Jan 18, 2026
 const FALLBACK_GLOBAL_STATS = {
-  totalChapters: 56,
-  totalEfforts: 57809,
-  totalAthletes: 3818,
-  totalMiles: 13972,
+  totalChapters: 101,
+  totalEfforts: 191790,
+  totalAthletes: 8975,
+  totalMiles: 48150,
 };
 
 // Union type for both data sources
