@@ -375,3 +375,96 @@ Initial implementation had deltas inline with effort numbers. After QA review:
 - Repositioned delta to absolute above-left of main number
 - Reduced rotation from -12° to -6°
 - Added drop shadow for better visibility on light backgrounds
+
+---
+
+## Future Feature: Global Stats API for External Sites
+
+### Overview
+A friend (burrito-league.com) requested the ability to embed global stats on their site. This documents how to implement a public API endpoint to share this data.
+
+### Requested Data
+The global stats shown on the homepage:
+- Total Chapters (count of segments with data)
+- Segments Run (total efforts across all segments)
+- Athletes (sum of athlete counts across segments)
+- Miles (sum of distance across segments)
+
+### Proposed Endpoint
+`GET /api/stats`
+
+**Response format:**
+```json
+{
+  "totalChapters": 56,
+  "totalEfforts": 58432,
+  "totalAthletes": 8923,
+  "totalMiles": 14521,
+  "lastUpdated": "2026-01-17T19:00:00Z"
+}
+```
+
+### Important Data Caveats
+
+#### 90-Day Rolling Data (Not All-Time)
+The Strava Local Legend API (`/segments/{id}/local_legend`) returns **90-day rolling data**, not all-time stats.
+
+Example for Tempe (segment 40744376):
+| Metric | Strava Page (All-Time) | Local Legend API (90 days) |
+|--------|------------------------|---------------------------|
+| Efforts | 35,962 | 22,243 |
+| Athletes | 2,010 | 206 |
+
+This is actually more relevant for the competition since it shows active participation.
+
+#### Athlete Count is Not Unique
+The `totalAthletes` number is the **sum of each segment's 90-day athlete count**. Athletes who ran multiple segments are counted multiple times. It's "segment participations" not "unique humans."
+
+#### Local Legend API Response Structure
+```json
+{
+  "window_text": "In the last 90 days",
+  "local_legend": {
+    "athlete_id": 51815181,
+    "title": "Troy Croxdale",
+    "profile": "https://..../large.jpg",
+    "mayor_effort_count": 1840,
+    "effort_description": "1840 efforts in the last 90 days"
+  },
+  "overall_efforts": {
+    "total_athletes": "206",
+    "total_efforts": "22,243",
+    "total_distance": "4,312.2 mi"
+  }
+}
+```
+
+We call this endpoint twice per segment:
+- `categories[]=overall` → Male/overall leader
+- `categories[]=female` → Female leader
+
+### Implementation Notes
+
+#### How It Would Work
+1. Create `/src/app/api/stats/route.ts`
+2. Read latest data from Supabase (same source as homepage)
+3. Return aggregated stats as JSON
+4. Friend's site fetches this endpoint and renders however they want
+
+#### Cost Implications
+- **Supabase:** Free tier handles thousands of reads/day easily
+- **Vercel:** Free tier handles 1M function invocations/month
+- 100 requests/day from friend's site = negligible
+
+#### Data Freshness
+- Stats update when our GitHub Actions cron polls Strava (4x daily)
+- Friend gets fresh data whenever they fetch the endpoint
+- It's "pull" not "push" - their site requests, we respond with latest
+
+### Optional Enhancements
+1. **Add `since` parameter** - Use Supabase historical snapshots to show "efforts since Jan 1, 2026" instead of rolling 90-day
+2. **Add CORS headers** - If friend needs client-side fetch
+3. **Add caching headers** - Prevent excessive requests
+
+### Status
+**NOT IMPLEMENTED** - Documented for future reference if we decide to build it.

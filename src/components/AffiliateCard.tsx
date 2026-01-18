@@ -21,9 +21,10 @@ interface AffiliateCardProps {
   maleLeader: Leader;
   femaleLeader: Leader;
   segmentUrl: string;
+  priority?: boolean;
 }
 
-function LeaderRow({ label, leader, deltaColor }: { label: string; leader: Leader; deltaColor: string }) {
+function LeaderRow({ label, leader, deltaColor, priority }: { label: string; leader: Leader; deltaColor: string; priority?: boolean }) {
   const isNewLeader = leader.delta?.isNewLeader || false;
   const delta = leader.delta?.delta || null;
 
@@ -39,6 +40,7 @@ function LeaderRow({ label, leader, deltaColor }: { label: string; leader: Leade
               fill
               className="object-cover"
               unoptimized
+              loading={priority ? "eager" : "lazy"}
             />
           ) : (
             <span className="text-black/30 text-lg">?</span>
@@ -179,6 +181,7 @@ export default function AffiliateCard({
   maleLeader,
   femaleLeader,
   segmentUrl,
+  priority = false,
 }: AffiliateCardProps) {
   return (
     <div className="bg-white/80 backdrop-blur-sm rounded-2xl overflow-hidden w-full border border-black/10">
@@ -217,9 +220,9 @@ export default function AffiliateCard({
           maleLeader.name === 'No leader yet' ? (
             <HiddenMaleLeaderRow />
           ) : (
-            <LeaderRow label="Male" leader={maleLeader} deltaColor="#39B7FF" />
+            <LeaderRow label="Male" leader={maleLeader} deltaColor="#39B7FF" priority={priority} />
           )}
-          <LeaderRow label="Female" leader={femaleLeader} deltaColor="#FF751F" />
+          <LeaderRow label="Female" leader={femaleLeader} deltaColor="#FF751F" priority={priority} />
         </div>
 
         {/* Links */}

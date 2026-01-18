@@ -241,6 +241,7 @@ export default async function Home() {
                           maleLeader={chapter.segmentData.maleLeader}
                           femaleLeader={chapter.segmentData.femaleLeader}
                           segmentUrl={chapter.segmentUrl}
+                          priority
                         />
                       </div>
                     );
@@ -282,6 +283,7 @@ export default async function Home() {
                         maleLeader={chapter.segmentData.maleLeader}
                         femaleLeader={chapter.segmentData.femaleLeader}
                         segmentUrl={chapter.segmentUrl}
+                        priority
                       />
                     </div>
                   );
@@ -305,8 +307,10 @@ export default async function Home() {
                 }
               })}
               {/* Then others */}
-              {sortedOthers.map((chapter) => {
+              {sortedOthers.map((chapter, index) => {
                 const chapterId = `chapter-${chapter.city.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}`;
+                // First 5 "others" get priority to complete 21 total (9 flagship + 7 affiliate + 5 others)
+                const shouldPrioritize = index < 5;
                 if (chapter.segmentData && chapter.segmentUrl) {
                   return (
                     <div key={chapter.displayLocation} id={chapterId} className="transition-all duration-300">
@@ -316,6 +320,7 @@ export default async function Home() {
                         maleLeader={chapter.segmentData.maleLeader}
                         femaleLeader={chapter.segmentData.femaleLeader}
                         segmentUrl={chapter.segmentUrl}
+                        priority={shouldPrioritize}
                       />
                     </div>
                   );

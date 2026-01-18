@@ -15,9 +15,10 @@ interface ChapterCardProps {
   maleLeader: Leader;
   femaleLeader: Leader;
   segmentUrl: string;
+  priority?: boolean;
 }
 
-function LeaderRow({ label, leader }: { label: string; leader: Leader }) {
+function LeaderRow({ label, leader, priority }: { label: string; leader: Leader; priority?: boolean }) {
   return (
     <div className="flex items-center gap-3">
       <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-white/30 shadow-lg bg-gray-700 flex items-center justify-center">
@@ -28,6 +29,7 @@ function LeaderRow({ label, leader }: { label: string; leader: Leader }) {
             fill
             className="object-cover"
             unoptimized
+            loading={priority ? "eager" : "lazy"}
           />
         ) : (
           <span className="text-white/50 text-lg">?</span>
@@ -140,6 +142,7 @@ export default function ChapterCard({
   maleLeader,
   femaleLeader,
   segmentUrl,
+  priority = false,
 }: ChapterCardProps) {
   return (
     <div className="bg-black/40 backdrop-blur-sm rounded-2xl p-5 w-full border border-white/10">
@@ -164,9 +167,9 @@ export default function ChapterCard({
         maleLeader.name === 'No leader yet' ? (
           <HiddenMaleLeaderRow />
         ) : (
-          <LeaderRow label="Male" leader={maleLeader} />
+          <LeaderRow label="Male" leader={maleLeader} priority={priority} />
         )}
-        <LeaderRow label="Female" leader={femaleLeader} />
+        <LeaderRow label="Female" leader={femaleLeader} priority={priority} />
       </div>
 
       {/* Links */}
