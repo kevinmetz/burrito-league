@@ -3,10 +3,16 @@
 import Image from 'next/image';
 import { useState, useRef, useEffect } from 'react';
 
+interface LeaderDelta {
+  delta: number | null;
+  isNewLeader: boolean;
+}
+
 interface Leader {
   name: string;
   profilePic: string;
   efforts: number;
+  delta?: LeaderDelta;
 }
 
 interface ConferenceCardProps {
@@ -17,30 +23,63 @@ interface ConferenceCardProps {
   segmentUrl: string;
 }
 
-function LeaderRow({ label, leader }: { label: string; leader: Leader }) {
+function LeaderRow({ label, leader, deltaColor }: { label: string; leader: Leader; deltaColor: string }) {
+  const isNewLeader = leader.delta?.isNewLeader || false;
+  const delta = leader.delta?.delta || null;
+
   return (
     <div className="flex items-center gap-3">
-      <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-white/30 shadow-lg bg-gray-700 flex items-center justify-center">
-        {leader.profilePic ? (
-          <Image
-            src={leader.profilePic}
-            alt={leader.name}
-            fill
-            className="object-cover"
-            unoptimized
-          />
-        ) : (
-          <span className="text-white/50 text-lg">?</span>
+      {/* Profile pic with optional crown */}
+      <div className="relative">
+        <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-white/30 shadow-lg bg-gray-700 flex items-center justify-center">
+          {leader.profilePic ? (
+            <Image
+              src={leader.profilePic}
+              alt={leader.name}
+              fill
+              className="object-cover"
+              unoptimized
+            />
+          ) : (
+            <span className="text-white/50 text-lg">?</span>
+          )}
+        </div>
+        {/* Crown overlay for new leader */}
+        {isNewLeader && (
+          <div className="absolute -top-5 left-1/2 -translate-x-1/2 w-14 h-10">
+            <Image
+              src="/crown.png"
+              alt="New Leader"
+              fill
+              className="object-contain drop-shadow-lg"
+            />
+          </div>
         )}
       </div>
       <div className="flex-1 min-w-0">
-        <p className="text-xs text-white/60 uppercase tracking-wide">{label}</p>
+        {/* New Leader badge or regular label */}
+        {isNewLeader ? (
+          <p className="text-xs text-[#FDDF58] uppercase tracking-wide font-bold">New Leader!</p>
+        ) : (
+          <p className="text-xs text-white/60 uppercase tracking-wide">{label}</p>
+        )}
         <p className="text-white text-lg font-semibold drop-shadow-md truncate">
           {leader.name}
         </p>
       </div>
-      <div className="text-[#FDDF58] text-3xl font-black drop-shadow-md">
-        {leader.efforts}
+      {/* Efforts with optional delta */}
+      <div className="relative">
+        {delta !== null && (
+          <span
+            className="absolute -top-3 -left-2 text-base font-black transform -rotate-6 drop-shadow-md"
+            style={{ color: deltaColor }}
+          >
+            +{delta}
+          </span>
+        )}
+        <span className="text-[#FDDF58] text-3xl font-black drop-shadow-md">
+          {leader.efforts}
+        </span>
       </div>
     </div>
   );
@@ -178,9 +217,9 @@ export default function ConferenceCard({
           maleLeader.name === 'No leader yet' ? (
             <HiddenMaleLeaderRow />
           ) : (
-            <LeaderRow label="Male" leader={maleLeader} />
+            <LeaderRow label="Male" leader={maleLeader} deltaColor="#39B7FF" />
           )}
-          <LeaderRow label="Female" leader={femaleLeader} />
+          <LeaderRow label="Female" leader={femaleLeader} deltaColor="#FF751F" />
         </div>
 
         {/* Links */}

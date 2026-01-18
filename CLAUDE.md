@@ -284,12 +284,13 @@ Secondary tier cities displayed after Flagship:
 - Castle Rock
 - Nashville
 - Ogden
+- Healdsburg
 
 **Styling:** White background (`bg-white/80`), black text, pink accent numbers (`#FE0A5F`), "AFFILIATE LEAGUE" header with dark M2C logo
 
 ### Rendering Order
 1. Flagship League cards (9 cities)
-2. Affiliate League cards (6 cities)
+2. Affiliate League cards (7 cities)
 3. All other chapters sorted by total efforts
 
 ### Files Changed
@@ -300,3 +301,77 @@ Secondary tier cities displayed after Flagship:
 ### Notes
 - Atlanta has multiple segments; only segment 40747724 is Flagship, others render as regular cards
 - Boston needs to be added to Google Sheet with valid Strava segment URL
+
+---
+
+## Milestone: Delta Display & New Leader Crowns - January 17, 2026
+
+### Overview
+Added real-time change indicators showing effort deltas and celebrating new leaders with crown overlays. This feature leverages historical Supabase snapshots to show how leaderboards are evolving between polls.
+
+### Features
+
+#### Delta Display (+X)
+Shows the change in effort count since the last time the value was different:
+- Positioned above-left of the main effort number (superscript style)
+- Subtle -6° rotation for visual flair
+- `font-black` weight with drop shadow for visibility
+- **Male delta color:** `#39B7FF` (blue)
+- **Female delta color:** `#FF751F` (orange)
+
+**Logic:**
+- Only shows positive deltas (no -X or +0)
+- Compares against historical snapshots to find last *different* value
+- If duplicate polls return same data, no delta shown
+- Only enabled for Flagship and Affiliate league cards
+
+#### New Leader Crown
+When a leader changes, celebrates with:
+- Crown image overlay on profile picture (`w-14 h-10`, positioned above avatar)
+- "NEW LEADER!" badge replacing the "Male"/"Female" label
+- Badge color: Gold `#FDDF58` on Flagship, Pink `#FE0A5F` on Affiliate
+
+**Logic:**
+- Crown appears when leader name changes from previous snapshot
+- Crown disappears once the new leader's effort count increases (they've defended their position)
+- Tracks `isNewLeader` boolean alongside delta calculation
+
+### Data Layer Changes
+
+#### New Interface: LeaderDelta
+```typescript
+interface LeaderDelta {
+  delta: number | null;      // +X efforts since last change
+  isNewLeader: boolean;      // true if leader changed and hasn't increased yet
+}
+```
+
+#### Updated: Leader Interface
+```typescript
+interface Leader {
+  name: string;
+  profilePic: string;
+  efforts: number;
+  delta?: LeaderDelta;       // Optional delta info
+}
+```
+
+#### Function: calculateLeaderDelta
+Added to `src/lib/supabase.ts` - compares current snapshot against historical data grouped by segment to determine:
+1. If leader name changed → `isNewLeader: true`
+2. Last different effort value → calculate delta
+3. If new leader's count increased → `isNewLeader: false`, show delta instead
+
+### Files Changed
+- `src/lib/supabase.ts` - Added `LeaderDelta` interface, `calculateLeaderDelta()` function, updated `getChaptersFromSupabase()` to include delta data
+- `src/components/ConferenceCard.tsx` - Added crown overlay, delta display, updated `LeaderRow` component
+- `src/components/AffiliateCard.tsx` - Same updates as ConferenceCard with Affiliate styling
+- `public/crown.png` - Crown asset for new leader display
+
+### Design Iterations
+Initial implementation had deltas inline with effort numbers. After QA review:
+- Increased crown size from `w-8 h-6` to `w-14 h-10`
+- Changed delta from `text-sm font-bold` to `text-base font-black`
+- Repositioned delta to absolute above-left of main number
+- Reduced rotation from -12° to -6°
+- Added drop shadow for better visibility on light backgrounds

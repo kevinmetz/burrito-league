@@ -251,6 +251,12 @@ export async function getPreviousSnapshotForSegment(
   return data;
 }
 
+// Delta info for leader changes
+export interface LeaderDelta {
+  delta: number | null;      // +X efforts since last change (null if no change or new segment)
+  isNewLeader: boolean;      // true if leader name changed and count hasn't increased yet
+}
+
 // Type matching strava.ts ChapterWithData for page compatibility
 export interface ChapterFromSupabase {
   city: string;
@@ -269,16 +275,98 @@ export interface ChapterFromSupabase {
       name: string;
       profilePic: string;
       efforts: number;
+      delta?: LeaderDelta;
     };
     femaleLeader: {
       name: string;
       profilePic: string;
       efforts: number;
+      delta?: LeaderDelta;
     };
     lastUpdated: string;
   } | null;
   segmentUrl: string | null;
   status: 'valid' | 'need_segment';
+}
+
+/**
+ * Calculate delta info for a leader by comparing current snapshot with historical ones.
+ * Returns delta (change since last different value) and whether it's a new leader.
+ */
+function calculateLeaderDelta(
+  currentName: string | null,
+  currentEfforts: number | null,
+  historicalSnapshots: Array<{ name: string | null; efforts: number | null }>,
+): LeaderDelta {
+  // No current data
+  if (!currentName || currentEfforts === null || currentEfforts === 0) {
+    return { delta: null, isNewLeader: false };
+  }
+
+  // No history to compare
+  if (historicalSnapshots.length === 0) {
+    return { delta: null, isNewLeader: false };
+  }
+
+  // Find the first historical snapshot where either:
+  // 1. The efforts count was different (to calculate delta)
+  // 2. The leader name was different (to detect new leader)
+
+  let previousDifferentEfforts: number | null = null;
+  let previousLeaderName: string | null = null;
+
+  for (const hist of historicalSnapshots) {
+    // Skip if no valid data
+    if (!hist.name || hist.efforts === null || hist.efforts === 0) continue;
+
+    // Track the first valid previous leader name we see
+    if (previousLeaderName === null) {
+      previousLeaderName = hist.name;
+    }
+
+    // Find first snapshot with different efforts
+    if (previousDifferentEfforts === null && hist.efforts !== currentEfforts) {
+      previousDifferentEfforts = hist.efforts;
+      break;
+    }
+  }
+
+  // Determine if this is a new leader (name changed from previous)
+  const isNewLeader = previousLeaderName !== null && previousLeaderName !== currentName;
+
+  // If new leader, check if their count has increased since taking over
+  // If count increased, show delta instead of crown
+  if (isNewLeader) {
+    // Find this leader's first appearance (when they took over)
+    let firstAppearanceEfforts: number | null = null;
+    for (const hist of historicalSnapshots) {
+      if (hist.name === currentName && hist.efforts !== null && hist.efforts > 0) {
+        firstAppearanceEfforts = hist.efforts;
+      } else if (hist.name !== currentName) {
+        // We've gone past this leader's reign
+        break;
+      }
+    }
+
+    // If their count increased since taking over, show delta instead of crown
+    if (firstAppearanceEfforts !== null && currentEfforts > firstAppearanceEfforts) {
+      return {
+        delta: currentEfforts - firstAppearanceEfforts,
+        isNewLeader: false
+      };
+    }
+
+    // New leader, count hasn't increased yet - show crown
+    return { delta: null, isNewLeader: true };
+  }
+
+  // Same leader - calculate delta if efforts changed
+  if (previousDifferentEfforts !== null && currentEfforts > previousDifferentEfforts) {
+    return { delta: currentEfforts - previousDifferentEfforts, isNewLeader: false };
+  }
+
+  // No change or decrease
+  return { delta: null, isNewLeader: false };
 }
 
 /**
@@ -322,24 +410,27 @@ export async function getChaptersFromSupabase(): Promise<{
     return null;
   }
 
-  // For each segment, pick the most recent snapshot that has valid data
-  // Fall back to most recent snapshot if no valid data exists
-  const snapshotsBySegment = new Map<number, typeof allSnapshots[0]>();
+  // Group ALL snapshots by segment_id (for delta calculations)
+  // and also track the best (most recent with valid data) for display
+  const allSnapshotsBySegment = new Map<number, typeof allSnapshots>();
+  const bestSnapshotBySegment = new Map<number, typeof allSnapshots[0]>();
 
   for (const snapshot of allSnapshots) {
-    const existing = snapshotsBySegment.get(snapshot.segment_id);
+    // Add to history array
+    const history = allSnapshotsBySegment.get(snapshot.segment_id) || [];
+    history.push(snapshot);
+    allSnapshotsBySegment.set(snapshot.segment_id, history);
 
+    // Track best snapshot for display
+    const existing = bestSnapshotBySegment.get(snapshot.segment_id);
     if (!existing) {
-      // First snapshot for this segment - use it
-      snapshotsBySegment.set(snapshot.segment_id, snapshot);
+      bestSnapshotBySegment.set(snapshot.segment_id, snapshot);
     } else if (existing.total_efforts === null && snapshot.total_efforts !== null) {
-      // Current best has null data, this one has real data - use this one
-      snapshotsBySegment.set(snapshot.segment_id, snapshot);
+      bestSnapshotBySegment.set(snapshot.segment_id, snapshot);
     }
-    // Otherwise keep the existing one (it's more recent and has data, or both have null)
   }
 
-  const snapshots = Array.from(snapshotsBySegment.values());
+  const snapshots = Array.from(bestSnapshotBySegment.values());
 
   // 3. Fetch Google Sheet for segment URLs and missing chapters
   const { fetchChaptersFromSheet, formatLocation } = await import('./sheets');
@@ -373,6 +464,23 @@ export async function getChaptersFromSupabase(): Promise<{
 
     processedSegmentIds.add(snapshot.segment_id);
 
+    // Get historical snapshots for delta calculation (skip the first one which is current)
+    const segmentHistory = allSnapshotsBySegment.get(snapshot.segment_id) || [];
+    const historicalSnapshots = segmentHistory.slice(1); // Skip current, get older ones
+
+    // Calculate deltas for male and female leaders
+    const maleDelta = calculateLeaderDelta(
+      snapshot.male_leader_name,
+      snapshot.male_leader_efforts,
+      historicalSnapshots.map(s => ({ name: s.male_leader_name, efforts: s.male_leader_efforts }))
+    );
+
+    const femaleDelta = calculateLeaderDelta(
+      snapshot.female_leader_name,
+      snapshot.female_leader_efforts,
+      historicalSnapshots.map(s => ({ name: s.female_leader_name, efforts: s.female_leader_efforts }))
+    );
+
     chapters.push({
       city: snapshot.city,
       state: snapshot.state || '',
@@ -394,11 +502,13 @@ export async function getChaptersFromSupabase(): Promise<{
           name: snapshot.male_leader_name || 'No leader yet',
           profilePic: snapshot.male_leader_profile_pic || '',
           efforts: snapshot.male_leader_efforts || 0,
+          delta: maleDelta,
         },
         femaleLeader: {
           name: snapshot.female_leader_name || 'No leader yet',
           profilePic: snapshot.female_leader_profile_pic || '',
           efforts: snapshot.female_leader_efforts || 0,
+          delta: femaleDelta,
         },
         lastUpdated: snapshot.polled_at,
       },
