@@ -267,50 +267,44 @@ export default async function Home() {
             </div>
           )}
 
-          {/* Affiliate League Cards */}
-          {sortedAffiliate.length > 0 && (
-            <div className="mb-8">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {sortedAffiliate.map((chapter) => {
-                  const chapterId = `chapter-${chapter.city.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}`;
-                  if (chapter.segmentData && chapter.segmentUrl) {
-                    return (
-                      <div key={chapter.displayLocation} id={chapterId} className="transition-all duration-300">
-                        <AffiliateCard
-                          displayLocation={chapter.displayLocation}
-                          totalEfforts={chapter.segmentData.totalEfforts}
-                          maleLeader={chapter.segmentData.maleLeader}
-                          femaleLeader={chapter.segmentData.femaleLeader}
-                          segmentUrl={chapter.segmentUrl}
-                        />
-                      </div>
-                    );
-                  } else if (chapter.segmentUrl) {
-                    return (
-                      <div key={chapter.displayLocation} id={chapterId} className="transition-all duration-300">
-                        <LoadingSegmentCard
-                          displayLocation={chapter.displayLocation}
-                          segmentUrl={chapter.segmentUrl}
-                        />
-                      </div>
-                    );
-                  } else {
-                    return (
-                      <div key={chapter.displayLocation} id={chapterId} className="transition-all duration-300">
-                        <MissingSegmentCard
-                          displayLocation={chapter.displayLocation}
-                        />
-                      </div>
-                    );
-                  }
-                })}
-              </div>
-            </div>
-          )}
-
-          {/* Other Chapter Cards Grid */}
-          {sortedOthers.length > 0 ? (
+          {/* Affiliate League + Other Chapter Cards - combined grid for no gaps */}
+          {(sortedAffiliate.length > 0 || sortedOthers.length > 0) ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {/* Affiliates first */}
+              {sortedAffiliate.map((chapter) => {
+                const chapterId = `chapter-${chapter.city.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}`;
+                if (chapter.segmentData && chapter.segmentUrl) {
+                  return (
+                    <div key={chapter.displayLocation} id={chapterId} className="transition-all duration-300">
+                      <AffiliateCard
+                        displayLocation={chapter.displayLocation}
+                        totalEfforts={chapter.segmentData.totalEfforts}
+                        maleLeader={chapter.segmentData.maleLeader}
+                        femaleLeader={chapter.segmentData.femaleLeader}
+                        segmentUrl={chapter.segmentUrl}
+                      />
+                    </div>
+                  );
+                } else if (chapter.segmentUrl) {
+                  return (
+                    <div key={chapter.displayLocation} id={chapterId} className="transition-all duration-300">
+                      <LoadingSegmentCard
+                        displayLocation={chapter.displayLocation}
+                        segmentUrl={chapter.segmentUrl}
+                      />
+                    </div>
+                  );
+                } else {
+                  return (
+                    <div key={chapter.displayLocation} id={chapterId} className="transition-all duration-300">
+                      <MissingSegmentCard
+                        displayLocation={chapter.displayLocation}
+                      />
+                    </div>
+                  );
+                }
+              })}
+              {/* Then others */}
               {sortedOthers.map((chapter) => {
                 const chapterId = `chapter-${chapter.city.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}`;
                 if (chapter.segmentData && chapter.segmentUrl) {
