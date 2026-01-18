@@ -94,17 +94,6 @@ export default async function EmbedStatsPage() {
           </div>
         </div>
 
-        {/* Powered by link */}
-        <div className="text-center mt-4">
-          <a
-            href="https://burrito.run"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-white/40 text-xs hover:text-white/60 transition-colors"
-          >
-            powered by burrito.run
-          </a>
-        </div>
       </div>
     </div>
   );
