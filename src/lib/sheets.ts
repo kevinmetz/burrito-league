@@ -1,7 +1,7 @@
 // Fetches chapter data from the Mountain Outpost Google Sheet
 
 const SHEET_CSV_URL =
-  'https://docs.google.com/spreadsheets/d/14IryBvhyVun3fXbHCdDD6q6kWe5JwoqIj2TeRbYptxo/gviz/tq?tqx=out:csv';
+  'https://docs.google.com/spreadsheets/d/14IryBvhyVun3fXbHCdDD6q6kWe5JwoqIj2TeRbYptxo/gviz/tq?tqx=out:csv&headers=1';
 
 export interface SheetChapter {
   segmentName: string;
