@@ -1,3 +1,4 @@
+name: Poll Strava API
 on:
     schedule:
       # Batch 1 (most active segments) - runs at :00
@@ -22,8 +23,7 @@ on:
           description: 'Batch number (1, 2, 3, or empty for all)'
           required: false
           default: ''
-
-  jobs:
+jobs:
     poll:
       runs-on: ubuntu-latest
       steps:
