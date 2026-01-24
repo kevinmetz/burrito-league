@@ -116,8 +116,8 @@ function extractSegmentId(url: string): number | null {
   return match ? parseInt(match[1], 10) : null;
 }
 
-// Determine chapter status from Column K
-function parseColumnK(value: string): { segmentId: number | null; segmentUrl: string | null; status: 'valid' | 'need_segment' | 'duplicate' } {
+// Determine chapter status from Column E (segment URL)
+function parseSegmentColumn(value: string): { segmentId: number | null; segmentUrl: string | null; status: 'valid' | 'need_segment' | 'duplicate' } {
   const trimmed = value?.trim().toLowerCase() || '';
 
   // Check for duplicate
@@ -156,9 +156,9 @@ export async function fetchChaptersFromSheet(): Promise<SheetChapter[]> {
       // Skip rows without city data
       if (!cols[1] || !cols[1].trim()) continue;
 
-      // Parse Column K (index 10) for segment URL
-      const columnK = cols[10] || '';
-      const { segmentId, segmentUrl, status } = parseColumnK(columnK);
+      // Parse Column E (index 4) for segment URL
+      const columnE = cols[4] || '';
+      const { segmentId, segmentUrl, status } = parseSegmentColumn(columnE);
 
       chapters.push({
         segmentName: cols[0] || '',
