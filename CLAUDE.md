@@ -468,3 +468,73 @@ We call this endpoint twice per segment:
 
 ### Status
 **NOT IMPLEMENTED** - Documented for future reference if we decide to build it.
+
+---
+
+## Changelog
+
+### January 24, 2026 - Sheet Structure Fix & Batched Polling
+
+#### Problem
+Google Sheet structure changed - segment URL moved from Column K to Column E, breaking the site (all segments showing "Segment ID needed").
+
+#### Fixes Applied
+
+**1. Sheet Parsing Fix**
+- Updated `src/lib/sheets.ts` to read segment URL from Column E (index 4) instead of Column K (index 10)
+- Function renamed: `parseColumnK` → `parseSegmentColumn`
+
+**2. Force Refresh Capability**
+- Added `?force=true` parameter to poll endpoint
+- Bypasses "high water mark" logic to force update all data
+- Useful when sheet structure changes or data needs full reset
+
+**3. Globe Map - 8 New Cities Added**
+Added coordinates for new chapters in `src/lib/coordinates.ts`:
+- Wilmington, DE
+- Portland, ME
+- Lebanon, NH
+- Eugene, OR
+- Grapevine, TX
+- Waco, TX
+- Richmond, VA
+- Burlington, VT
+
+**4. Batched Polling (Rate Limit Solution)**
+
+*Problem:* 114 segments × 2 API calls = 228 calls, but Strava limits to 100 requests/15 mins.
+
+*Solution:* Split into 3 batches, sorted by activity (most active first):
+- Batch 1: Most active ~38 segments (runs at :00)
+- Batch 2: Medium activity ~38 segments (runs at :20)
+- Batch 3: Lower activity ~38 segments (runs at :40)
+
+*Files changed:*
+- `src/lib/supabase.ts` - Added `getAllSegmentEfforts()` for sorting by activity
+- `src/lib/strava.ts` - Added `getBatchedChaptersData()` function
+- `src/app/api/cron/poll-strava/route.ts` - Added `?batch=1|2|3` parameter
+- `.github/workflows/poll-strava.yml` - 12 cron schedules (4 times × 3 batches)
+
+*Schedule (Arizona/MST):*
+| Time | Batch 1 | Batch 2 | Batch 3 |
+|------|---------|---------|---------|
+| 12:00 AM | :00 | :20 | :40 |
+| 7:00 AM | :00 | :20 | :40 |
+| 12:00 PM | :00 | :20 | :40 |
+| 7:00 PM | :00 | :20 | :40 |
+
+**5. Utility Script**
+Added `scripts/find-missing-coords.ts` to find chapters missing globe coordinates:
+```bash
+npx tsx scripts/find-missing-coords.ts
+```
+
+#### API Endpoint Reference
+```
+POST /api/cron/poll-strava
+  ?batch=1     - Process batch 1 only (most active)
+  ?batch=2     - Process batch 2 only (medium)
+  ?batch=3     - Process batch 3 only (lower activity)
+  ?force=true  - Bypass high water mark
+  (no params)  - Process all (may hit rate limits)
+```
