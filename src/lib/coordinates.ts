@@ -81,6 +81,9 @@ export const chapterCoordinates: ChapterCoordinates[] = [
   { city: 'Steamboat Springs', state: 'Colorado', country: 'USA', lat: 40.4850, lng: -106.8317 },
   { city: 'Windsor', state: 'Colorado', country: 'USA', lat: 40.4775, lng: -104.9014 },
 
+  // USA - Delaware
+  { city: 'Wilmington', state: 'Delaware', country: 'USA', lat: 39.7391, lng: -75.5398 },
+
   // USA - Florida
   { city: 'Ponte Vedra', state: 'Florida', country: 'USA', lat: 30.2397, lng: -81.3856 },
 
@@ -99,6 +102,7 @@ export const chapterCoordinates: ChapterCoordinates[] = [
   { city: 'Westfield', state: 'Indiana', country: 'USA', lat: 40.0428, lng: -86.1275 },
 
   // USA - Maine
+  { city: 'Portland', state: 'Maine', country: 'USA', lat: 43.6591, lng: -70.2568 },
   { city: 'Scarborough', state: 'Maine', country: 'USA', lat: 43.5781, lng: -70.3478 },
 
   // USA - Massachusetts
@@ -121,6 +125,7 @@ export const chapterCoordinates: ChapterCoordinates[] = [
 
   // USA - New Hampshire
   { city: 'Hanover', state: 'New Hampshire', country: 'USA', lat: 43.7022, lng: -72.2896 },
+  { city: 'Lebanon', state: 'New Hampshire', country: 'USA', lat: 43.6426, lng: -72.2517 },
 
   // USA - New York
   { city: 'Buffalo', state: 'New York', country: 'USA', lat: 42.8864, lng: -78.8784 },
@@ -135,6 +140,7 @@ export const chapterCoordinates: ChapterCoordinates[] = [
 
   // USA - Oregon
   { city: 'Bend', state: 'Oregon', country: 'USA', lat: 44.0582, lng: -121.3153 },
+  { city: 'Eugene', state: 'Oregon', country: 'USA', lat: 44.0521, lng: -123.0868 },
   { city: 'Tualatin', state: 'Oregon', country: 'USA', lat: 45.3840, lng: -122.7640 },
 
   // USA - Pennsylvania
@@ -153,14 +159,20 @@ export const chapterCoordinates: ChapterCoordinates[] = [
   { city: 'Nashville', state: 'Tennessee', country: 'USA', lat: 36.1627, lng: -86.7816 },
 
   // USA - Texas
+  { city: 'Grapevine', state: 'Texas', country: 'USA', lat: 32.9343, lng: -97.0781 },
   { city: 'Houston', state: 'Texas', country: 'USA', lat: 29.7604, lng: -95.3698 },
   { city: 'Leander', state: 'Texas', country: 'USA', lat: 30.5788, lng: -97.8531 },
+  { city: 'Waco', state: 'Texas', country: 'USA', lat: 31.5493, lng: -97.1467 },
 
   // USA - Utah
   { city: 'Ogden', state: 'Utah', country: 'USA', lat: 41.2230, lng: -111.9738 },
   { city: 'St George', state: 'Utah', country: 'USA', lat: 37.0965, lng: -113.5684 },
 
+  // USA - Vermont
+  { city: 'Burlington', state: 'Vermont', country: 'USA', lat: 44.4759, lng: -73.2121 },
+
   // USA - Virginia
+  { city: 'Richmond', state: 'Virginia', country: 'USA', lat: 37.5407, lng: -77.4360 },
   { city: 'Virginia Beach', state: 'Virginia', country: 'USA', lat: 36.8529, lng: -75.9780 },
 
   // USA - Washington
