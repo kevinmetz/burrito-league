@@ -1,18 +1,15 @@
 name: Poll Strava API
+
 on:
     schedule:
-      # Batch 1 (most active segments) - runs at :00
-      # Times in UTC: 7:00, 14:00, 19:00, 2:00 = 12am, 7am, 12pm, 7pm MST
       - cron: '0 7 * * *'
       - cron: '0 14 * * *'
       - cron: '0 19 * * *'
       - cron: '0 2 * * *'
-      # Batch 2 (medium activity) - runs at :20
       - cron: '20 7 * * *'
       - cron: '20 14 * * *'
       - cron: '20 19 * * *'
       - cron: '20 2 * * *'
-      # Batch 3 (lower activity) - runs at :40
       - cron: '40 7 * * *'
       - cron: '40 14 * * *'
       - cron: '40 19 * * *'
@@ -20,9 +17,9 @@ on:
     workflow_dispatch:
       inputs:
         batch:
-          description: 'Batch number (1, 2, 3, or empty for all)'
+          description: Batch number (1, 2, 3, or empty for all)
           required: false
-          default: ''
+
 jobs:
     poll:
       runs-on: ubuntu-latest
