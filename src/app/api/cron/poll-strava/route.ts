@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getAllChaptersData, ChapterWithData } from '@/lib/strava';
+import { getAllChaptersData, getBatchedChaptersData, ChapterWithData } from '@/lib/strava';
 import {
   createPollRun,
   insertSegmentSnapshots,
@@ -34,14 +34,21 @@ export async function GET(request: NextRequest) {
   // Check for force refresh parameter
   const forceRefresh = request.nextUrl.searchParams.get('force') === 'true';
 
+  // Check for batch parameter (1, 2, or 3)
+  const batchParam = request.nextUrl.searchParams.get('batch');
+  const batch = batchParam ? parseInt(batchParam, 10) : null;
+
   const startTime = Date.now();
 
   try {
-    console.log(`Poll-Strava: Starting Strava API poll...${forceRefresh ? ' (FORCE REFRESH)' : ''}`);
+    const batchInfo = batch ? ` (Batch ${batch}/3)` : '';
+    console.log(`Poll-Strava: Starting Strava API poll...${forceRefresh ? ' (FORCE REFRESH)' : ''}${batchInfo}`);
 
-    // 1. Fetch all chapters data from Strava
-    const chapters = await getAllChaptersData();
-    console.log(`Poll-Strava: Fetched ${chapters.length} chapters`);
+    // 1. Fetch chapters data from Strava (all or batched)
+    const chapters = batch
+      ? await getBatchedChaptersData(batch, 3)
+      : await getAllChaptersData();
+    console.log(`Poll-Strava: Fetched ${chapters.length} chapters${batchInfo}`);
 
     // 2. Count successful fetches
     const successfulChapters = chapters.filter(
@@ -129,6 +136,7 @@ export async function GET(request: NextRequest) {
       success: true,
       pollRunId: pollRun.id,
       forceRefresh,
+      batch: batch || 'all',
       totalChapters: chapters.length,
       validChapters: validChapters.length,
       successfulChapters: successfulChapters.length,

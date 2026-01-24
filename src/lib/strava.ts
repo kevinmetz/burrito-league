@@ -208,6 +208,7 @@ export async function getSegmentData(
 }
 
 import { fetchChaptersFromSheet, formatLocation, SheetChapter } from './sheets';
+import { getAllSegmentEfforts } from './supabase';
 
 export interface ChapterWithData {
   city: string;
@@ -276,6 +277,109 @@ export async function getAllChaptersData(): Promise<ChapterWithData[]> {
       segmentData,
       segmentUrl: chapter.segmentUrl,
       status: chapter.status === 'valid' ? 'valid' : 'need_segment',
+    });
+  }
+
+  return results;
+}
+
+/**
+ * Get chapters data for a specific batch, sorted by activity (most active first)
+ * @param batch - Batch number (1, 2, or 3)
+ * @param totalBatches - Total number of batches (default 3)
+ */
+export async function getBatchedChaptersData(
+  batch: number,
+  totalBatches: number = 3
+): Promise<ChapterWithData[]> {
+  // Reset rate limit flag at start of batch
+  isRateLimited = false;
+
+  // Fetch chapters from Google Sheet
+  const sheetChapters = await fetchChaptersFromSheet();
+
+  // Filter out duplicates and non-valid
+  const validChapters = sheetChapters.filter(
+    (c) => c.status !== 'duplicate' && c.status === 'valid' && c.segmentId
+  );
+
+  // Get existing effort counts from Supabase for sorting
+  const effortCounts = await getAllSegmentEfforts();
+
+  // Sort by existing efforts (descending) - most active first
+  // Segments with no existing data go to the end
+  validChapters.sort((a, b) => {
+    const effortsA = effortCounts.get(a.segmentId!) || 0;
+    const effortsB = effortCounts.get(b.segmentId!) || 0;
+    return effortsB - effortsA;
+  });
+
+  // Calculate batch boundaries
+  const batchSize = Math.ceil(validChapters.length / totalBatches);
+  const startIndex = (batch - 1) * batchSize;
+  const endIndex = Math.min(batch * batchSize, validChapters.length);
+
+  // Get chapters for this batch
+  const batchChapters = validChapters.slice(startIndex, endIndex);
+
+  console.log(
+    `Batch ${batch}/${totalBatches}: Processing segments ${startIndex + 1}-${endIndex} of ${validChapters.length} (${batchChapters.length} segments)`
+  );
+
+  // Pre-calculate location counts for numbering
+  const locationTotals: Record<string, number> = {};
+  for (const chapter of sheetChapters.filter((c) => c.status === 'valid')) {
+    const baseLocation = formatLocation(chapter.city, chapter.state, chapter.country);
+    locationTotals[baseLocation] = (locationTotals[baseLocation] || 0) + 1;
+  }
+
+  // Process only this batch's chapters
+  const results: ChapterWithData[] = [];
+  const locationCounts: Record<string, number> = {};
+
+  // First pass: count locations for chapters before this batch (for correct numbering)
+  for (let i = 0; i < startIndex; i++) {
+    const chapter = validChapters[i];
+    const baseLocation = formatLocation(chapter.city, chapter.state, chapter.country);
+    if (locationTotals[baseLocation] > 1) {
+      locationCounts[baseLocation] = (locationCounts[baseLocation] || 0) + 1;
+    }
+  }
+
+  // Second pass: process this batch
+  for (const chapter of batchChapters) {
+    const baseLocation = formatLocation(chapter.city, chapter.state, chapter.country);
+    const segmentId = chapter.segmentId;
+
+    let displayLocation = baseLocation;
+    if (locationTotals[baseLocation] > 1) {
+      locationCounts[baseLocation] = (locationCounts[baseLocation] || 0) + 1;
+      displayLocation = `${baseLocation} #${locationCounts[baseLocation]}`;
+    }
+
+    let segmentData: SegmentData | null = null;
+
+    if (segmentId) {
+      try {
+        if (!isRateLimited) {
+          segmentData = await getSegmentData(segmentId, {
+            city: chapter.city,
+            state: chapter.state,
+          });
+        }
+      } catch (error) {
+        console.error(`Failed to fetch data for ${chapter.city}:`, error);
+      }
+    }
+
+    results.push({
+      city: chapter.city,
+      state: chapter.state,
+      displayLocation,
+      segmentId,
+      segmentData,
+      segmentUrl: chapter.segmentUrl,
+      status: 'valid',
     });
   }
 

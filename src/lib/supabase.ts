@@ -95,6 +95,34 @@ export async function createPollRun(
 }
 
 /**
+ * Get all segment effort counts for sorting by activity
+ * Returns a map of segmentId → total_efforts
+ */
+export async function getAllSegmentEfforts(): Promise<Map<number, number>> {
+  if (!supabase) return new Map();
+
+  const { data, error } = await supabase
+    .from('segment_snapshots')
+    .select('segment_id, total_efforts')
+    .order('polled_at', { ascending: false });
+
+  if (error) {
+    console.error('Error fetching segment efforts:', error);
+    return new Map();
+  }
+
+  // Keep only the most recent effort count per segment
+  const effortsBySegment = new Map<number, number>();
+  for (const row of data || []) {
+    if (!effortsBySegment.has(row.segment_id) && row.total_efforts) {
+      effortsBySegment.set(row.segment_id, row.total_efforts);
+    }
+  }
+
+  return effortsBySegment;
+}
+
+/**
  * Get the latest snapshot for each segment ID
  * Used to compare against new data before inserting
  */
