@@ -3,6 +3,7 @@ import { getAllChaptersData, ChapterWithData } from '@/lib/strava';
 import {
   createPollRun,
   insertSegmentSnapshots,
+  forceInsertSegmentSnapshots,
   SegmentSnapshot,
 } from '@/lib/supabase';
 
@@ -30,10 +31,13 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
+  // Check for force refresh parameter
+  const forceRefresh = request.nextUrl.searchParams.get('force') === 'true';
+
   const startTime = Date.now();
 
   try {
-    console.log('Poll-Strava: Starting Strava API poll...');
+    console.log(`Poll-Strava: Starting Strava API poll...${forceRefresh ? ' (FORCE REFRESH)' : ''}`);
 
     // 1. Fetch all chapters data from Strava
     const chapters = await getAllChaptersData();
@@ -101,14 +105,22 @@ export async function GET(request: NextRequest) {
       });
     }
 
-    // 5. Insert snapshots - uses "high water mark" approach
-    // Only inserts snapshots that are better than existing data
+    // 5. Insert snapshots
+    // Normal mode: uses "high water mark" approach (only inserts if better than existing)
+    // Force mode: bypasses high water mark and inserts all valid data
     let insertResult = { inserted: 0, skipped: 0 };
     if (snapshots.length > 0) {
-      insertResult = await insertSegmentSnapshots(pollRun.id, snapshots);
-      console.log(
-        `Poll-Strava: Inserted ${insertResult.inserted} snapshots, skipped ${insertResult.skipped} (existing data was better)`
-      );
+      if (forceRefresh) {
+        insertResult = await forceInsertSegmentSnapshots(pollRun.id, snapshots);
+        console.log(
+          `Poll-Strava: FORCE inserted ${insertResult.inserted} snapshots, ${insertResult.skipped} had no data`
+        );
+      } else {
+        insertResult = await insertSegmentSnapshots(pollRun.id, snapshots);
+        console.log(
+          `Poll-Strava: Inserted ${insertResult.inserted} snapshots, skipped ${insertResult.skipped} (existing data was better)`
+        );
+      }
     }
 
     const duration = Date.now() - startTime;
@@ -116,6 +128,7 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({
       success: true,
       pollRunId: pollRun.id,
+      forceRefresh,
       totalChapters: chapters.length,
       validChapters: validChapters.length,
       successfulChapters: successfulChapters.length,

@@ -217,6 +217,49 @@ export async function insertSegmentSnapshots(
   return { inserted: betterSnapshots.length, skipped };
 }
 
+/**
+ * Force insert all snapshots, bypassing the high water mark check.
+ * Use this when sheet structure changes or data needs a full refresh.
+ */
+export async function forceInsertSegmentSnapshots(
+  pollRunId: string,
+  snapshots: Omit<SegmentSnapshot, 'id' | 'poll_run_id' | 'polled_at'>[]
+): Promise<{ inserted: number; skipped: number }> {
+  if (!supabaseAdmin) return { inserted: 0, skipped: 0 };
+
+  // Filter out snapshots with no useful data
+  const validSnapshots = snapshots.filter(s =>
+    (s.total_efforts ?? 0) > 0 ||
+    !!s.male_leader_name ||
+    !!s.female_leader_name
+  );
+
+  const skipped = snapshots.length - validSnapshots.length;
+
+  if (validSnapshots.length === 0) {
+    console.log(`Force Poll: No valid snapshots to insert (${skipped} had no data)`);
+    return { inserted: 0, skipped };
+  }
+
+  console.log(`Force Poll: Inserting ${validSnapshots.length} snapshots (bypassing high water mark), ${skipped} had no data`);
+
+  const snapshotsWithPollId = validSnapshots.map((s) => ({
+    ...s,
+    poll_run_id: pollRunId,
+  }));
+
+  const { error } = await supabaseAdmin
+    .from('segment_snapshots')
+    .insert(snapshotsWithPollId);
+
+  if (error) {
+    console.error('Error force inserting segment snapshots:', error);
+    return { inserted: 0, skipped };
+  }
+
+  return { inserted: validSnapshots.length, skipped };
+}
+
 export async function getChapterCoordinates(): Promise<ChapterCoordinate[]> {
   if (!supabase) return [];
 
