@@ -732,21 +732,24 @@ export async function getChaptersFromSupabase(): Promise<{
 
   // Group ALL snapshots by segment_id (for delta calculations)
   // and also track the best (most recent with valid data) for display
+  // Note: Supabase may return segment_id as string, so we coerce to number for consistent Map keys
   const allSnapshotsBySegment = new Map<number, typeof allSnapshots>();
   const bestSnapshotBySegment = new Map<number, typeof allSnapshots[0]>();
 
   for (const snapshot of allSnapshots) {
+    const segmentId = Number(snapshot.segment_id);
+
     // Add to history array
-    const history = allSnapshotsBySegment.get(snapshot.segment_id) || [];
+    const history = allSnapshotsBySegment.get(segmentId) || [];
     history.push(snapshot);
-    allSnapshotsBySegment.set(snapshot.segment_id, history);
+    allSnapshotsBySegment.set(segmentId, history);
 
     // Track best snapshot for display
-    const existing = bestSnapshotBySegment.get(snapshot.segment_id);
+    const existing = bestSnapshotBySegment.get(segmentId);
     if (!existing) {
-      bestSnapshotBySegment.set(snapshot.segment_id, snapshot);
+      bestSnapshotBySegment.set(segmentId, snapshot);
     } else if (existing.total_efforts === null && snapshot.total_efforts !== null) {
-      bestSnapshotBySegment.set(snapshot.segment_id, snapshot);
+      bestSnapshotBySegment.set(segmentId, snapshot);
     }
   }
 
@@ -775,17 +778,18 @@ export async function getChaptersFromSupabase(): Promise<{
   const processedSegmentIds = new Set<number>();
 
   for (const snapshot of snapshots) {
-    const sheetData = sheetBySegmentId.get(snapshot.segment_id);
+    const segmentId = Number(snapshot.segment_id);
+    const sheetData = sheetBySegmentId.get(segmentId);
 
     // Skip snapshots that are no longer in the sheet (orphaned segments)
     if (!sheetData) {
       continue;
     }
 
-    processedSegmentIds.add(snapshot.segment_id);
+    processedSegmentIds.add(segmentId);
 
     // Get historical snapshots for delta calculation (skip the first one which is current)
-    const segmentHistory = allSnapshotsBySegment.get(snapshot.segment_id) || [];
+    const segmentHistory = allSnapshotsBySegment.get(segmentId) || [];
     const historicalSnapshots = segmentHistory.slice(1); // Skip current, get older ones
 
     // Calculate deltas for male and female leaders
@@ -809,9 +813,9 @@ export async function getChaptersFromSupabase(): Promise<{
         snapshot.state || '',
         snapshot.country || 'USA'
       ),
-      segmentId: snapshot.segment_id,
+      segmentId: segmentId,
       segmentData: {
-        segmentId: snapshot.segment_id,
+        segmentId: segmentId,
         segmentName: '',
         city: snapshot.city,
         state: snapshot.state || '',
