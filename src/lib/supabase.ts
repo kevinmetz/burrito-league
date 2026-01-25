@@ -41,6 +41,27 @@ export interface ChapterCoordinate {
   created_at: string;
 }
 
+export interface PollDetail {
+  id: string;
+  poll_run_id: string;
+  segment_id: number;
+  display_location: string | null;
+  // What Strava API returned
+  api_total_efforts: number | null;
+  api_male_leader_name: string | null;
+  api_male_leader_efforts: number | null;
+  api_female_leader_name: string | null;
+  api_female_leader_efforts: number | null;
+  // What we had before
+  existing_total_efforts: number | null;
+  existing_male_leader_efforts: number | null;
+  existing_female_leader_efforts: number | null;
+  // What we did
+  action: 'inserted' | 'skipped' | 'no_data';
+  skip_reason: string | null;
+  created_at: string;
+}
+
 // Create Supabase client for server-side use
 const supabaseUrl = process.env.SUPABASE_URL;
 const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
@@ -204,6 +225,24 @@ function isSnapshotBetter(
   return false;
 }
 
+/**
+ * Insert poll details for diagnostics - records what Strava returned vs what we had
+ */
+async function insertPollDetails(
+  pollRunId: string,
+  details: Omit<PollDetail, 'id' | 'created_at'>[]
+): Promise<void> {
+  if (!supabaseAdmin || details.length === 0) return;
+
+  const { error } = await supabaseAdmin
+    .from('poll_details')
+    .insert(details.map(d => ({ ...d, poll_run_id: pollRunId })));
+
+  if (error) {
+    console.error('Error inserting poll details:', error);
+  }
+}
+
 export async function insertSegmentSnapshots(
   pollRunId: string,
   snapshots: Omit<SegmentSnapshot, 'id' | 'poll_run_id' | 'polled_at'>[]
@@ -214,10 +253,55 @@ export async function insertSegmentSnapshots(
   const segmentIds = snapshots.map(s => s.segment_id);
   const existingSnapshots = await getLatestSnapshots(segmentIds);
 
-  // Filter to only snapshots that are "better" than existing
-  const betterSnapshots = snapshots.filter(snapshot =>
-    isSnapshotBetter(snapshot, existingSnapshots.get(snapshot.segment_id))
-  );
+  // Track details for each snapshot
+  const pollDetails: Omit<PollDetail, 'id' | 'created_at'>[] = [];
+  const betterSnapshots: typeof snapshots = [];
+
+  for (const snapshot of snapshots) {
+    const existing = existingSnapshots.get(snapshot.segment_id);
+    const isBetter = isSnapshotBetter(snapshot, existing);
+    const hasNoData = !snapshot.total_efforts && !snapshot.male_leader_name && !snapshot.female_leader_name;
+
+    let action: 'inserted' | 'skipped' | 'no_data';
+    let skipReason: string | null = null;
+
+    if (hasNoData) {
+      action = 'no_data';
+      skipReason = 'API returned no data';
+    } else if (isBetter) {
+      action = 'inserted';
+      betterSnapshots.push(snapshot);
+    } else {
+      action = 'skipped';
+      // Determine why we skipped
+      if (existing && (existing.total_efforts ?? 0) > (snapshot.total_efforts ?? 0)) {
+        skipReason = `Existing efforts (${existing.total_efforts}) > API (${snapshot.total_efforts})`;
+      } else if (existing && (existing.total_efforts ?? 0) === (snapshot.total_efforts ?? 0)) {
+        skipReason = `Efforts equal (${snapshot.total_efforts}), no new leader data`;
+      } else {
+        skipReason = 'Existing data is better or equal';
+      }
+    }
+
+    pollDetails.push({
+      poll_run_id: pollRunId,
+      segment_id: snapshot.segment_id,
+      display_location: snapshot.display_location,
+      api_total_efforts: snapshot.total_efforts,
+      api_male_leader_name: snapshot.male_leader_name,
+      api_male_leader_efforts: snapshot.male_leader_efforts,
+      api_female_leader_name: snapshot.female_leader_name,
+      api_female_leader_efforts: snapshot.female_leader_efforts,
+      existing_total_efforts: existing?.total_efforts ?? null,
+      existing_male_leader_efforts: existing?.male_leader_efforts ?? null,
+      existing_female_leader_efforts: existing?.female_leader_efforts ?? null,
+      action,
+      skip_reason: skipReason,
+    });
+  }
+
+  // Insert poll details for diagnostics
+  await insertPollDetails(pollRunId, pollDetails);
 
   const skipped = snapshots.length - betterSnapshots.length;
 
@@ -255,12 +339,56 @@ export async function forceInsertSegmentSnapshots(
 ): Promise<{ inserted: number; skipped: number }> {
   if (!supabaseAdmin) return { inserted: 0, skipped: 0 };
 
-  // Filter out snapshots with no useful data
-  const validSnapshots = snapshots.filter(s =>
-    (s.total_efforts ?? 0) > 0 ||
-    !!s.male_leader_name ||
-    !!s.female_leader_name
-  );
+  // Get existing snapshots for comparison logging
+  const segmentIds = snapshots.map(s => s.segment_id);
+  const existingSnapshots = await getLatestSnapshots(segmentIds);
+
+  // Track details for each snapshot
+  const pollDetails: Omit<PollDetail, 'id' | 'created_at'>[] = [];
+  const validSnapshots: typeof snapshots = [];
+
+  for (const snapshot of snapshots) {
+    const existing = existingSnapshots.get(snapshot.segment_id);
+    const hasNoData = !snapshot.total_efforts && !snapshot.male_leader_name && !snapshot.female_leader_name;
+
+    if (hasNoData) {
+      pollDetails.push({
+        poll_run_id: pollRunId,
+        segment_id: snapshot.segment_id,
+        display_location: snapshot.display_location,
+        api_total_efforts: snapshot.total_efforts,
+        api_male_leader_name: snapshot.male_leader_name,
+        api_male_leader_efforts: snapshot.male_leader_efforts,
+        api_female_leader_name: snapshot.female_leader_name,
+        api_female_leader_efforts: snapshot.female_leader_efforts,
+        existing_total_efforts: existing?.total_efforts ?? null,
+        existing_male_leader_efforts: existing?.male_leader_efforts ?? null,
+        existing_female_leader_efforts: existing?.female_leader_efforts ?? null,
+        action: 'no_data',
+        skip_reason: 'API returned no data (force mode)',
+      });
+    } else {
+      validSnapshots.push(snapshot);
+      pollDetails.push({
+        poll_run_id: pollRunId,
+        segment_id: snapshot.segment_id,
+        display_location: snapshot.display_location,
+        api_total_efforts: snapshot.total_efforts,
+        api_male_leader_name: snapshot.male_leader_name,
+        api_male_leader_efforts: snapshot.male_leader_efforts,
+        api_female_leader_name: snapshot.female_leader_name,
+        api_female_leader_efforts: snapshot.female_leader_efforts,
+        existing_total_efforts: existing?.total_efforts ?? null,
+        existing_male_leader_efforts: existing?.male_leader_efforts ?? null,
+        existing_female_leader_efforts: existing?.female_leader_efforts ?? null,
+        action: 'inserted',
+        skip_reason: null,
+      });
+    }
+  }
+
+  // Insert poll details for diagnostics
+  await insertPollDetails(pollRunId, pollDetails);
 
   const skipped = snapshots.length - validSnapshots.length;
 
