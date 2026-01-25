@@ -719,12 +719,29 @@ export async function getChaptersFromSupabase(): Promise<{
   }
 
   // 2. Get all snapshots for each segment (needed for delta calculations)
-  // Supabase defaults to 1000 rows, so we explicitly set a higher limit
-  const { data: allSnapshots, error: snapshotsError } = await supabase
-    .from('segment_snapshots')
-    .select('*')
-    .order('polled_at', { ascending: false })
-    .limit(10000);
+  // Supabase has a max 1000 rows per request, so we paginate
+  let allSnapshots: any[] = [];
+  let page = 0;
+  const pageSize = 1000;
+  let hasMore = true;
+
+  while (hasMore) {
+    const { data, error } = await supabase
+      .from('segment_snapshots')
+      .select('*')
+      .order('polled_at', { ascending: false })
+      .range(page * pageSize, (page + 1) * pageSize - 1);
+
+    if (error || !data || data.length === 0) {
+      hasMore = false;
+    } else {
+      allSnapshots = allSnapshots.concat(data);
+      hasMore = data.length === pageSize;
+      page++;
+    }
+  }
+
+  const snapshotsError = allSnapshots.length === 0 ? new Error('No snapshots') : null;
 
   if (snapshotsError || !allSnapshots || allSnapshots.length === 0) {
     console.log('No snapshots found, will use direct Strava fetch');
