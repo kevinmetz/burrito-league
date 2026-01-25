@@ -1,49 +1,33 @@
 import { NextResponse } from 'next/server';
-import { fetchChaptersFromSheet } from '@/lib/sheets';
-import { createClient } from '@supabase/supabase-js';
+import { getChaptersFromSupabase } from '@/lib/supabase';
 
 export async function GET() {
-  const chapters = await fetchChaptersFromSheet();
   const targetIds = [40750978, 40802176, 40802759, 1433169, 40758106];
 
-  // Check Supabase directly
-  const supabase = createClient(
-    process.env.SUPABASE_URL!,
-    process.env.SUPABASE_ANON_KEY!
+  // Call the actual function used by the page
+  const result = await getChaptersFromSupabase();
+
+  if (!result) {
+    return NextResponse.json({ error: 'getChaptersFromSupabase returned null' });
+  }
+
+  // Find the target chapters
+  const targetChapters = result.chapters.filter(c =>
+    targetIds.includes(c.segmentId || 0)
   );
 
-  const { data: snapshots, error } = await supabase
-    .from('segment_snapshots')
-    .select('segment_id, display_location, total_efforts, polled_at')
-    .in('segment_id', targetIds)
-    .order('polled_at', { ascending: false })
-    .limit(10);
-
-  // Check what getChaptersFromSupabase would see
-  const { data: allSnapshots } = await supabase
-    .from('segment_snapshots')
-    .select('segment_id')
-    .order('polled_at', { ascending: false });
-
-  const uniqueSegmentIds = [...new Set(allSnapshots?.map(s => s.segment_id) || [])];
-  const targetInSnapshots = targetIds.filter(id => uniqueSegmentIds.includes(id));
-  const targetMissing = targetIds.filter(id => !uniqueSegmentIds.includes(id));
+  // Check which have data vs not
+  const withData = targetChapters.filter(c => c.segmentData !== null);
+  const withoutData = targetChapters.filter(c => c.segmentData === null);
 
   return NextResponse.json({
-    sheetParsing: {
-      totalChapters: chapters.length,
-      chaptersWithSegmentId: chapters.filter(c => c.segmentId).length,
-      targetSegmentsInSheet: chapters.filter(c => targetIds.includes(c.segmentId || 0)).map(c => ({
-        city: c.city,
-        segmentId: c.segmentId,
-      })),
-    },
-    supabase: {
-      error: error?.message,
-      targetSnapshots: snapshots,
-      totalUniqueSegments: uniqueSegmentIds.length,
-      targetInSnapshots,
-      targetMissing,
+    totalChapters: result.chapters.length,
+    chaptersWithData: result.chapters.filter(c => c.segmentData !== null).length,
+    chaptersWithoutData: result.chapters.filter(c => c.segmentData === null).length,
+    targetChapters: {
+      total: targetChapters.length,
+      withData: withData.map(c => ({ city: c.city, segmentId: c.segmentId, efforts: c.segmentData?.totalEfforts })),
+      withoutData: withoutData.map(c => ({ city: c.city, segmentId: c.segmentId, status: c.status })),
     },
   });
 }
