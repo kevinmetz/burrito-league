@@ -10,11 +10,12 @@ export async function GET() {
     process.env.SUPABASE_ANON_KEY!
   );
 
-  // Get all snapshots (same query as getChaptersFromSupabase)
+  // Get all snapshots (same query as getChaptersFromSupabase - with explicit limit)
   const { data: allSnapshots } = await supabase
     .from('segment_snapshots')
     .select('*')
-    .order('polled_at', { ascending: false });
+    .order('polled_at', { ascending: false })
+    .limit(10000);
 
   // Build the map the same way
   const bestSnapshotBySegment = new Map<number, any>();
