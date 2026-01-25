@@ -718,13 +718,12 @@ export async function getChaptersFromSupabase(): Promise<{
     return null;
   }
 
-  // 2. Get the latest snapshot for each segment (with valid data preferred)
-  // First get all recent snapshots, then pick the best one per segment
+  // 2. Get all snapshots for each segment (needed for delta calculations)
+  // No limit - data volume is small enough that this is fine
   const { data: allSnapshots, error: snapshotsError } = await supabase
     .from('segment_snapshots')
     .select('*')
-    .order('polled_at', { ascending: false })
-    .limit(1000); // Get enough to cover all segments across recent polls
+    .order('polled_at', { ascending: false });
 
   if (snapshotsError || !allSnapshots || allSnapshots.length === 0) {
     console.log('No snapshots found, will use direct Strava fetch');
