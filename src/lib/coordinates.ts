@@ -186,26 +186,28 @@ export const chapterCoordinates: ChapterCoordinates[] = [
   // USA - Washington DC
   { city: 'Washington DC', state: 'DC', country: 'USA', lat: 38.9072, lng: -77.0369 },
 
+  // USA - Missouri
+  { city: 'Wildwood', state: 'Missouri', country: 'USA', lat: 38.5829, lng: -90.6629 },
+
   // USA - Wisconsin
-  { city: 'Madison', state: 'Wisconsin', country: 'USA', lat: 43.0731, lng: -89.4012 },
+  { city: 'Madison Heights', state: 'Wisconsin', country: 'USA', lat: 43.1009, lng: -89.5122 },
 
   // Australia
-  { city: 'Sydney', state: 'New South Wales', country: 'Australia', lat: -33.8688, lng: 151.2093 },
+  { city: 'Sydney', state: '', country: 'AUS', lat: -33.8688, lng: 151.2093 },
 
   // Chile
-  { city: 'Santiago', state: 'Santiago', country: 'Chile', lat: -33.4489, lng: -70.6693 },
+  { city: 'Santiago', state: '', country: 'Chile', lat: -33.4489, lng: -70.6693 },
 
   // Mexico
-  { city: 'Guadalajara', state: 'Jalisco', country: 'Mexico', lat: 20.6597, lng: -103.3496 },
+  { city: 'Guadalajara Jalisco', state: '', country: 'MX', lat: 20.6597, lng: -103.3496 },
 
   // New Zealand
-  { city: 'Auckland', state: 'Auckland', country: 'New Zealand', lat: -36.8509, lng: 174.7645 },
+  { city: 'Auckland', state: '', country: 'NZ', lat: -36.8509, lng: 174.7645 },
 
   // France
   { city: 'Paris', state: '', country: 'France', lat: 48.8566, lng: 2.3522 },
 
   // United Kingdom
-  { city: 'Castle Cary', state: 'Somerset', country: 'UK', lat: 51.0952, lng: -2.5176 },
   { city: 'Failsworth', state: 'Manchester', country: 'UK', lat: 53.5102, lng: -2.1569 },
 ];
 
