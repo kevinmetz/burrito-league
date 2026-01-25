@@ -310,9 +310,20 @@ export async function insertSegmentSnapshots(
     return { inserted: 0, skipped };
   }
 
-  console.log(`Poll: Inserting ${betterSnapshots.length} better snapshots, skipping ${skipped}`);
+  // Deduplicate by segment_id (keep first occurrence, which has highest efforts due to sorting)
+  const seenSegmentIds = new Set<number>();
+  const uniqueSnapshots = betterSnapshots.filter(s => {
+    if (seenSegmentIds.has(s.segment_id)) {
+      console.log(`Poll: Skipping duplicate segment_id ${s.segment_id} (${s.display_location})`);
+      return false;
+    }
+    seenSegmentIds.add(s.segment_id);
+    return true;
+  });
 
-  const snapshotsWithPollId = betterSnapshots.map((s) => ({
+  console.log(`Poll: Inserting ${uniqueSnapshots.length} better snapshots, skipping ${skipped} (${betterSnapshots.length - uniqueSnapshots.length} duplicates removed)`);
+
+  const snapshotsWithPollId = uniqueSnapshots.map((s) => ({
     ...s,
     poll_run_id: pollRunId,
   }));
@@ -326,7 +337,7 @@ export async function insertSegmentSnapshots(
     return { inserted: 0, skipped };
   }
 
-  return { inserted: betterSnapshots.length, skipped };
+  return { inserted: uniqueSnapshots.length, skipped };
 }
 
 /**
@@ -397,9 +408,20 @@ export async function forceInsertSegmentSnapshots(
     return { inserted: 0, skipped };
   }
 
-  console.log(`Force Poll: Inserting ${validSnapshots.length} snapshots (bypassing high water mark), ${skipped} had no data`);
+  // Deduplicate by segment_id (keep first occurrence)
+  const seenSegmentIds = new Set<number>();
+  const uniqueSnapshots = validSnapshots.filter(s => {
+    if (seenSegmentIds.has(s.segment_id)) {
+      console.log(`Force Poll: Skipping duplicate segment_id ${s.segment_id} (${s.display_location})`);
+      return false;
+    }
+    seenSegmentIds.add(s.segment_id);
+    return true;
+  });
 
-  const snapshotsWithPollId = validSnapshots.map((s) => ({
+  console.log(`Force Poll: Inserting ${uniqueSnapshots.length} snapshots (bypassing high water mark), ${skipped} had no data, ${validSnapshots.length - uniqueSnapshots.length} duplicates removed`);
+
+  const snapshotsWithPollId = uniqueSnapshots.map((s) => ({
     ...s,
     poll_run_id: pollRunId,
   }));
@@ -413,7 +435,7 @@ export async function forceInsertSegmentSnapshots(
     return { inserted: 0, skipped };
   }
 
-  return { inserted: validSnapshots.length, skipped };
+  return { inserted: uniqueSnapshots.length, skipped };
 }
 
 export async function getChapterCoordinates(): Promise<ChapterCoordinate[]> {
