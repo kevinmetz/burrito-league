@@ -27,18 +27,30 @@ jobs:
         - name: Determine batch from schedule
           id: batch
           run: |
-            MINUTE=$(date -u +%M)
+            # Manual trigger with explicit batch
             if [ "${{ github.event.inputs.batch }}" != "" ]; then
               echo "batch=${{ github.event.inputs.batch }}" >> $GITHUB_OUTPUT
-            elif [ "$MINUTE" -lt "10" ]; then
-              echo "batch=1" >> $GITHUB_OUTPUT
-            elif [ "$MINUTE" -lt "30" ]; then
-              echo "batch=2" >> $GITHUB_OUTPUT
-            elif [ "$MINUTE" -lt "50" ]; then
-              echo "batch=3" >> $GITHUB_OUTPUT
-            else
-              echo "batch=" >> $GITHUB_OUTPUT
+              exit 0
             fi
+
+            # Determine batch from which cron schedule triggered this run
+            # (Don't rely on execution time - GitHub delays crons by 10-30 min)
+            SCHEDULE="${{ github.event.schedule }}"
+            case "$SCHEDULE" in
+              "0 7 * * *"|"0 14 * * *"|"0 19 * * *"|"0 2 * * *")
+                echo "batch=1" >> $GITHUB_OUTPUT
+                ;;
+              "20 7 * * *"|"20 14 * * *"|"20 19 * * *"|"20 2 * * *")
+                echo "batch=2" >> $GITHUB_OUTPUT
+                ;;
+              "40 7 * * *"|"40 14 * * *"|"40 19 * * *"|"40 2 * * *")
+                echo "batch=3" >> $GITHUB_OUTPUT
+                ;;
+              *)
+                # Fallback for manual runs without batch specified
+                echo "batch=" >> $GITHUB_OUTPUT
+                ;;
+            esac
 
         - name: Poll Strava API
           run: |
