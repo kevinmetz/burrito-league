@@ -1,0 +1,83 @@
+City,State,Country,Latitude,Longitude,Source
+"Aberdeen","WA","USA",46.975371,-123.815722,geocoded
+"Ann Arbor","MI","USA",42.2813722,-83.7484616,geocoded
+"Arcata","CA","USA",40.866517,-124.08284,geocoded
+"Atlanta","GA","USA",33.7544657,-84.3898151,geocoded
+"Auburn","CA","USA",38.8945939,-121.0739897,geocoded
+"Auckland","","NZ",-36.852095,174.7631803,geocoded
+"Bedford","IN","USA",38.8611619,-86.4872149,geocoded
+"Bend","OR","USA",44.0581728,-121.3153096,geocoded
+"Berthoud","CO","USA",40.3135085,-104.9700676,geocoded
+"Boise","ID","USA",43.6166163,-116.200886,geocoded
+"Boulder","CO","USA",40.0149856,-105.270545,geocoded
+"Bozeman","MT","USA",45.6794293,-111.044047,geocoded
+"Buffalo","NY","USA",42.8864163,-78.8781493,geocoded
+"Calgary","Alberta","CAN",51.0414312,-114.0176929,geocoded
+"Castle Cary","Somerset","UK",51.0785623,-2.5313643,geocoded
+"Castle Rock","CO","USA",39.3722552,-104.858682,geocoded
+"Chattanooga","TN","USA",35.0457219,-85.3094883,geocoded
+"Colorado Springs","CO","USA",38.8339578,-104.825348,geocoded
+"Denver / Wheat Ridge","CO","USA",39.7861893,-105.069369,geocoded
+"Flagstaff","AZ","USA",35.1987522,-111.651822,geocoded
+"Fresno","CA","USA",36.7394421,-119.78483,geocoded
+"Fridley & Columbia Heights","MN","USA",45.0646496,-93.2618973,geocoded
+"Gila Bend","AZ","USA",32.9476184,-112.7144993,geocoded
+"Golden","CO","USA",39.7546349,-105.22058,geocoded
+"Greenville","SC","USA",34.851354,-82.3984882,geocoded
+"Guadalajara Jalisco","","MX",20.6644273,-103.3813367,geocoded
+"Hanover","NH","USA",43.7023545,-72.2892164,geocoded
+"Hardy","AR","USA",36.3158994,-91.4826388,geocoded
+"Henryville","PA","USA",41.0937032,-75.2412927,geocoded
+"Houston","TX","USA",29.7589382,-95.3676974,geocoded
+"Idaho Springs","CO","USA",39.7425969,-105.5136365,geocoded
+"Joshua Tree","CA","USA",34.1350358,-116.315277,geocoded
+"Koloa","HI","USA",21.9042279,-159.465733,geocoded
+"La Quinta","CA","USA",33.677474,-116.2958789,geocoded
+"Las Vegas","NV","USA",36.1674263,-115.1484131,geocoded
+"Lompoc","CA","USA",34.6391501,-120.4579009,geocoded
+"Los Angeles","CA","USA",34.0536909,-118.242766,geocoded
+"Madison Heights","MI","USA",42.4858692,-83.1052028,geocoded
+"Marana","AZ","USA",32.4483736,-111.211475,geocoded
+"Missoula","MT","USA",46.8701049,-113.995267,geocoded
+"Montreal","","CAN",45.5137474,-73.6338787,geocoded
+"Nashville","TN","USA",36.1622767,-86.7742984,geocoded
+"New Paltz","NY","USA",41.7464972,-74.0844894,geocoded
+"New York","NY","USA",40.7127281,-74.0060152,geocoded
+"Oceanside","CA","USA",33.1958696,-117.379483,geocoded
+"Ojai","CA","USA",34.4480495,-119.242889,geocoded
+"Ottawa","","CAN",45.4041115,-75.711883,geocoded
+"Palm Desert","CA","USA",33.7288179,-116.382571,geocoded
+"Phildelphia","PA","USA",40.0723631,-75.1015019,geocoded
+"Ponte Vedra","FL","USA",30.2396865,-81.3856384,geocoded
+"Prescott","AZ","USA",34.539984,-112.468812,geocoded
+"Pullman","WA","USA",46.7304268,-117.173895,geocoded
+"Redlands","CA","USA",34.0550328,-117.1827445,geocoded
+"Reno","NV","USA",39.5261788,-119.812658,geocoded
+"Roseville-Rocklin","CA","USA",38.7986435,-121.2973781,geocoded
+"Salida","CO","USA",38.5371195,-105.990968,geocoded
+"San Francisco","CA","USA",37.7879363,-122.4075201,geocoded
+"San Ramon","CA","USA",37.7648021,-121.9544387,geocoded
+"Santa Barbara","CA","USA",34.4221319,-119.702667,geocoded
+"Santiago","","Chile",-33.4377756,-70.6504502,geocoded
+"Saratoga Springs","NY","USA",43.0821793,-73.7853915,geocoded
+"Scarborough","ME","USA",43.590148,-70.3344722,geocoded
+"Scarborough","Ontario","CAN",43.820952,-79.3052626,geocoded
+"Seattle","WA","USA",47.6038321,-122.330062,geocoded
+"Sioux City","SD","USA",42.5246831,-96.4872384,geocoded
+"Spindale","NC","USA",35.3574856,-81.9312068,geocoded
+"St George","UT","USA",37.1098772,-113.5832063,geocoded
+"Steamboat Springs","CO","USA",40.4848003,-106.831735,geocoded
+"Sydney","","AUS",-33.8315618,151.226874,geocoded
+"Tempe","AZ","USA",33.4255117,-111.940016,geocoded
+"Toronto","Ontario","CAN",43.6604455,-79.3861679,geocoded
+"Tualatin","OR","USA",45.3809339,-122.7694369,geocoded
+"Tucson","AZ","USA",32.2228765,-110.974847,geocoded
+"Vancouver","BC","CAN",49.2697615,-123.0942924,geocoded
+"Virginia Beach","VA","USA",36.8496579,-75.9760751,geocoded
+"Wake Forest","NC","USA",35.9803138,-78.5103731,geocoded
+"Wellpinit","WA","USA",47.8879399,-117.988025,geocoded
+"West Hollywood","CA","USA",34.0923014,-118.3692894,geocoded
+"Westfield","IN","USA",40.0428151,-86.1274888,geocoded
+"Windsor","CO","USA",40.4774818,-104.901361,geocoded
+"Winnipeg","MB","CAN",49.8825429,-97.1499315,geocoded
+"Winthrop","WA","USA",48.4779232,-120.186195,geocoded

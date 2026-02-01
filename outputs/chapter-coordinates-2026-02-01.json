@@ -1,0 +1,822 @@
+[
+  {
+    "id": "f328af19-75a0-4ae4-943f-eaef30f3b7cd",
+    "city": "Aberdeen",
+    "state": "WA",
+    "country": "USA",
+    "lat": 46.975371,
+    "lng": -123.815722,
+    "source": "geocoded",
+    "created_at": "2026-01-14T04:32:41.222889+00:00"
+  },
+  {
+    "id": "0e2e78c7-0531-45de-9464-303295c638d2",
+    "city": "Ann Arbor",
+    "state": "MI",
+    "country": "USA",
+    "lat": 42.2813722,
+    "lng": -83.7484616,
+    "source": "geocoded",
+    "created_at": "2026-01-14T04:32:55.186217+00:00"
+  },
+  {
+    "id": "9b6caeae-fda9-48b2-a6fc-0c4b0aa4663b",
+    "city": "Arcata",
+    "state": "CA",
+    "country": "USA",
+    "lat": 40.866517,
+    "lng": -124.08284,
+    "source": "geocoded",
+    "created_at": "2026-01-14T04:31:21.986588+00:00"
+  },
+  {
+    "id": "49d0bd84-8b5d-4ddf-bfe2-b3a5c017cc1d",
+    "city": "Atlanta",
+    "state": "GA",
+    "country": "USA",
+    "lat": 33.7544657,
+    "lng": -84.3898151,
+    "source": "geocoded",
+    "created_at": "2026-01-14T04:31:46.519827+00:00"
+  },
+  {
+    "id": "a5f1ca41-8a7c-450d-8bf4-de207f032325",
+    "city": "Auburn",
+    "state": "CA",
+    "country": "USA",
+    "lat": 38.8945939,
+    "lng": -121.0739897,
+    "source": "geocoded",
+    "created_at": "2026-01-14T04:31:15.67012+00:00"
+  },
+  {
+    "id": "e850fe0a-5439-4d72-8711-8c1442ef20b9",
+    "city": "Auckland",
+    "state": null,
+    "country": "NZ",
+    "lat": -36.852095,
+    "lng": 174.7631803,
+    "source": "geocoded",
+    "created_at": "2026-01-14T04:32:47.628766+00:00"
+  },
+  {
+    "id": "4855c38f-f22c-418f-af14-33ac2d4988b4",
+    "city": "Bedford",
+    "state": "IN",
+    "country": "USA",
+    "lat": 38.8611619,
+    "lng": -86.4872149,
+    "source": "geocoded",
+    "created_at": "2026-01-16T14:22:20.123542+00:00"
+  },
+  {
+    "id": "2ed6559f-6b44-414f-b30d-e30f587cb031",
+    "city": "Bend",
+    "state": "OR",
+    "country": "USA",
+    "lat": 44.0581728,
+    "lng": -121.3153096,
+    "source": "geocoded",
+    "created_at": "2026-01-14T04:32:25.147868+00:00"
+  },
+  {
+    "id": "22dd708a-4f88-4856-a0d8-10f83cb4b0c8",
+    "city": "Berthoud",
+    "state": "CO",
+    "country": "USA",
+    "lat": 40.3135085,
+    "lng": -104.9700676,
+    "source": "geocoded",
+    "created_at": "2026-01-14T04:31:33.420174+00:00"
+  },
+  {
+    "id": "88b0d1a8-020c-4ca3-96b7-f882a9a359c8",
+    "city": "Boise",
+    "state": "ID",
+    "country": "USA",
+    "lat": 43.6166163,
+    "lng": -116.200886,
+    "source": "geocoded",
+    "created_at": "2026-01-14T04:31:51.525627+00:00"
+  },
+  {
+    "id": "b0daec8a-bddd-4989-b31b-75d8c8507327",
+    "city": "Boulder",
+    "state": "CO",
+    "country": "USA",
+    "lat": 40.0149856,
+    "lng": -105.270545,
+    "source": "geocoded",
+    "created_at": "2026-01-14T04:31:30.300237+00:00"
+  },
+  {
+    "id": "9dc799a6-017b-40a1-98c0-60a9a4c52c6a",
+    "city": "Bozeman",
+    "state": "MT",
+    "country": "USA",
+    "lat": 45.6794293,
+    "lng": -111.044047,
+    "source": "geocoded",
+    "created_at": "2026-01-14T04:32:00.069702+00:00"
+  },
+  {
+    "id": "5c162d37-5ce4-4877-a92b-053113315dcf",
+    "city": "Buffalo",
+    "state": "NY",
+    "country": "USA",
+    "lat": 42.8864163,
+    "lng": -78.8781493,
+    "source": "geocoded",
+    "created_at": "2026-01-16T14:22:25.315949+00:00"
+  },
+  {
+    "id": "b1d48615-ed21-42b3-b42a-7e159956e940",
+    "city": "Calgary",
+    "state": "Alberta",
+    "country": "CAN",
+    "lat": 51.0414312,
+    "lng": -114.0176929,
+    "source": "geocoded",
+    "created_at": "2026-01-14T04:30:47.695126+00:00"
+  },
+  {
+    "id": "8284c000-505c-44bf-929d-0f8f5ebaa6d5",
+    "city": "Castle Cary",
+    "state": "Somerset",
+    "country": "UK",
+    "lat": 51.0785623,
+    "lng": -2.5313643,
+    "source": "geocoded",
+    "created_at": "2026-01-16T14:22:34.24482+00:00"
+  },
+  {
+    "id": "449d83fe-531d-4b88-b037-6cd4de4db34e",
+    "city": "Castle Rock",
+    "state": "CO",
+    "country": "USA",
+    "lat": 39.3722552,
+    "lng": -104.858682,
+    "source": "geocoded",
+    "created_at": "2026-01-14T04:31:32.020358+00:00"
+  },
+  {
+    "id": "a887a9bd-be32-4cf9-8d88-5f60acad4780",
+    "city": "Chattanooga",
+    "state": "TN",
+    "country": "USA",
+    "lat": 35.0457219,
+    "lng": -85.3094883,
+    "source": "geocoded",
+    "created_at": "2026-01-14T04:32:32.048756+00:00"
+  },
+  {
+    "id": "a9aeb27e-f134-4e7a-b5a3-17dbf168a02f",
+    "city": "Colorado Springs",
+    "state": "CO",
+    "country": "USA",
+    "lat": 38.8339578,
+    "lng": -104.825348,
+    "source": "geocoded",
+    "created_at": "2026-01-14T04:31:43.134033+00:00"
+  },
+  {
+    "id": "abff2938-95c4-4f83-a6d3-c033992784d0",
+    "city": "Denver / Wheat Ridge",
+    "state": "CO",
+    "country": "USA",
+    "lat": 39.7861893,
+    "lng": -105.069369,
+    "source": "geocoded",
+    "created_at": "2026-01-14T04:31:28.736424+00:00"
+  },
+  {
+    "id": "7c64aab1-1ddf-416f-ae58-d2b138c20ade",
+    "city": "Flagstaff",
+    "state": "AZ",
+    "country": "USA",
+    "lat": 35.1987522,
+    "lng": -111.651822,
+    "source": "geocoded",
+    "created_at": "2026-01-14T04:30:54.471591+00:00"
+  },
+  {
+    "id": "b706c64b-c5c7-43f8-9106-97e7ea2f5799",
+    "city": "Fresno",
+    "state": "CA",
+    "country": "USA",
+    "lat": 36.7394421,
+    "lng": -119.78483,
+    "source": "geocoded",
+    "created_at": "2026-01-16T14:22:18.512976+00:00"
+  },
+  {
+    "id": "d2ef3b12-6e8e-4420-8148-6e0e37145a75",
+    "city": "Fridley & Columbia Heights",
+    "state": "MN",
+    "country": "USA",
+    "lat": 45.0646496,
+    "lng": -93.2618973,
+    "source": "geocoded",
+    "created_at": "2026-01-14T04:31:58.6068+00:00"
+  },
+  {
+    "id": "d06e71f0-4c7a-4b6a-b560-1b4ef999f9e3",
+    "city": "Gila Bend",
+    "state": "AZ",
+    "country": "USA",
+    "lat": 32.9476184,
+    "lng": -112.7144993,
+    "source": "geocoded",
+    "created_at": "2026-01-14T04:31:01.339918+00:00"
+  },
+  {
+    "id": "a6753f4b-e963-443a-a28d-81861868d50f",
+    "city": "Golden",
+    "state": "CO",
+    "country": "USA",
+    "lat": 39.7546349,
+    "lng": -105.22058,
+    "source": "geocoded",
+    "created_at": "2026-01-14T04:31:36.806687+00:00"
+  },
+  {
+    "id": "fc4b6ca0-3f8a-4960-9c62-2dd4d2531c3a",
+    "city": "Greenville",
+    "state": "SC",
+    "country": "USA",
+    "lat": 34.851354,
+    "lng": -82.3984882,
+    "source": "geocoded",
+    "created_at": "2026-01-14T04:32:30.372378+00:00"
+  },
+  {
+    "id": "e68f44a1-1a97-4618-ade8-3100c5738e45",
+    "city": "Guadalajara Jalisco",
+    "state": null,
+    "country": "MX",
+    "lat": 20.6644273,
+    "lng": -103.3813367,
+    "source": "geocoded",
+    "created_at": "2026-01-14T04:32:49.270149+00:00"
+  },
+  {
+    "id": "bc076777-3604-470f-ab86-c714ed252b2f",
+    "city": "Hanover",
+    "state": "NH",
+    "country": "USA",
+    "lat": 43.7023545,
+    "lng": -72.2892164,
+    "source": "geocoded",
+    "created_at": "2026-01-14T04:32:04.869197+00:00"
+  },
+  {
+    "id": "c391b490-a889-402c-a615-cf9fe91ca40b",
+    "city": "Hardy",
+    "state": "AR",
+    "country": "USA",
+    "lat": 36.3158994,
+    "lng": -91.4826388,
+    "source": "geocoded",
+    "created_at": "2026-01-16T14:22:13.677676+00:00"
+  },
+  {
+    "id": "c8328018-d8d1-4523-a3ff-611b2296add4",
+    "city": "Henryville",
+    "state": "PA",
+    "country": "USA",
+    "lat": 41.0937032,
+    "lng": -75.2412927,
+    "source": "geocoded",
+    "created_at": "2026-01-14T04:32:28.719701+00:00"
+  },
+  {
+    "id": "4be36d4d-7dc6-47cc-9618-78ba56ea56ed",
+    "city": "Houston",
+    "state": "TX",
+    "country": "USA",
+    "lat": 29.7589382,
+    "lng": -95.3676974,
+    "source": "geocoded",
+    "created_at": "2026-01-14T04:32:35.409918+00:00"
+  },
+  {
+    "id": "09758753-6121-4fa9-a5f5-0599e463ebc1",
+    "city": "Idaho Springs",
+    "state": "CO",
+    "country": "USA",
+    "lat": 39.7425969,
+    "lng": -105.5136365,
+    "source": "geocoded",
+    "created_at": "2026-01-14T04:31:39.874567+00:00"
+  },
+  {
+    "id": "1ed26ffa-9f76-4caf-b651-fd397569d761",
+    "city": "Joshua Tree",
+    "state": "CA",
+    "country": "USA",
+    "lat": 34.1350358,
+    "lng": -116.315277,
+    "source": "geocoded",
+    "created_at": "2026-01-14T04:31:20.427283+00:00"
+  },
+  {
+    "id": "ef7c1647-3608-4ddf-8ec9-b37925f0ec1c",
+    "city": "Koloa",
+    "state": "HI",
+    "country": "USA",
+    "lat": 21.9042279,
+    "lng": -159.465733,
+    "source": "geocoded",
+    "created_at": "2026-01-14T04:31:49.894464+00:00"
+  },
+  {
+    "id": "ffaff744-defd-4e36-a82f-fc62d8f95d2d",
+    "city": "La Quinta",
+    "state": "CA",
+    "country": "USA",
+    "lat": 33.677474,
+    "lng": -116.2958789,
+    "source": "geocoded",
+    "created_at": "2026-01-14T04:31:17.40784+00:00"
+  },
+  {
+    "id": "069b9741-031b-4b48-be43-9c8cf010f697",
+    "city": "Las Vegas",
+    "state": "NV",
+    "country": "USA",
+    "lat": 36.1674263,
+    "lng": -115.1484131,
+    "source": "geocoded",
+    "created_at": "2026-01-14T04:32:09.301928+00:00"
+  },
+  {
+    "id": "228128a0-727e-48ab-8abc-e0de16086bb0",
+    "city": "Lompoc",
+    "state": "CA",
+    "country": "USA",
+    "lat": 34.6391501,
+    "lng": -120.4579009,
+    "source": "geocoded",
+    "created_at": "2026-01-14T04:31:23.324511+00:00"
+  },
+  {
+    "id": "60b05949-c4c4-4f6b-b57d-9dfd4ff2054f",
+    "city": "Los Angeles",
+    "state": "CA",
+    "country": "USA",
+    "lat": 34.0536909,
+    "lng": -118.242766,
+    "source": "geocoded",
+    "created_at": "2026-01-14T04:32:57.106001+00:00"
+  },
+  {
+    "id": "f497bed4-65a4-4d3d-bee5-ce75b04226f6",
+    "city": "Madison Heights",
+    "state": "MI",
+    "country": "USA",
+    "lat": 42.4858692,
+    "lng": -83.1052028,
+    "source": "geocoded",
+    "created_at": "2026-01-14T04:31:56.987663+00:00"
+  },
+  {
+    "id": "c37c3ad5-1cf3-4a44-b952-0fb15947124a",
+    "city": "Marana",
+    "state": "AZ",
+    "country": "USA",
+    "lat": 32.4483736,
+    "lng": -111.211475,
+    "source": "geocoded",
+    "created_at": "2026-01-14T04:30:59.510411+00:00"
+  },
+  {
+    "id": "ca59b1a2-f0ee-494a-ac0b-10f32444abb9",
+    "city": "Missoula",
+    "state": "MT",
+    "country": "USA",
+    "lat": 46.8701049,
+    "lng": -113.995267,
+    "source": "geocoded",
+    "created_at": "2026-01-14T04:32:01.681689+00:00"
+  },
+  {
+    "id": "41bbd182-77f1-4a97-86aa-de4381730af2",
+    "city": "Montreal",
+    "state": null,
+    "country": "CAN",
+    "lat": 45.5137474,
+    "lng": -73.6338787,
+    "source": "geocoded",
+    "created_at": "2026-01-14T14:48:11.414994+00:00"
+  },
+  {
+    "id": "abaab0ff-4cb0-427b-8b0e-f75c3639dd17",
+    "city": "Nashville",
+    "state": "TN",
+    "country": "USA",
+    "lat": 36.1622767,
+    "lng": -86.7742984,
+    "source": "geocoded",
+    "created_at": "2026-01-14T04:32:33.539422+00:00"
+  },
+  {
+    "id": "ee38a078-b10a-4819-a3ea-0bafea1da02d",
+    "city": "New Paltz",
+    "state": "NY",
+    "country": "USA",
+    "lat": 41.7464972,
+    "lng": -74.0844894,
+    "source": "geocoded",
+    "created_at": "2026-01-14T04:32:15.490601+00:00"
+  },
+  {
+    "id": "57973d1a-62f0-46c8-8c36-95c815b55490",
+    "city": "New York",
+    "state": "NY",
+    "country": "USA",
+    "lat": 40.7127281,
+    "lng": -74.0060152,
+    "source": "geocoded",
+    "created_at": "2026-01-14T04:32:14.008037+00:00"
+  },
+  {
+    "id": "b1acc5df-c3e4-41bb-a144-a727c2f632a2",
+    "city": "Oceanside",
+    "state": "CA",
+    "country": "USA",
+    "lat": 33.1958696,
+    "lng": -117.379483,
+    "source": "geocoded",
+    "created_at": "2026-01-14T04:31:19.037031+00:00"
+  },
+  {
+    "id": "cabc1020-b12a-42c8-a04c-3fd356cd3dc4",
+    "city": "Ojai",
+    "state": "CA",
+    "country": "USA",
+    "lat": 34.4480495,
+    "lng": -119.242889,
+    "source": "geocoded",
+    "created_at": "2026-01-14T14:47:58.744842+00:00"
+  },
+  {
+    "id": "29d1eaed-aab1-4431-b9d3-efd21d837c4f",
+    "city": "Ottawa",
+    "state": null,
+    "country": "CAN",
+    "lat": 45.4041115,
+    "lng": -75.711883,
+    "source": "geocoded",
+    "created_at": "2026-01-14T04:32:59.06667+00:00"
+  },
+  {
+    "id": "f8a9693d-191f-4d2f-bab4-aaf7fcb4a2a8",
+    "city": "Palm Desert",
+    "state": "CA",
+    "country": "USA",
+    "lat": 33.7288179,
+    "lng": -116.382571,
+    "source": "geocoded",
+    "created_at": "2026-01-14T04:31:25.193235+00:00"
+  },
+  {
+    "id": "89cfdf19-ea50-44ec-baf6-51a30b82a97c",
+    "city": "Phildelphia",
+    "state": "PA",
+    "country": "USA",
+    "lat": 40.0723631,
+    "lng": -75.1015019,
+    "source": "geocoded",
+    "created_at": "2026-01-16T14:22:31.002276+00:00"
+  },
+  {
+    "id": "f3876eea-868c-453f-ae55-6040d32ea8d2",
+    "city": "Ponte Vedra",
+    "state": "FL",
+    "country": "USA",
+    "lat": 30.2396865,
+    "lng": -81.3856384,
+    "source": "geocoded",
+    "created_at": "2026-01-14T04:31:44.832449+00:00"
+  },
+  {
+    "id": "aefcd47f-653c-4708-a637-948b8f608e7c",
+    "city": "Prescott",
+    "state": "AZ",
+    "country": "USA",
+    "lat": 34.539984,
+    "lng": -112.468812,
+    "source": "geocoded",
+    "created_at": "2026-01-14T04:30:57.87+00:00"
+  },
+  {
+    "id": "5b579851-f77d-4b0b-b9ba-332b1f4d509a",
+    "city": "Pullman",
+    "state": "WA",
+    "country": "USA",
+    "lat": 46.7304268,
+    "lng": -117.173895,
+    "source": "geocoded",
+    "created_at": "2026-01-14T04:32:44.055489+00:00"
+  },
+  {
+    "id": "2df54097-ffcf-4a37-a8e1-7ffd2dd84ffb",
+    "city": "Redlands",
+    "state": "CA",
+    "country": "USA",
+    "lat": 34.0550328,
+    "lng": -117.1827445,
+    "source": "geocoded",
+    "created_at": "2026-01-14T04:31:08.808798+00:00"
+  },
+  {
+    "id": "70bef48d-a8f7-4188-b60f-56706f218a17",
+    "city": "Reno",
+    "state": "NV",
+    "country": "USA",
+    "lat": 39.5261788,
+    "lng": -119.812658,
+    "source": "geocoded",
+    "created_at": "2026-01-14T04:32:12.02824+00:00"
+  },
+  {
+    "id": "6b2fe355-95c9-44e9-a11c-29f34aac5fb8",
+    "city": "Roseville-Rocklin",
+    "state": "CA",
+    "country": "USA",
+    "lat": 38.7986435,
+    "lng": -121.2973781,
+    "source": "geocoded",
+    "created_at": "2026-01-14T04:31:13.826735+00:00"
+  },
+  {
+    "id": "52643bba-7eee-4386-b6b8-461bcd0c0ab0",
+    "city": "Salida",
+    "state": "CO",
+    "country": "USA",
+    "lat": 38.5371195,
+    "lng": -105.990968,
+    "source": "geocoded",
+    "created_at": "2026-01-14T04:31:38.425462+00:00"
+  },
+  {
+    "id": "ed1b4770-3f16-4511-9c5d-60a06fd58a82",
+    "city": "San Francisco",
+    "state": "CA",
+    "country": "USA",
+    "lat": 37.7879363,
+    "lng": -122.4075201,
+    "source": "geocoded",
+    "created_at": "2026-01-14T04:31:10.238202+00:00"
+  },
+  {
+    "id": "cc071806-801e-426f-9f45-e7834d6c7680",
+    "city": "San Ramon",
+    "state": "CA",
+    "country": "USA",
+    "lat": 37.7648021,
+    "lng": -121.9544387,
+    "source": "geocoded",
+    "created_at": "2026-01-14T14:48:00.547907+00:00"
+  },
+  {
+    "id": "c0f9a788-e486-49fd-8993-8aac5592a496",
+    "city": "Santa Barbara",
+    "state": "CA",
+    "country": "USA",
+    "lat": 34.4221319,
+    "lng": -119.702667,
+    "source": "geocoded",
+    "created_at": "2026-01-14T04:31:12.207278+00:00"
+  },
+  {
+    "id": "0b8de4e5-8e45-4cab-a353-51dd62ad5f89",
+    "city": "Santiago",
+    "state": null,
+    "country": "Chile",
+    "lat": -33.4377756,
+    "lng": -70.6504502,
+    "source": "geocoded",
+    "created_at": "2026-01-14T04:32:51.394028+00:00"
+  },
+  {
+    "id": "b3862236-0078-4b1c-b8b2-2b34f3f0f0ad",
+    "city": "Saratoga Springs",
+    "state": "NY",
+    "country": "USA",
+    "lat": 43.0821793,
+    "lng": -73.7853915,
+    "source": "geocoded",
+    "created_at": "2026-01-14T04:32:17.229306+00:00"
+  },
+  {
+    "id": "d103fadb-b883-458d-afa8-a1b0c99a7283",
+    "city": "Scarborough",
+    "state": "ME",
+    "country": "USA",
+    "lat": 43.590148,
+    "lng": -70.3344722,
+    "source": "geocoded",
+    "created_at": "2026-01-16T14:22:21.709+00:00"
+  },
+  {
+    "id": "cbb532cd-ee88-48a9-a38b-9eac6781a8d2",
+    "city": "Scarborough",
+    "state": "Ontario",
+    "country": "CAN",
+    "lat": 43.820952,
+    "lng": -79.3052626,
+    "source": "geocoded",
+    "created_at": "2026-01-16T14:22:29.609847+00:00"
+  },
+  {
+    "id": "0eeda1da-a10f-4819-8139-2d28ea5fa0c1",
+    "city": "Seattle",
+    "state": "WA",
+    "country": "USA",
+    "lat": 47.6038321,
+    "lng": -122.330062,
+    "source": "geocoded",
+    "created_at": "2026-01-14T14:48:09.843676+00:00"
+  },
+  {
+    "id": "e837c486-f52a-49f6-bf27-899473077c71",
+    "city": "Sioux City",
+    "state": "SD",
+    "country": "USA",
+    "lat": 42.5246831,
+    "lng": -96.4872384,
+    "source": "geocoded",
+    "created_at": "2026-01-16T14:22:32.718591+00:00"
+  },
+  {
+    "id": "d4225198-e105-45a6-a66c-9e17c70249f4",
+    "city": "Spindale",
+    "state": "NC",
+    "country": "USA",
+    "lat": 35.3574856,
+    "lng": -81.9312068,
+    "source": "geocoded",
+    "created_at": "2026-01-14T04:32:03.057443+00:00"
+  },
+  {
+    "id": "64bba38f-53dc-4edf-8948-f6b4569d2114",
+    "city": "St George",
+    "state": "UT",
+    "country": "USA",
+    "lat": 37.1098772,
+    "lng": -113.5832063,
+    "source": "geocoded",
+    "created_at": "2026-01-14T04:32:38.12855+00:00"
+  },
+  {
+    "id": "25b11ac5-e5ac-456f-a5a4-c6db751c31a4",
+    "city": "Steamboat Springs",
+    "state": "CO",
+    "country": "USA",
+    "lat": 40.4848003,
+    "lng": -106.831735,
+    "source": "geocoded",
+    "created_at": "2026-01-14T04:31:41.469671+00:00"
+  },
+  {
+    "id": "2b8a27b9-e222-4c3b-8696-c00af1bb791a",
+    "city": "Sydney",
+    "state": null,
+    "country": "AUS",
+    "lat": -33.8315618,
+    "lng": 151.226874,
+    "source": "geocoded",
+    "created_at": "2026-01-14T04:32:45.772287+00:00"
+  },
+  {
+    "id": "51bc5109-ca10-482a-b669-6e220f9a44a8",
+    "city": "Tempe",
+    "state": "AZ",
+    "country": "USA",
+    "lat": 33.4255117,
+    "lng": -111.940016,
+    "source": "geocoded",
+    "created_at": "2026-01-14T04:30:52.707477+00:00"
+  },
+  {
+    "id": "2e1f8cce-59b4-4ff2-9556-579cee224326",
+    "city": "Toronto",
+    "state": "Ontario",
+    "country": "CAN",
+    "lat": 43.6604455,
+    "lng": -79.3861679,
+    "source": "geocoded",
+    "created_at": "2026-01-14T04:32:19.486659+00:00"
+  },
+  {
+    "id": "04e273ea-6132-4277-8dfe-d3cffb44ec38",
+    "city": "Tualatin",
+    "state": "OR",
+    "country": "USA",
+    "lat": 45.3809339,
+    "lng": -122.7694369,
+    "source": "geocoded",
+    "created_at": "2026-01-14T04:32:23.136193+00:00"
+  },
+  {
+    "id": "caf719c6-3de4-48c5-8ce8-6df0bf7a7671",
+    "city": "Tucson",
+    "state": "AZ",
+    "country": "USA",
+    "lat": 32.2228765,
+    "lng": -110.974847,
+    "source": "geocoded",
+    "created_at": "2026-01-14T04:30:56.12298+00:00"
+  },
+  {
+    "id": "b8ea4703-b2be-4d6c-9f85-ce46ae54f3dd",
+    "city": "Vancouver",
+    "state": "BC",
+    "country": "CAN",
+    "lat": 49.2697615,
+    "lng": -123.0942924,
+    "source": "geocoded",
+    "created_at": "2026-01-14T04:31:07.127734+00:00"
+  },
+  {
+    "id": "7852598b-f488-4e2f-9e89-479dba698183",
+    "city": "Virginia Beach",
+    "state": "VA",
+    "country": "USA",
+    "lat": 36.8496579,
+    "lng": -75.9760751,
+    "source": "geocoded",
+    "created_at": "2026-01-16T14:22:36.147304+00:00"
+  },
+  {
+    "id": "19cb6731-938d-46ce-85ce-bbf9dfc2888c",
+    "city": "Wake Forest",
+    "state": "NC",
+    "country": "USA",
+    "lat": 35.9803138,
+    "lng": -78.5103731,
+    "source": "geocoded",
+    "created_at": "2026-01-14T14:48:02.073022+00:00"
+  },
+  {
+    "id": "c313aaf7-59a5-4e35-a86c-ebc5e2d33380",
+    "city": "Wellpinit",
+    "state": "WA",
+    "country": "USA",
+    "lat": 47.8879399,
+    "lng": -117.988025,
+    "source": "geocoded",
+    "created_at": "2026-01-16T14:22:38.933025+00:00"
+  },
+  {
+    "id": "5de03563-3fad-4ed7-b18d-c252eb451546",
+    "city": "West Hollywood",
+    "state": "CA",
+    "country": "USA",
+    "lat": 34.0923014,
+    "lng": -118.3692894,
+    "source": "geocoded",
+    "created_at": "2026-01-14T04:31:26.882869+00:00"
+  },
+  {
+    "id": "b6c4ccbd-ffbe-4537-a239-a7ba84eaec0d",
+    "city": "Westfield",
+    "state": "IN",
+    "country": "USA",
+    "lat": 40.0428151,
+    "lng": -86.1274888,
+    "source": "geocoded",
+    "created_at": "2026-01-14T04:31:53.076909+00:00"
+  },
+  {
+    "id": "786e578c-751b-420e-8d80-9f4e86c2f83f",
+    "city": "Windsor",
+    "state": "CO",
+    "country": "USA",
+    "lat": 40.4774818,
+    "lng": -104.901361,
+    "source": "geocoded",
+    "created_at": "2026-01-14T04:31:35.430485+00:00"
+  },
+  {
+    "id": "5b30d27b-7bd0-46b3-a204-7e5a0d430a84",
+    "city": "Winnipeg",
+    "state": "MB",
+    "country": "CAN",
+    "lat": 49.8825429,
+    "lng": -97.1499315,
+    "source": "geocoded",
+    "created_at": "2026-01-14T04:31:55.178101+00:00"
+  },
+  {
+    "id": "110bc6ed-7bcf-4c4d-bd4b-57ab6ed6d047",
+    "city": "Winthrop",
+    "state": "WA",
+    "country": "USA",
+    "lat": 48.4779232,
+    "lng": -120.186195,
+    "source": "geocoded",
+    "created_at": "2026-01-14T04:32:39.753433+00:00"
+  }
+]
