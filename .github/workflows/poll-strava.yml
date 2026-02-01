@@ -1,19 +1,21 @@
 name: Poll Strava API
 
 on:
-    schedule:
-      - cron: '0 7 * * *'
-      - cron: '0 14 * * *'
-      - cron: '0 19 * * *'
-      - cron: '0 2 * * *'
-      - cron: '20 7 * * *'
-      - cron: '20 14 * * *'
-      - cron: '20 19 * * *'
-      - cron: '20 2 * * *'
-      - cron: '40 7 * * *'
-      - cron: '40 14 * * *'
-      - cron: '40 19 * * *'
-      - cron: '40 2 * * *'
+    # PAUSED: Burrito League 2026 challenge ended 1/31/2026
+    # Final data preserved - uncomment to resume polling for next challenge
+    # schedule:
+    #   - cron: '0 7 * * *'
+    #   - cron: '0 14 * * *'
+    #   - cron: '0 19 * * *'
+    #   - cron: '0 2 * * *'
+    #   - cron: '20 7 * * *'
+    #   - cron: '20 14 * * *'
+    #   - cron: '20 19 * * *'
+    #   - cron: '20 2 * * *'
+    #   - cron: '40 7 * * *'
+    #   - cron: '40 14 * * *'
+    #   - cron: '40 19 * * *'
+    #   - cron: '40 2 * * *'
     workflow_dispatch:
       inputs:
         batch:
