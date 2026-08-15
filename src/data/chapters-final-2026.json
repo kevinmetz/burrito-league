@@ -1,0 +1,4180 @@
+{
+  "chapters": [
+    {
+      "city": "Philadelphia",
+      "state": "PA",
+      "displayLocation": "Philadelphia, PA",
+      "segmentId": 40780698,
+      "segmentData": {
+        "segmentId": 40780698,
+        "segmentName": "",
+        "city": "Philadelphia",
+        "state": "PA",
+        "totalEfforts": "6,688",
+        "totalAthletes": "1,554",
+        "totalDistance": "1,724.6 mi",
+        "maleLeader": {
+          "name": "Joe Banks",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/156695026/35328835/1/large.jpg",
+          "efforts": 572,
+          "delta": {
+            "delta": 20,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Gaby Rice",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/94213275/41620242/1/large.jpg",
+          "efforts": 386,
+          "delta": {
+            "delta": 33,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T14:19:07.349992+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40780698",
+      "status": "valid"
+    },
+    {
+      "city": "Sydney",
+      "state": "",
+      "displayLocation": "Sydney, Australia",
+      "segmentId": 40753760,
+      "segmentData": {
+        "segmentId": 40753760,
+        "segmentName": "",
+        "city": "Sydney",
+        "state": "",
+        "totalEfforts": "778",
+        "totalAthletes": "7",
+        "totalDistance": "267.8 mi",
+        "maleLeader": {
+          "name": "No leader yet",
+          "profilePic": "",
+          "efforts": 0,
+          "delta": {
+            "delta": null,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Annabel Hepworth",
+          "profilePic": "https://graph.facebook.com/1006330849501392/picture?height=256&width=256",
+          "efforts": 500,
+          "delta": {
+            "delta": 42,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T14:14:12.372368+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40753760",
+      "status": "valid"
+    },
+    {
+      "city": "Failsworth",
+      "state": "Manchester",
+      "displayLocation": "Failsworth, Manchester",
+      "segmentId": 40792677,
+      "segmentData": {
+        "segmentId": 40792677,
+        "segmentName": "",
+        "city": "Failsworth",
+        "state": "Manchester",
+        "totalEfforts": "17",
+        "totalAthletes": "3",
+        "totalDistance": "19.6 mi",
+        "maleLeader": {
+          "name": "No leader yet",
+          "profilePic": "",
+          "efforts": 0,
+          "delta": {
+            "delta": null,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Mihaela Maior",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/122845564/40925964/1/large.jpg",
+          "efforts": 8,
+          "delta": {
+            "delta": 1,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T14:14:12.372368+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40792677",
+      "status": "valid"
+    },
+    {
+      "city": "Vancouver",
+      "state": "BC",
+      "displayLocation": "Vancouver, BC",
+      "segmentId": 40757542,
+      "segmentData": {
+        "segmentId": 40757542,
+        "segmentName": "",
+        "city": "Vancouver",
+        "state": "BC",
+        "totalEfforts": "4,655",
+        "totalAthletes": "2,172",
+        "totalDistance": "1,048.2 mi",
+        "maleLeader": {
+          "name": "Chase Martinig",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/24832860/24736345/6/large.jpg",
+          "efforts": 418,
+          "delta": {
+            "delta": 32,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Sheryl Martini",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/24903259/25682331/1/large.jpg",
+          "efforts": 36,
+          "delta": {
+            "delta": 15,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T14:13:56.031792+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40757542",
+      "status": "valid"
+    },
+    {
+      "city": "Sioux Falls",
+      "state": "SD",
+      "displayLocation": "Sioux Falls, SD",
+      "segmentId": 40785112,
+      "segmentData": {
+        "segmentId": 40785112,
+        "segmentName": "",
+        "city": "Sioux Falls",
+        "state": "SD",
+        "totalEfforts": "4,669",
+        "totalAthletes": "44",
+        "totalDistance": "1,370.2 mi",
+        "maleLeader": {
+          "name": "Lance Smith",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/27560659/17441819/7/large.jpg",
+          "efforts": 839,
+          "delta": {
+            "delta": 168,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Jessica Walhof",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/18614433/10659948/2/large.jpg",
+          "efforts": 236,
+          "delta": {
+            "delta": 66,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T14:13:56.031792+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40785112",
+      "status": "valid"
+    },
+    {
+      "city": "Colwood",
+      "state": "BC",
+      "displayLocation": "Colwood, BC",
+      "segmentId": 40752650,
+      "segmentData": {
+        "segmentId": 40752650,
+        "segmentName": "",
+        "city": "Colwood",
+        "state": "BC",
+        "totalEfforts": "4,427",
+        "totalAthletes": "44",
+        "totalDistance": "794.1 mi",
+        "maleLeader": {
+          "name": "No leader yet",
+          "profilePic": "",
+          "efforts": 0,
+          "delta": {
+            "delta": null,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Arianna Rumenovich",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/10153486/23650461/4/large.jpg",
+          "efforts": 1001,
+          "delta": {
+            "delta": 28,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T14:13:56.031792+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40752650",
+      "status": "valid"
+    },
+    {
+      "city": "Palm Desert",
+      "state": "CA",
+      "displayLocation": "Palm Desert, CA",
+      "segmentId": 40761605,
+      "segmentData": {
+        "segmentId": 40761605,
+        "segmentName": "",
+        "city": "Palm Desert",
+        "state": "CA",
+        "totalEfforts": "4,083",
+        "totalAthletes": "19",
+        "totalDistance": "1,065.5 mi",
+        "maleLeader": {
+          "name": "Steven Bingham",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/21654952/27711863/1/large.jpg",
+          "efforts": 1367,
+          "delta": {
+            "delta": 2,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Alice Rodriguez",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/70966640/30649611/4/large.jpg",
+          "efforts": 700,
+          "delta": {
+            "delta": 50,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T14:13:56.031792+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40761605",
+      "status": "valid"
+    },
+    {
+      "city": "Ann Arbor",
+      "state": "MI",
+      "displayLocation": "Ann Arbor, MI",
+      "segmentId": 40775338,
+      "segmentData": {
+        "segmentId": 40775338,
+        "segmentName": "",
+        "city": "Ann Arbor",
+        "state": "MI",
+        "totalEfforts": "2,739",
+        "totalAthletes": "157",
+        "totalDistance": "1,749.7 mi",
+        "maleLeader": {
+          "name": "Anthony Russel",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/36202630/15327018/2/large.jpg",
+          "efforts": 265,
+          "delta": {
+            "delta": 46,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "🐣 Melanie Sullivan",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/40968935/22973692/8/large.jpg",
+          "efforts": 107,
+          "delta": {
+            "delta": 24,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T14:13:56.031792+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40775338",
+      "status": "valid"
+    },
+    {
+      "city": "Folsom",
+      "state": "CA",
+      "displayLocation": "Folsom, CA",
+      "segmentId": 40785294,
+      "segmentData": {
+        "segmentId": 40785294,
+        "segmentName": "",
+        "city": "Folsom",
+        "state": "CA",
+        "totalEfforts": "1,851",
+        "totalAthletes": "99",
+        "totalDistance": "1,230.3 mi",
+        "maleLeader": {
+          "name": "roman trach",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/23514847/12543897/4/large.jpg",
+          "efforts": 188,
+          "delta": {
+            "delta": 6,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Dana Trach",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/21172101/6045928/2/large.jpg",
+          "efforts": 146,
+          "delta": {
+            "delta": 5,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T14:13:56.031792+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40785294",
+      "status": "valid"
+    },
+    {
+      "city": "Wellpinit",
+      "state": "WA",
+      "displayLocation": "Wellpinit, WA",
+      "segmentId": 40784235,
+      "segmentData": {
+        "segmentId": 40784235,
+        "segmentName": "",
+        "city": "Wellpinit",
+        "state": "WA",
+        "totalEfforts": "1,487",
+        "totalAthletes": "10",
+        "totalDistance": "454.9 mi",
+        "maleLeader": {
+          "name": "jasøn møyer",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/18201545/5559914/33/large.jpg",
+          "efforts": 319,
+          "delta": {
+            "delta": 28,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Elisabeth Page",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/118552349/27394318/1/large.jpg",
+          "efforts": 242,
+          "delta": {
+            "delta": 7,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T14:13:56.031792+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40784235",
+      "status": "valid"
+    },
+    {
+      "city": "Tempe",
+      "state": "AZ",
+      "displayLocation": "Tempe, AZ",
+      "segmentId": 40744376,
+      "segmentData": {
+        "segmentId": 40744376,
+        "segmentName": "",
+        "city": "Tempe",
+        "state": "AZ",
+        "totalEfforts": "47,493",
+        "totalAthletes": "377",
+        "totalDistance": "9,207.3 mi",
+        "maleLeader": {
+          "name": "Troy Croxdale",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/51815181/34700519/1/large.jpg",
+          "efforts": 3559,
+          "delta": {
+            "delta": 101,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Kelsey McGill",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/49953675/21219926/30/large.jpg",
+          "efforts": 2465,
+          "delta": {
+            "delta": 98,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T14:13:38.441038+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40744376",
+      "status": "valid"
+    },
+    {
+      "city": "Chattanooga",
+      "state": "TN",
+      "displayLocation": "Chattanooga, TN",
+      "segmentId": 40758296,
+      "segmentData": {
+        "segmentId": 40758296,
+        "segmentName": "",
+        "city": "Chattanooga",
+        "state": "TN",
+        "totalEfforts": "45,617",
+        "totalAthletes": "626",
+        "totalDistance": "14,569.3 mi",
+        "maleLeader": {
+          "name": "No leader yet",
+          "profilePic": "",
+          "efforts": 0,
+          "delta": {
+            "delta": null,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Whitney Dancaster",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/200356753/42788711/1/large.jpg",
+          "efforts": 1686,
+          "delta": {
+            "delta": 9,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T14:13:38.441038+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40758296",
+      "status": "valid"
+    },
+    {
+      "city": "Colorado Springs",
+      "state": "CO",
+      "displayLocation": "Colorado Springs, CO",
+      "segmentId": 40774353,
+      "segmentData": {
+        "segmentId": 40774353,
+        "segmentName": "",
+        "city": "Colorado Springs",
+        "state": "CO",
+        "totalEfforts": "36,495",
+        "totalAthletes": "123",
+        "totalDistance": "7,408.5 mi",
+        "maleLeader": {
+          "name": "Dante Liberato",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/87709874/26449879/4/large.jpg",
+          "efforts": 3106,
+          "delta": {
+            "delta": 207,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Lynne Day",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/12947222/5985254/9/large.jpg",
+          "efforts": 2014,
+          "delta": {
+            "delta": 198,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T14:13:38.441038+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40774353",
+      "status": "valid"
+    },
+    {
+      "city": "Redlands",
+      "state": "CA",
+      "displayLocation": "Redlands, CA",
+      "segmentId": 40744216,
+      "segmentData": {
+        "segmentId": 40744216,
+        "segmentName": "",
+        "city": "Redlands",
+        "state": "CA",
+        "totalEfforts": "34,248",
+        "totalAthletes": "249",
+        "totalDistance": "12,285.3 mi",
+        "maleLeader": {
+          "name": "TJ Zoggins ",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/3409319/20695053/7/large.jpg",
+          "efforts": 2279,
+          "delta": {
+            "delta": 12,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Santa Barajas",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/119851586/27636225/19/large.jpg",
+          "efforts": 1327,
+          "delta": {
+            "delta": 63,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T14:13:38.441038+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40744216",
+      "status": "valid"
+    },
+    {
+      "city": "Santa Barbara",
+      "state": "CA",
+      "displayLocation": "Santa Barbara, CA",
+      "segmentId": 40748122,
+      "segmentData": {
+        "segmentId": 40748122,
+        "segmentName": "",
+        "city": "Santa Barbara",
+        "state": "CA",
+        "totalEfforts": "23,471",
+        "totalAthletes": "155",
+        "totalDistance": "5,471.9 mi",
+        "maleLeader": {
+          "name": "Preston Explores",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/90874828/22921913/5/large.jpg",
+          "efforts": 2576,
+          "delta": {
+            "delta": 322,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Morgan Solorio",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/76041950/25804893/1/large.jpg",
+          "efforts": 1477,
+          "delta": {
+            "delta": 173,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T14:13:38.441038+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40748122",
+      "status": "valid"
+    },
+    {
+      "city": "Denver / Wheat Ridge",
+      "state": "CO",
+      "displayLocation": "Denver / Wheat Ridge, CO",
+      "segmentId": 40750921,
+      "segmentData": {
+        "segmentId": 40750921,
+        "segmentName": "",
+        "city": "Denver / Wheat Ridge",
+        "state": "CO",
+        "totalEfforts": "21,635",
+        "totalAthletes": "128",
+        "totalDistance": "5,888.1 mi",
+        "maleLeader": {
+          "name": "Matthew Hunsucker",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/22964275/6567319/3/large.jpg",
+          "efforts": 2401,
+          "delta": {
+            "delta": 4,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Lou P",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/115899482/29154176/1/large.jpg",
+          "efforts": 1929,
+          "delta": {
+            "delta": 22,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T14:13:38.441038+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40750921",
+      "status": "valid"
+    },
+    {
+      "city": "Boston",
+      "state": "MA",
+      "displayLocation": "Boston, MA",
+      "segmentId": 40778729,
+      "segmentData": {
+        "segmentId": 40778729,
+        "segmentName": "",
+        "city": "Boston",
+        "state": "MA",
+        "totalEfforts": "20,520",
+        "totalAthletes": "196",
+        "totalDistance": "4,426.9 mi",
+        "maleLeader": {
+          "name": "No leader yet",
+          "profilePic": "",
+          "efforts": 0,
+          "delta": {
+            "delta": null,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Chelsea Loy",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/20299391/25745849/1/large.jpg",
+          "efforts": 1786,
+          "delta": {
+            "delta": 94,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T14:13:38.441038+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40778729",
+      "status": "valid"
+    },
+    {
+      "city": "Golden",
+      "state": "CO",
+      "displayLocation": "Golden, CO",
+      "segmentId": 40773392,
+      "segmentData": {
+        "segmentId": 40773392,
+        "segmentName": "",
+        "city": "Golden",
+        "state": "CO",
+        "totalEfforts": "17,635",
+        "totalAthletes": "97",
+        "totalDistance": "4,501.4 mi",
+        "maleLeader": {
+          "name": "Ben Wells",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/58395250/15030906/4/large.jpg",
+          "efforts": 2381,
+          "delta": {
+            "delta": 401,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Lauren Boldt ",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/92543730/22039483/4/large.jpg",
+          "efforts": 1705,
+          "delta": {
+            "delta": 327,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T14:13:38.441038+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40773392",
+      "status": "valid"
+    },
+    {
+      "city": "Atlanta",
+      "state": "GA",
+      "displayLocation": "Atlanta, GA #1",
+      "segmentId": 40747724,
+      "segmentData": {
+        "segmentId": 40747724,
+        "segmentName": "",
+        "city": "Atlanta",
+        "state": "GA",
+        "totalEfforts": "14,024",
+        "totalAthletes": "4,000",
+        "totalDistance": "2,275.2 mi",
+        "maleLeader": {
+          "name": "Omar Vega",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/52447874/20280270/2/large.jpg",
+          "efforts": 860,
+          "delta": {
+            "delta": 28,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Kelly Daymude",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/3985740/1359077/1/large.jpg",
+          "efforts": 410,
+          "delta": {
+            "delta": 5,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T14:13:38.441038+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40747724",
+      "status": "valid"
+    },
+    {
+      "city": "San Francisco",
+      "state": "CA",
+      "displayLocation": "San Francisco, CA",
+      "segmentId": 40744617,
+      "segmentData": {
+        "segmentId": 40744617,
+        "segmentName": "",
+        "city": "San Francisco",
+        "state": "CA",
+        "totalEfforts": "13,359",
+        "totalAthletes": "193",
+        "totalDistance": "2,408.9 mi",
+        "maleLeader": {
+          "name": "No leader yet",
+          "profilePic": "",
+          "efforts": 0,
+          "delta": {
+            "delta": null,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Dian Chen",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/50434504/32936356/2/large.jpg",
+          "efforts": 1695,
+          "delta": {
+            "delta": 6,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T14:13:38.441038+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40744617",
+      "status": "valid"
+    },
+    {
+      "city": "Oceanside",
+      "state": "CA",
+      "displayLocation": "Oceanside, CA",
+      "segmentId": 40761585,
+      "segmentData": {
+        "segmentId": 40761585,
+        "segmentName": "",
+        "city": "Oceanside",
+        "state": "CA",
+        "totalEfforts": "12,314",
+        "totalAthletes": "862",
+        "totalDistance": "2,498.2 mi",
+        "maleLeader": {
+          "name": "Deric Anthony",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/5855971/25349944/1/large.jpg",
+          "efforts": 1059,
+          "delta": {
+            "delta": 8,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Mo Thornburg",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/12672068/34467154/1/large.jpg",
+          "efforts": 950,
+          "delta": {
+            "delta": 228,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T14:13:38.441038+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40761585",
+      "status": "valid"
+    },
+    {
+      "city": "Salida",
+      "state": "CO",
+      "displayLocation": "Salida, CO",
+      "segmentId": 40770250,
+      "segmentData": {
+        "segmentId": 40770250,
+        "segmentName": "",
+        "city": "Salida",
+        "state": "CO",
+        "totalEfforts": "11,274",
+        "totalAthletes": "98",
+        "totalDistance": "3,278.4 mi",
+        "maleLeader": {
+          "name": "Justin Walker",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/18399233/5230005/8/large.jpg",
+          "efforts": 1886,
+          "delta": {
+            "delta": 97,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Sav Perdue",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/82318475/30861650/3/large.jpg",
+          "efforts": 1095,
+          "delta": {
+            "delta": 10,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T14:13:38.441038+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40770250",
+      "status": "valid"
+    },
+    {
+      "city": "Missoula",
+      "state": "MT",
+      "displayLocation": "Missoula, MT",
+      "segmentId": 18766988,
+      "segmentData": {
+        "segmentId": 18766988,
+        "segmentName": "",
+        "city": "Missoula",
+        "state": "MT",
+        "totalEfforts": "10,678",
+        "totalAthletes": "311",
+        "totalDistance": "1,938.7 mi",
+        "maleLeader": {
+          "name": "Matthew 'Man Dime' Kellenberger",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/128668052/29369261/9/large.jpg",
+          "efforts": 1209,
+          "delta": {
+            "delta": 1,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Christy Von Lanken",
+          "profilePic": "https://graph.facebook.com/627622558961/picture?height=256&width=256",
+          "efforts": 1082,
+          "delta": {
+            "delta": 7,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T14:13:38.441038+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/18766988",
+      "status": "valid"
+    },
+    {
+      "city": "Las Vegas",
+      "state": "NV",
+      "displayLocation": "Las Vegas, NV",
+      "segmentId": 40748264,
+      "segmentData": {
+        "segmentId": 40748264,
+        "segmentName": "",
+        "city": "Las Vegas",
+        "state": "NV",
+        "totalEfforts": "10,910",
+        "totalAthletes": "84",
+        "totalDistance": "2,572.0 mi",
+        "maleLeader": {
+          "name": "Sam Longson",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/22487975/6413062/11/large.jpg",
+          "efforts": 1147,
+          "delta": {
+            "delta": 73,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Maia Detmer",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/1949637/575836/6/large.jpg",
+          "efforts": 640,
+          "delta": {
+            "delta": 18,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T14:13:38.441038+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40748264",
+      "status": "valid"
+    },
+    {
+      "city": "Santiago",
+      "state": "",
+      "displayLocation": "Santiago, CHILE",
+      "segmentId": 40787033,
+      "segmentData": {
+        "segmentId": 40787033,
+        "segmentName": "",
+        "city": "Santiago",
+        "state": "",
+        "totalEfforts": "9,432",
+        "totalAthletes": "71",
+        "totalDistance": "1,736.5 mi",
+        "maleLeader": {
+          "name": "Ian  Morgan ",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/19758595/7788575/2/large.jpg",
+          "efforts": 1692,
+          "delta": {
+            "delta": 200,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Pati Sandoval 🇨🇱 ",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/28191504/8442971/19/large.jpg",
+          "efforts": 1333,
+          "delta": {
+            "delta": 99,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T14:13:38.441038+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40787033",
+      "status": "valid"
+    },
+    {
+      "city": "Los Angeles",
+      "state": "CA",
+      "displayLocation": "Los Angeles, CA",
+      "segmentId": 40766678,
+      "segmentData": {
+        "segmentId": 40766678,
+        "segmentName": "",
+        "city": "Los Angeles",
+        "state": "CA",
+        "totalEfforts": "8,510",
+        "totalAthletes": "824",
+        "totalDistance": "1,577.3 mi",
+        "maleLeader": {
+          "name": "Gordon Clark",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/22399451/31878779/6/large.jpg",
+          "efforts": 1013,
+          "delta": {
+            "delta": 65,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Jen R.",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/32189346/9609307/2/large.jpg",
+          "efforts": 726,
+          "delta": {
+            "delta": 14,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T14:13:38.441038+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40766678",
+      "status": "valid"
+    },
+    {
+      "city": "Healdsburg",
+      "state": "CA",
+      "displayLocation": "Healdsburg, CA",
+      "segmentId": 40783110,
+      "segmentData": {
+        "segmentId": 40783110,
+        "segmentName": "",
+        "city": "Healdsburg",
+        "state": "CA",
+        "totalEfforts": "8,144",
+        "totalAthletes": "67",
+        "totalDistance": "1,500.4 mi",
+        "maleLeader": {
+          "name": "Sam Karthan",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/92590992/22689775/20/large.jpg",
+          "efforts": 743,
+          "delta": {
+            "delta": 20,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Katherine Theus",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/135809065/30925058/2/large.jpg",
+          "efforts": 558,
+          "delta": {
+            "delta": 23,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T14:13:38.441038+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40783110",
+      "status": "valid"
+    },
+    {
+      "city": "La Quinta",
+      "state": "CA",
+      "displayLocation": "La Quinta, CA",
+      "segmentId": 40760530,
+      "segmentData": {
+        "segmentId": 40760530,
+        "segmentName": "",
+        "city": "La Quinta",
+        "state": "CA",
+        "totalEfforts": "7,641",
+        "totalAthletes": "53",
+        "totalDistance": "2,309.8 mi",
+        "maleLeader": {
+          "name": "Juan Rodriguez",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/139165000/31635067/8/large.jpg",
+          "efforts": 1400,
+          "delta": {
+            "delta": 3,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Mariana Anciso",
+          "profilePic": "https://lh3.googleusercontent.com/a/ACg8ocJiCtOho_bRmkN6PW_BHjZH5_5ITW3KS-BWBtXdgnwHRX1FncBG-w=s96-c",
+          "efforts": 725,
+          "delta": {
+            "delta": 35,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T14:13:38.441038+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40760530",
+      "status": "valid"
+    },
+    {
+      "city": "Bend",
+      "state": "OR",
+      "displayLocation": "Bend, OR",
+      "segmentId": 40757491,
+      "segmentData": {
+        "segmentId": 40757491,
+        "segmentName": "",
+        "city": "Bend",
+        "state": "OR",
+        "totalEfforts": "6,501",
+        "totalAthletes": "195",
+        "totalDistance": "1,879.9 mi",
+        "maleLeader": {
+          "name": "No leader yet",
+          "profilePic": "",
+          "efforts": 0,
+          "delta": {
+            "delta": null,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Amy Sproston",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/7910905/4392377/2/large.jpg",
+          "efforts": 666,
+          "delta": {
+            "delta": 5,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T14:13:38.441038+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40757491",
+      "status": "valid"
+    },
+    {
+      "city": "Chilliwack",
+      "state": "BC",
+      "displayLocation": "Chilliwack, BC",
+      "segmentId": 40792573,
+      "segmentData": {
+        "segmentId": 40792573,
+        "segmentName": "",
+        "city": "Chilliwack",
+        "state": "BC",
+        "totalEfforts": "6,169",
+        "totalAthletes": "153",
+        "totalDistance": "4,213.1 mi",
+        "maleLeader": {
+          "name": "Willem Hergesheimer",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/50708253/13778053/3/large.jpg",
+          "efforts": 398,
+          "delta": {
+            "delta": 55,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Lainie McBride",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/79361179/19122119/18/large.jpg",
+          "efforts": 230,
+          "delta": {
+            "delta": 31,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T14:13:38.441038+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40792573",
+      "status": "valid"
+    },
+    {
+      "city": "Fresno",
+      "state": "CA",
+      "displayLocation": "Fresno, CA",
+      "segmentId": 40757356,
+      "segmentData": {
+        "segmentId": 40757356,
+        "segmentName": "",
+        "city": "Fresno",
+        "state": "CA",
+        "totalEfforts": "6,227",
+        "totalAthletes": "49",
+        "totalDistance": "1,623.1 mi",
+        "maleLeader": {
+          "name": "No leader yet",
+          "profilePic": "",
+          "efforts": 0,
+          "delta": {
+            "delta": null,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Runner Moe (Monique Jacques)",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/1042533/3606836/6/large.jpg",
+          "efforts": 1164,
+          "delta": {
+            "delta": 112,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T14:13:38.441038+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40757356",
+      "status": "valid"
+    },
+    {
+      "city": "Koloa - Kauai",
+      "state": "HI",
+      "displayLocation": "Koloa - Kauai, HI",
+      "segmentId": 40750718,
+      "segmentData": {
+        "segmentId": 40750718,
+        "segmentName": "",
+        "city": "Koloa - Kauai",
+        "state": "HI",
+        "totalEfforts": "5,569",
+        "totalAthletes": "45",
+        "totalDistance": "1,117.3 mi",
+        "maleLeader": {
+          "name": "Derek Saiki",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/118246452/28505322/8/large.jpg",
+          "efforts": 861,
+          "delta": {
+            "delta": 252,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Leila Miss",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/157252684/37532119/2/large.jpg",
+          "efforts": 698,
+          "delta": {
+            "delta": 155,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T14:13:38.441038+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40750718",
+      "status": "valid"
+    },
+    {
+      "city": "Wilmington",
+      "state": "DE",
+      "displayLocation": "Wilmington, DE",
+      "segmentId": 40801881,
+      "segmentData": {
+        "segmentId": 40801881,
+        "segmentName": "",
+        "city": "Wilmington",
+        "state": "DE",
+        "totalEfforts": "1,112",
+        "totalAthletes": "31",
+        "totalDistance": "286.4 mi",
+        "maleLeader": {
+          "name": "Jon Frentzel",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/19365735/12861513/2/large.jpg",
+          "efforts": 204,
+          "delta": {
+            "delta": 4,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Carre Zatwarnytsky",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/33417267/27141377/6/large.jpg",
+          "efforts": 72,
+          "delta": {
+            "delta": 6,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T07:59:04.479276+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40801881",
+      "status": "valid"
+    },
+    {
+      "city": "Madison Heights",
+      "state": "MI",
+      "displayLocation": "Madison Heights, MI",
+      "segmentId": 40755018,
+      "segmentData": {
+        "segmentId": 40755018,
+        "segmentName": "",
+        "city": "Madison Heights",
+        "state": "MI",
+        "totalEfforts": "1,123",
+        "totalAthletes": "20",
+        "totalDistance": "174.4 mi",
+        "maleLeader": {
+          "name": "No leader yet",
+          "profilePic": "",
+          "efforts": 0,
+          "delta": {
+            "delta": null,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Allie Manchel",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/76307094/32731977/1/large.jpg",
+          "efforts": 278,
+          "delta": {
+            "delta": 15,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T07:59:04.479276+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40755018",
+      "status": "valid"
+    },
+    {
+      "city": "Crested Butte",
+      "state": "CO",
+      "displayLocation": "Crested Butte, CO",
+      "segmentId": 40788318,
+      "segmentData": {
+        "segmentId": 40788318,
+        "segmentName": "",
+        "city": "Crested Butte",
+        "state": "CO",
+        "totalEfforts": "745",
+        "totalAthletes": "14",
+        "totalDistance": "216.0 mi",
+        "maleLeader": {
+          "name": "No leader yet",
+          "profilePic": "",
+          "efforts": 0,
+          "delta": {
+            "delta": null,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Lisa Brin",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/128022926/29244388/1/large.jpg",
+          "efforts": 154,
+          "delta": {
+            "delta": 40,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T07:59:04.479276+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40788318",
+      "status": "valid"
+    },
+    {
+      "city": "Wenatchee",
+      "state": "WA",
+      "displayLocation": "Wenatchee, WA",
+      "segmentId": 2891757,
+      "segmentData": {
+        "segmentId": 2891757,
+        "segmentName": "",
+        "city": "Wenatchee",
+        "state": "WA",
+        "totalEfforts": "563",
+        "totalAthletes": "9",
+        "totalDistance": "213.9 mi",
+        "maleLeader": {
+          "name": "Ray Sharp",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/21346324/6094131/81/large.jpg",
+          "efforts": 174,
+          "delta": {
+            "delta": 4,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Sarah Clarke",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/11465739/3474040/1/large.jpg",
+          "efforts": 85,
+          "delta": {
+            "delta": 29,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T07:59:04.479276+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/2891757",
+      "status": "valid"
+    },
+    {
+      "city": "St George",
+      "state": "UT",
+      "displayLocation": "St George, UT",
+      "segmentId": 40748892,
+      "segmentData": {
+        "segmentId": 40748892,
+        "segmentName": "",
+        "city": "St George",
+        "state": "UT",
+        "totalEfforts": "407",
+        "totalAthletes": "19",
+        "totalDistance": "85.1 mi",
+        "maleLeader": {
+          "name": "Turd&#x27;L Miller",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/1303144/521943/3/large.jpg",
+          "efforts": 323,
+          "delta": {
+            "delta": 24,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Wendy Dawson",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/44302915/29270471/1/large.jpg",
+          "efforts": 5,
+          "delta": {
+            "delta": 1,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T07:59:04.479276+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40748892",
+      "status": "valid"
+    },
+    {
+      "city": "San Ramon",
+      "state": "CA",
+      "displayLocation": "San Ramon, CA",
+      "segmentId": 40755882,
+      "segmentData": {
+        "segmentId": 40755882,
+        "segmentName": "",
+        "city": "San Ramon",
+        "state": "CA",
+        "totalEfforts": "86",
+        "totalAthletes": "10",
+        "totalDistance": "14.1 mi",
+        "maleLeader": {
+          "name": "No leader yet",
+          "profilePic": "",
+          "efforts": 0,
+          "delta": {
+            "delta": null,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Sallie Arellano",
+          "profilePic": "https://graph.facebook.com/10207909844494349/picture?height=256&width=256",
+          "efforts": 21,
+          "delta": {
+            "delta": 4,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T07:59:04.479276+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40755882",
+      "status": "valid"
+    },
+    {
+      "city": "Salt Lake City",
+      "state": "UT",
+      "displayLocation": "Salt Lake City, UT",
+      "segmentId": 40829557,
+      "segmentData": {
+        "segmentId": 40829557,
+        "segmentName": "",
+        "city": "Salt Lake City",
+        "state": "UT",
+        "totalEfforts": "29",
+        "totalAthletes": "3",
+        "totalDistance": "5.8 mi",
+        "maleLeader": {
+          "name": "Lee Addams",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/11215662/6291743/3/large.jpg",
+          "efforts": 26,
+          "delta": {
+            "delta": 6,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "No leader yet",
+          "profilePic": "",
+          "efforts": 0,
+          "delta": {
+            "delta": null,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T07:59:04.479276+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40829557",
+      "status": "valid"
+    },
+    {
+      "city": "Tualatin",
+      "state": "OR",
+      "displayLocation": "Tualatin, OR",
+      "segmentId": 10234021,
+      "segmentData": {
+        "segmentId": 10234021,
+        "segmentName": "",
+        "city": "Tualatin",
+        "state": "OR",
+        "totalEfforts": "4,862",
+        "totalAthletes": "25",
+        "totalDistance": "1,588.4 mi",
+        "maleLeader": {
+          "name": "Tanner Swift",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/184925583/40137233/1/large.jpg",
+          "efforts": 1007,
+          "delta": {
+            "delta": 7,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Lori Jensen",
+          "profilePic": "https://lh3.googleusercontent.com/a/ACg8ocLG1ATt6Gf7otvbmCPI15yw1dAVOwzXIjKa_shJHxt0IQ4RUCId=s96-c",
+          "efforts": 398,
+          "delta": {
+            "delta": 11,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T07:52:05.922367+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/10234021",
+      "status": "valid"
+    },
+    {
+      "city": "Scarborough",
+      "state": "ME",
+      "displayLocation": "Scarborough, ME",
+      "segmentId": 40783979,
+      "segmentData": {
+        "segmentId": 40783979,
+        "segmentName": "",
+        "city": "Scarborough",
+        "state": "ME",
+        "totalEfforts": "3,524",
+        "totalAthletes": "47",
+        "totalDistance": "979.4 mi",
+        "maleLeader": {
+          "name": "No leader yet",
+          "profilePic": "",
+          "efforts": 0,
+          "delta": {
+            "delta": null,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Mindy Littlefield",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/29845012/9279654/4/large.jpg",
+          "efforts": 351,
+          "delta": {
+            "delta": 48,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T07:52:05.922367+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40783979",
+      "status": "valid"
+    },
+    {
+      "city": "Winthrop",
+      "state": "WA",
+      "displayLocation": "Winthrop, WA",
+      "segmentId": 40752506,
+      "segmentData": {
+        "segmentId": 40752506,
+        "segmentName": "",
+        "city": "Winthrop",
+        "state": "WA",
+        "totalEfforts": "3,002",
+        "totalAthletes": "21",
+        "totalDistance": "1,163.2 mi",
+        "maleLeader": {
+          "name": "No leader yet",
+          "profilePic": "",
+          "efforts": 0,
+          "delta": {
+            "delta": null,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Steph Bennett",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/276152/14281695/2/large.jpg",
+          "efforts": 485,
+          "delta": {
+            "delta": 24,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T07:52:05.922367+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40752506",
+      "status": "valid"
+    },
+    {
+      "city": "Winnipeg",
+      "state": "MB",
+      "displayLocation": "Winnipeg, MB",
+      "segmentId": 40756079,
+      "segmentData": {
+        "segmentId": 40756079,
+        "segmentName": "",
+        "city": "Winnipeg",
+        "state": "MB",
+        "totalEfforts": "2,553",
+        "totalAthletes": "88",
+        "totalDistance": "511.6 mi",
+        "maleLeader": {
+          "name": "No leader yet",
+          "profilePic": "",
+          "efforts": 0,
+          "delta": {
+            "delta": null,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Carly Isaak",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/29363303/8816535/2/large.jpg",
+          "efforts": 578,
+          "delta": {
+            "delta": 62,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T07:52:05.922367+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40756079",
+      "status": "valid"
+    },
+    {
+      "city": "Seattle",
+      "state": "WA",
+      "displayLocation": "Seattle, WA #2",
+      "segmentId": 40816424,
+      "segmentData": {
+        "segmentId": 40816424,
+        "segmentName": "",
+        "city": "Seattle",
+        "state": "WA",
+        "totalEfforts": "2,692",
+        "totalAthletes": "252",
+        "totalDistance": "487.0 mi",
+        "maleLeader": {
+          "name": "Ryan McIrvin 🌯 ",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/25924289/8324810/3/large.jpg",
+          "efforts": 556,
+          "delta": {
+            "delta": null,
+            "isNewLeader": true
+          }
+        },
+        "femaleLeader": {
+          "name": "Nicole Huston",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/13343220/4654871/2/large.jpg",
+          "efforts": 412,
+          "delta": {
+            "delta": 170,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T07:52:05.922367+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40816424",
+      "status": "valid"
+    },
+    {
+      "city": "Crowsnest Pass",
+      "state": "Alberta",
+      "displayLocation": "Crowsnest Pass, Alberta",
+      "segmentId": 40748430,
+      "segmentData": {
+        "segmentId": 40748430,
+        "segmentName": "",
+        "city": "Crowsnest Pass",
+        "state": "Alberta",
+        "totalEfforts": "2,121",
+        "totalAthletes": "41",
+        "totalDistance": "457.3 mi",
+        "maleLeader": {
+          "name": "Skylar Roth-MacDonald",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/49096782/14846077/7/large.jpg",
+          "efforts": 724,
+          "delta": {
+            "delta": 10,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Jessica Sprague",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/33512446/9960646/3/large.jpg",
+          "efforts": 319,
+          "delta": {
+            "delta": 18,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T07:52:05.922367+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40748430",
+      "status": "valid"
+    },
+    {
+      "city": "Ottawa",
+      "state": "Ontario",
+      "displayLocation": "Ottawa, Ontario",
+      "segmentId": 40765374,
+      "segmentData": {
+        "segmentId": 40765374,
+        "segmentName": "",
+        "city": "Ottawa",
+        "state": "Ontario",
+        "totalEfforts": "1,946",
+        "totalAthletes": "37",
+        "totalDistance": "639.7 mi",
+        "maleLeader": {
+          "name": "Dennis Kim",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/100833200/24150886/6/large.jpg",
+          "efforts": 328,
+          "delta": {
+            "delta": 1,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Stephanie Aloia",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/26816673/12039316/2/large.jpg",
+          "efforts": 302,
+          "delta": {
+            "delta": 51,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T07:52:05.922367+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40765374",
+      "status": "valid"
+    },
+    {
+      "city": "Pullman",
+      "state": "WA",
+      "displayLocation": "Pullman, WA",
+      "segmentId": 40775875,
+      "segmentData": {
+        "segmentId": 40775875,
+        "segmentName": "",
+        "city": "Pullman",
+        "state": "WA",
+        "totalEfforts": "1,550",
+        "totalAthletes": "32",
+        "totalDistance": "677.6 mi",
+        "maleLeader": {
+          "name": "Torrey Stephenson",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/34442701/10204295/8/large.jpg",
+          "efforts": 239,
+          "delta": {
+            "delta": 6,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Kayla Bishop",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/24902108/7176726/6/large.jpg",
+          "efforts": 142,
+          "delta": {
+            "delta": 37,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T07:52:05.922367+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40775875",
+      "status": "valid"
+    },
+    {
+      "city": "Montreal",
+      "state": "Quebec",
+      "displayLocation": "Montreal, Quebec",
+      "segmentId": 40784187,
+      "segmentData": {
+        "segmentId": 40784187,
+        "segmentName": "",
+        "city": "Montreal",
+        "state": "Quebec",
+        "totalEfforts": "1,514",
+        "totalAthletes": "31",
+        "totalDistance": "644.6 mi",
+        "maleLeader": {
+          "name": "Ian Mekkelholt",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/2366256/2561296/3/large.jpg",
+          "efforts": 302,
+          "delta": {
+            "delta": 47,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Marie-Louise Bédard",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/69900255/40136516/1/large.jpg",
+          "efforts": 72,
+          "delta": {
+            "delta": 13,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T07:52:05.922367+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40784187",
+      "status": "valid"
+    },
+    {
+      "city": "Marana",
+      "state": "AZ",
+      "displayLocation": "Marana, AZ",
+      "segmentId": 40750504,
+      "segmentData": {
+        "segmentId": 40750504,
+        "segmentName": "",
+        "city": "Marana",
+        "state": "AZ",
+        "totalEfforts": "1,281",
+        "totalAthletes": "25",
+        "totalDistance": "288.5 mi",
+        "maleLeader": {
+          "name": "Zack Benedict",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/47892150/13270153/2/large.jpg",
+          "efforts": 413,
+          "delta": {
+            "delta": 9,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Gillian Algar",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/185128265/41715742/1/large.jpg",
+          "efforts": 111,
+          "delta": {
+            "delta": 6,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T07:52:05.922367+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40750504",
+      "status": "valid"
+    },
+    {
+      "city": "Washington DC",
+      "state": "DC",
+      "displayLocation": "Washington DC, DC",
+      "segmentId": 40754824,
+      "segmentData": {
+        "segmentId": 40754824,
+        "segmentName": "",
+        "city": "Washington DC",
+        "state": "DC",
+        "totalEfforts": "1,270",
+        "totalAthletes": "28",
+        "totalDistance": "813.6 mi",
+        "maleLeader": {
+          "name": "Adam Rasmussen",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/2824453/1990684/3/large.jpg",
+          "efforts": 210,
+          "delta": {
+            "delta": null,
+            "isNewLeader": true
+          }
+        },
+        "femaleLeader": {
+          "name": "Heather Stafford",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/61461471/15855651/7/large.jpg",
+          "efforts": 60,
+          "delta": {
+            "delta": 24,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T07:52:05.922367+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40754824",
+      "status": "valid"
+    },
+    {
+      "city": "Ogden",
+      "state": "UT",
+      "displayLocation": "Ogden, UT",
+      "segmentId": 40785275,
+      "segmentData": {
+        "segmentId": 40785275,
+        "segmentName": "",
+        "city": "Ogden",
+        "state": "UT",
+        "totalEfforts": "18,433",
+        "totalAthletes": "117",
+        "totalDistance": "6,127.7 mi",
+        "maleLeader": {
+          "name": "Braden Perry",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/23334487/12734218/2/large.jpg",
+          "efforts": 1905,
+          "delta": {
+            "delta": 128,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Joni Jones",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/114249568/34752525/1/large.jpg",
+          "efforts": 1105,
+          "delta": {
+            "delta": 210,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T07:35:42.931494+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40785275",
+      "status": "valid"
+    },
+    {
+      "city": "New York",
+      "state": "NY",
+      "displayLocation": "New York, NY",
+      "segmentId": 40755642,
+      "segmentData": {
+        "segmentId": 40755642,
+        "segmentName": "",
+        "city": "New York",
+        "state": "NY",
+        "totalEfforts": "17,168",
+        "totalAthletes": "132",
+        "totalDistance": "5,301.8 mi",
+        "maleLeader": {
+          "name": "Joe DeAngelo",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/1084231/21398983/3/large.jpg",
+          "efforts": 2254,
+          "delta": {
+            "delta": 70,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Elise Gelbard",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/27246142/42890056/1/large.jpg",
+          "efforts": 1081,
+          "delta": {
+            "delta": 61,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T07:35:42.931494+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40755642",
+      "status": "valid"
+    },
+    {
+      "city": "Flagstaff",
+      "state": "AZ",
+      "displayLocation": "Flagstaff, AZ",
+      "segmentId": 40748849,
+      "segmentData": {
+        "segmentId": 40748849,
+        "segmentName": "",
+        "city": "Flagstaff",
+        "state": "AZ",
+        "totalEfforts": "16,580",
+        "totalAthletes": "98",
+        "totalDistance": "4,947.1 mi",
+        "maleLeader": {
+          "name": "Pete Kostelnick",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/16102568/24912946/2/large.jpg",
+          "efforts": 2022,
+          "delta": {
+            "delta": 19,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Andrea Moore 🦏🖤☠️🏴‍☠️",
+          "profilePic": "https://graph.facebook.com/1434077836610721/picture?height=256&width=256",
+          "efforts": 1894,
+          "delta": {
+            "delta": 171,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T07:35:42.931494+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40748849",
+      "status": "valid"
+    },
+    {
+      "city": "Boulder",
+      "state": "CO",
+      "displayLocation": "Boulder, CO",
+      "segmentId": 40763570,
+      "segmentData": {
+        "segmentId": 40763570,
+        "segmentName": "",
+        "city": "Boulder",
+        "state": "CO",
+        "totalEfforts": "14,833",
+        "totalAthletes": "202",
+        "totalDistance": "2,981.6 mi",
+        "maleLeader": {
+          "name": "No leader yet",
+          "profilePic": "",
+          "efforts": 0,
+          "delta": {
+            "delta": null,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Kelsey Lakowske",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/37938559/11655154/1/large.jpg",
+          "efforts": 1456,
+          "delta": {
+            "delta": null,
+            "isNewLeader": true
+          }
+        },
+        "lastUpdated": "2026-02-01T07:35:42.931494+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40763570",
+      "status": "valid"
+    },
+    {
+      "city": "Toronto",
+      "state": "Ontario",
+      "displayLocation": "Toronto, Ontario",
+      "segmentId": 40748081,
+      "segmentData": {
+        "segmentId": 40748081,
+        "segmentName": "",
+        "city": "Toronto",
+        "state": "Ontario",
+        "totalEfforts": "11,278",
+        "totalAthletes": "49",
+        "totalDistance": "2,732.3 mi",
+        "maleLeader": {
+          "name": "Paul Vanoostveen",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/47384635/13459810/5/large.jpg",
+          "efforts": 2505,
+          "delta": {
+            "delta": 245,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Rebeca Escobar",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/134381167/32686704/11/large.jpg",
+          "efforts": 864,
+          "delta": {
+            "delta": 1,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T07:35:42.931494+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40748081",
+      "status": "valid"
+    },
+    {
+      "city": "Tucson",
+      "state": "AZ",
+      "displayLocation": "Tucson, AZ",
+      "segmentId": 40748423,
+      "segmentData": {
+        "segmentId": 40748423,
+        "segmentName": "",
+        "city": "Tucson",
+        "state": "AZ",
+        "totalEfforts": "10,122",
+        "totalAthletes": "39",
+        "totalDistance": "2,305.1 mi",
+        "maleLeader": {
+          "name": "Ben Gerkin",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/4313830/2244241/5/large.jpg",
+          "efforts": 1454,
+          "delta": {
+            "delta": 152,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Devan Ortega",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/75556466/19535086/4/large.jpg",
+          "efforts": 1095,
+          "delta": {
+            "delta": 37,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T07:35:42.931494+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40748423",
+      "status": "valid"
+    },
+    {
+      "city": "Boise",
+      "state": "ID",
+      "displayLocation": "Boise, ID",
+      "segmentId": 40752498,
+      "segmentData": {
+        "segmentId": 40752498,
+        "segmentName": "",
+        "city": "Boise",
+        "state": "ID",
+        "totalEfforts": "8,625",
+        "totalAthletes": "45",
+        "totalDistance": "1,901.4 mi",
+        "maleLeader": {
+          "name": "David Yousling 🌱",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/53210/547602/6/large.jpg",
+          "efforts": 1141,
+          "delta": {
+            "delta": 34,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Liv Sather",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/26849923/12709034/20/large.jpg",
+          "efforts": 721,
+          "delta": {
+            "delta": null,
+            "isNewLeader": true
+          }
+        },
+        "lastUpdated": "2026-02-01T07:35:42.931494+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40752498",
+      "status": "valid"
+    },
+    {
+      "city": "Guadalajara Jalisco",
+      "state": "",
+      "displayLocation": "Guadalajara Jalisco, MX",
+      "segmentId": 40760766,
+      "segmentData": {
+        "segmentId": 40760766,
+        "segmentName": "",
+        "city": "Guadalajara Jalisco",
+        "state": "",
+        "totalEfforts": "8,626",
+        "totalAthletes": "47",
+        "totalDistance": "1,774.1 mi",
+        "maleLeader": {
+          "name": "Gerardo Jiménez",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/87037795/43196441/1/large.jpg",
+          "efforts": 1215,
+          "delta": {
+            "delta": 210,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Sandy Lopez / ProTrail",
+          "profilePic": "https://graph.facebook.com/10217321798771587/picture?height=256&width=256",
+          "efforts": 1074,
+          "delta": {
+            "delta": 234,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T07:35:42.931494+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40760766",
+      "status": "valid"
+    },
+    {
+      "city": "Seattle",
+      "state": "WA",
+      "displayLocation": "Seattle, WA #1",
+      "segmentId": 40780048,
+      "segmentData": {
+        "segmentId": 40780048,
+        "segmentName": "",
+        "city": "Seattle",
+        "state": "WA",
+        "totalEfforts": "6,148",
+        "totalAthletes": "603",
+        "totalDistance": "1,463.8 mi",
+        "maleLeader": {
+          "name": "Joel Gartenberg",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/42974893/29880361/13/large.jpg",
+          "efforts": 801,
+          "delta": {
+            "delta": 11,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Victoria Ito",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/95425264/24475676/2/large.jpg",
+          "efforts": 451,
+          "delta": {
+            "delta": 6,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T07:35:42.931494+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40780048",
+      "status": "valid"
+    },
+    {
+      "city": "Prescott",
+      "state": "AZ",
+      "displayLocation": "Prescott, AZ",
+      "segmentId": 40752963,
+      "segmentData": {
+        "segmentId": 40752963,
+        "segmentName": "",
+        "city": "Prescott",
+        "state": "AZ",
+        "totalEfforts": "6,043",
+        "totalAthletes": "56",
+        "totalDistance": "1,350.6 mi",
+        "maleLeader": {
+          "name": "No leader yet",
+          "profilePic": "",
+          "efforts": 0,
+          "delta": {
+            "delta": null,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Carol Northrup",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/44003843/12641751/8/large.jpg",
+          "efforts": 1048,
+          "delta": {
+            "delta": 16,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T07:35:42.931494+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40752963",
+      "status": "valid"
+    },
+    {
+      "city": "Steamboat Springs",
+      "state": "CO",
+      "displayLocation": "Steamboat Springs, CO",
+      "segmentId": 40776005,
+      "segmentData": {
+        "segmentId": 40776005,
+        "segmentName": "",
+        "city": "Steamboat Springs",
+        "state": "CO",
+        "totalEfforts": "5,392",
+        "totalAthletes": "43",
+        "totalDistance": "2,086.6 mi",
+        "maleLeader": {
+          "name": "Pete S",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/4118082/2176975/4/large.jpg",
+          "efforts": 783,
+          "delta": {
+            "delta": 144,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Jillian Albus",
+          "profilePic": "https://graph.facebook.com/10211962803642086/picture?height=256&width=256",
+          "efforts": 573,
+          "delta": {
+            "delta": 74,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T07:35:42.931494+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40776005",
+      "status": "valid"
+    },
+    {
+      "city": "Bozeman",
+      "state": "MT",
+      "displayLocation": "Bozeman, MT",
+      "segmentId": 40756889,
+      "segmentData": {
+        "segmentId": 40756889,
+        "segmentName": "",
+        "city": "Bozeman",
+        "state": "MT",
+        "totalEfforts": "4,940",
+        "totalAthletes": "32",
+        "totalDistance": "1,114.2 mi",
+        "maleLeader": {
+          "name": "Shad Birkholz",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/20746517/5937972/4/large.jpg",
+          "efforts": 842,
+          "delta": {
+            "delta": 40,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Grace Strand",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/115810280/30293153/2/large.jpg",
+          "efforts": 503,
+          "delta": {
+            "delta": 25,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T07:35:42.931494+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40756889",
+      "status": "valid"
+    },
+    {
+      "city": "Burlington",
+      "state": "VT",
+      "displayLocation": "Burlington, VT",
+      "segmentId": 40811586,
+      "segmentData": {
+        "segmentId": 40811586,
+        "segmentName": "",
+        "city": "Burlington",
+        "state": "VT",
+        "totalEfforts": "1,168",
+        "totalAthletes": "10",
+        "totalDistance": "289.2 mi",
+        "maleLeader": {
+          "name": "No leader yet",
+          "profilePic": "",
+          "efforts": 0,
+          "delta": {
+            "delta": null,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Lila Gaudrault",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/49979252/13470391/12/large.jpg",
+          "efforts": 677,
+          "delta": {
+            "delta": 70,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T04:51:54.79299+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40811586",
+      "status": "valid"
+    },
+    {
+      "city": "Berthoud",
+      "state": "CO",
+      "displayLocation": "Berthoud, CO",
+      "segmentId": 40746992,
+      "segmentData": {
+        "segmentId": 40746992,
+        "segmentName": "",
+        "city": "Berthoud",
+        "state": "CO",
+        "totalEfforts": "986",
+        "totalAthletes": "17",
+        "totalDistance": "300.2 mi",
+        "maleLeader": {
+          "name": "Timothy Pearl",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/66457748/18607762/2/large.jpg",
+          "efforts": 367,
+          "delta": {
+            "delta": 5,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Joni Watkins 🏔️",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/7061786/2679913/6/large.jpg",
+          "efforts": 156,
+          "delta": {
+            "delta": 1,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T04:51:54.79299+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40746992",
+      "status": "valid"
+    },
+    {
+      "city": "Roseville-Rocklin",
+      "state": "CA",
+      "displayLocation": "Roseville-Rocklin, CA",
+      "segmentId": 40747610,
+      "segmentData": {
+        "segmentId": 40747610,
+        "segmentName": "",
+        "city": "Roseville-Rocklin",
+        "state": "CA",
+        "totalEfforts": "977",
+        "totalAthletes": "24",
+        "totalDistance": "202.1 mi",
+        "maleLeader": {
+          "name": "Thomas Kuhn",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/1332523/561263/6/large.jpg",
+          "efforts": 400,
+          "delta": {
+            "delta": 18,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "alyson mccann",
+          "profilePic": "https://lh3.googleusercontent.com/a/ACg8ocKCj71iqOj7B6jraBQRN5or2iRmDufyKJ6OFcbfynlvmFteVDg=s96-c",
+          "efforts": 67,
+          "delta": {
+            "delta": 9,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T04:51:54.79299+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40747610",
+      "status": "valid"
+    },
+    {
+      "city": "Hanover",
+      "state": "NH",
+      "displayLocation": "Hanover, NH",
+      "segmentId": 40769531,
+      "segmentData": {
+        "segmentId": 40769531,
+        "segmentName": "",
+        "city": "Hanover",
+        "state": "NH",
+        "totalEfforts": "747",
+        "totalAthletes": "5",
+        "totalDistance": "150.8 mi",
+        "maleLeader": {
+          "name": "William Ren",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/94856936/22569698/1/large.jpg",
+          "efforts": 339,
+          "delta": {
+            "delta": null,
+            "isNewLeader": true
+          }
+        },
+        "femaleLeader": {
+          "name": "Anna Tracy",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/87818816/26391776/1/large.jpg",
+          "efforts": 19,
+          "delta": {
+            "delta": null,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T04:51:54.79299+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40769531",
+      "status": "valid"
+    },
+    {
+      "city": "Saratoga Springs",
+      "state": "NY",
+      "displayLocation": "Saratoga Springs, NY",
+      "segmentId": 40761317,
+      "segmentData": {
+        "segmentId": 40761317,
+        "segmentName": "",
+        "city": "Saratoga Springs",
+        "state": "NY",
+        "totalEfforts": "414",
+        "totalAthletes": "26",
+        "totalDistance": "87.5 mi",
+        "maleLeader": {
+          "name": "No leader yet",
+          "profilePic": "",
+          "efforts": 0,
+          "delta": {
+            "delta": null,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Keana Albert",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/47005676/35233255/1/large.jpg",
+          "efforts": 169,
+          "delta": {
+            "delta": 22,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T04:51:54.79299+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40761317",
+      "status": "valid"
+    },
+    {
+      "city": "Scarborough",
+      "state": "Ontario",
+      "displayLocation": "Scarborough, Ontario",
+      "segmentId": 40757496,
+      "segmentData": {
+        "segmentId": 40757496,
+        "segmentName": "",
+        "city": "Scarborough",
+        "state": "Ontario",
+        "totalEfforts": "263",
+        "totalAthletes": "14",
+        "totalDistance": "55.3 mi",
+        "maleLeader": {
+          "name": "Matt Smith",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/2191303/865242/20/large.jpg",
+          "efforts": 105,
+          "delta": {
+            "delta": 15,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Margaret  Lim",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/2937722/9724537/4/large.jpg",
+          "efforts": 11,
+          "delta": {
+            "delta": 6,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T04:51:54.79299+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40757496",
+      "status": "valid"
+    },
+    {
+      "city": "Bedford",
+      "state": "IN",
+      "displayLocation": "Bedford, IN",
+      "segmentId": 40779788,
+      "segmentData": {
+        "segmentId": 40779788,
+        "segmentName": "",
+        "city": "Bedford",
+        "state": "IN",
+        "totalEfforts": "193",
+        "totalAthletes": "6",
+        "totalDistance": "49.6 mi",
+        "maleLeader": {
+          "name": "Lester Burris ",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/2449935/1009535/7/large.jpg",
+          "efforts": 111,
+          "delta": {
+            "delta": 11,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "JoAnna Hackney",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/306226/60941/11/large.jpg",
+          "efforts": 31,
+          "delta": {
+            "delta": 1,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T04:51:54.79299+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40779788",
+      "status": "valid"
+    },
+    {
+      "city": "Gila Bend",
+      "state": "AZ",
+      "displayLocation": "Gila Bend, AZ",
+      "segmentId": 40748843,
+      "segmentData": {
+        "segmentId": 40748843,
+        "segmentName": "",
+        "city": "Gila Bend",
+        "state": "AZ",
+        "totalEfforts": "135",
+        "totalAthletes": "7",
+        "totalDistance": "40.7 mi",
+        "maleLeader": {
+          "name": "No leader yet",
+          "profilePic": "",
+          "efforts": 0,
+          "delta": {
+            "delta": null,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Tara Ultrarunningprayerwarrior ",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/7394044/2234671/3/large.jpg",
+          "efforts": 105,
+          "delta": {
+            "delta": 11,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T04:51:54.79299+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40748843",
+      "status": "valid"
+    },
+    {
+      "city": "Richmond",
+      "state": "VA",
+      "displayLocation": "Richmond, VA",
+      "segmentId": 40797969,
+      "segmentData": {
+        "segmentId": 40797969,
+        "segmentName": "",
+        "city": "Richmond",
+        "state": "VA",
+        "totalEfforts": "100",
+        "totalAthletes": "16",
+        "totalDistance": "34.3 mi",
+        "maleLeader": {
+          "name": "No leader yet",
+          "profilePic": "",
+          "efforts": 0,
+          "delta": {
+            "delta": null,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Nicole Carty",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/54973914/26856597/1/large.jpg",
+          "efforts": 34,
+          "delta": {
+            "delta": 5,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T04:51:54.79299+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40797969",
+      "status": "valid"
+    },
+    {
+      "city": "Fridley & Columbia Heights",
+      "state": "MN",
+      "displayLocation": "Fridley & Columbia Heights, MN",
+      "segmentId": 40765375,
+      "segmentData": {
+        "segmentId": 40765375,
+        "segmentName": "",
+        "city": "Fridley & Columbia Heights",
+        "state": "MN",
+        "totalEfforts": "112",
+        "totalAthletes": "7",
+        "totalDistance": "72.3 mi",
+        "maleLeader": {
+          "name": "CJ S",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/17724979/5933045/1/large.jpg",
+          "efforts": 76,
+          "delta": {
+            "delta": 57,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Kate Prostrollo",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/30832190/9237668/2/large.jpg",
+          "efforts": 2,
+          "delta": {
+            "delta": null,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T04:51:54.79299+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40765375",
+      "status": "valid"
+    },
+    {
+      "city": "Ponte Verda",
+      "state": "FL",
+      "displayLocation": "Ponte Verda, FL",
+      "segmentId": 40752662,
+      "segmentData": {
+        "segmentId": 40752662,
+        "segmentName": "",
+        "city": "Ponte Verda",
+        "state": "FL",
+        "totalEfforts": "14",
+        "totalAthletes": "3",
+        "totalDistance": "5.9 mi",
+        "maleLeader": {
+          "name": "David Ryks",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/61784630/29308956/3/large.jpg",
+          "efforts": 10,
+          "delta": {
+            "delta": 8,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Sara Nelson",
+          "profilePic": "https://lh3.googleusercontent.com/-8TccRBpPCAQ/AAAAAAAAAAI/AAAAAAAAADg/En56qUk1QrM/photo.jpg",
+          "efforts": 2,
+          "delta": {
+            "delta": null,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T04:51:54.79299+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40752662",
+      "status": "valid"
+    },
+    {
+      "city": "Wildwood",
+      "state": "MO",
+      "displayLocation": "Wildwood, MO",
+      "segmentId": 40811702,
+      "segmentData": {
+        "segmentId": 40811702,
+        "segmentName": "",
+        "city": "Wildwood",
+        "state": "MO",
+        "totalEfforts": "8",
+        "totalAthletes": "8",
+        "totalDistance": "1.2 mi",
+        "maleLeader": {
+          "name": "Jason Clark",
+          "profilePic": "https://lh3.googleusercontent.com/a/ACg8ocJdSKeKRtTqLCuyn0cBoN6Mz8dXtNQCaDd0SLisv9kEcWlAbqhY=s96-c",
+          "efforts": 1,
+          "delta": {
+            "delta": null,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Erma Groenewald",
+          "profilePic": "https://lh6.googleusercontent.com/-ZDWpVvLCAe8/AAAAAAAAAAI/AAAAAAAABng/_LDK59Mf_4s/photo.jpg",
+          "efforts": 1,
+          "delta": {
+            "delta": null,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T04:51:54.79299+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40811702",
+      "status": "valid"
+    },
+    {
+      "city": "Windsor",
+      "state": "CO",
+      "displayLocation": "Windsor, CO",
+      "segmentId": 40753323,
+      "segmentData": {
+        "segmentId": 40753323,
+        "segmentName": "",
+        "city": "Windsor",
+        "state": "CO",
+        "totalEfforts": "4,716",
+        "totalAthletes": "38",
+        "totalDistance": "955.3 mi",
+        "maleLeader": {
+          "name": "Devan McKenney",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/120055904/42313210/1/large.jpg",
+          "efforts": 922,
+          "delta": {
+            "delta": 2,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Sarah Robertson",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/40567357/17610741/1/large.jpg",
+          "efforts": 534,
+          "delta": {
+            "delta": 64,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T04:38:06.499557+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40753323",
+      "status": "valid"
+    },
+    {
+      "city": "West Reading",
+      "state": "PA",
+      "displayLocation": "West Reading, PA",
+      "segmentId": 40788579,
+      "segmentData": {
+        "segmentId": 40788579,
+        "segmentName": "",
+        "city": "West Reading",
+        "state": "PA",
+        "totalEfforts": "4,747",
+        "totalAthletes": "42",
+        "totalDistance": "1,173.9 mi",
+        "maleLeader": {
+          "name": "Alexander Nunn",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/20621953/5907608/6/large.jpg",
+          "efforts": 705,
+          "delta": {
+            "delta": 33,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Kelly Ammon",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/49254901/19832339/7/large.jpg",
+          "efforts": 600,
+          "delta": {
+            "delta": 60,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T04:38:06.499557+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40788579",
+      "status": "valid"
+    },
+    {
+      "city": "Rochester",
+      "state": "NY",
+      "displayLocation": "Rochester, NY",
+      "segmentId": 40785036,
+      "segmentData": {
+        "segmentId": 40785036,
+        "segmentName": "",
+        "city": "Rochester",
+        "state": "NY",
+        "totalEfforts": "4,438",
+        "totalAthletes": "29",
+        "totalDistance": "1,335.8 mi",
+        "maleLeader": {
+          "name": "No leader yet",
+          "profilePic": "",
+          "efforts": 0,
+          "delta": {
+            "delta": null,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Yaroslava Quirk",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/178111144/41540860/1/large.jpg",
+          "efforts": 868,
+          "delta": {
+            "delta": 45,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T04:38:06.499557+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40785036",
+      "status": "valid"
+    },
+    {
+      "city": "Nashville",
+      "state": "TN",
+      "displayLocation": "Nashville, TN",
+      "segmentId": 40756595,
+      "segmentData": {
+        "segmentId": 40756595,
+        "segmentName": "",
+        "city": "Nashville",
+        "state": "TN",
+        "totalEfforts": "4,622",
+        "totalAthletes": "39",
+        "totalDistance": "910.7 mi",
+        "maleLeader": {
+          "name": "Quintin Gay",
+          "profilePic": "https://lh3.googleusercontent.com/a/ACg8ocJ_nVfnBeUiyNPptNMJFENsrrUmBkJWTJDTbH7dGIQek6TeYA=s96-c",
+          "efforts": 700,
+          "delta": {
+            "delta": null,
+            "isNewLeader": true
+          }
+        },
+        "femaleLeader": {
+          "name": "Carolyn Pippin",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/142259396/32247192/2/large.jpg",
+          "efforts": 571,
+          "delta": {
+            "delta": 38,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T04:38:06.499557+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40756595",
+      "status": "valid"
+    },
+    {
+      "city": "Buffalo",
+      "state": "NY",
+      "displayLocation": "Buffalo, NY",
+      "segmentId": 40784069,
+      "segmentData": {
+        "segmentId": 40784069,
+        "segmentName": "",
+        "city": "Buffalo",
+        "state": "NY",
+        "totalEfforts": "4,316",
+        "totalAthletes": "59",
+        "totalDistance": "1,499.9 mi",
+        "maleLeader": {
+          "name": "Jeffrey Adams",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/13390044/4811644/4/large.jpg",
+          "efforts": 788,
+          "delta": {
+            "delta": 76,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Maura Tyrrell",
+          "profilePic": "https://lh3.googleusercontent.com/a/ACg8ocLqfD5cAw05GdjzHYgvsxw9XHMGReookTGEDtz8r9iab8dQ8Q=s96-c",
+          "efforts": 372,
+          "delta": {
+            "delta": 46,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T04:38:06.499557+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40784069",
+      "status": "valid"
+    },
+    {
+      "city": "Reno",
+      "state": "NV",
+      "displayLocation": "Reno, NV",
+      "segmentId": 40748703,
+      "segmentData": {
+        "segmentId": 40748703,
+        "segmentName": "",
+        "city": "Reno",
+        "state": "NV",
+        "totalEfforts": "4,049",
+        "totalAthletes": "99",
+        "totalDistance": "1,125.8 mi",
+        "maleLeader": {
+          "name": "No leader yet",
+          "profilePic": "",
+          "efforts": 0,
+          "delta": {
+            "delta": null,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Kayla Bicknell",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/56306772/14608516/4/large.jpg",
+          "efforts": 746,
+          "delta": {
+            "delta": 24,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T04:38:06.499557+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40748703",
+      "status": "valid"
+    },
+    {
+      "city": "Calgary",
+      "state": "Alberta",
+      "displayLocation": "Calgary, Alberta",
+      "segmentId": 40748818,
+      "segmentData": {
+        "segmentId": 40748818,
+        "segmentName": "",
+        "city": "Calgary",
+        "state": "Alberta",
+        "totalEfforts": "3,857",
+        "totalAthletes": "79",
+        "totalDistance": "782.0 mi",
+        "maleLeader": {
+          "name": "Neil Wagner",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/106586097/33146253/2/large.jpg",
+          "efforts": 957,
+          "delta": {
+            "delta": 42,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Tina Ramen",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/10068972/16188485/3/large.jpg",
+          "efforts": 320,
+          "delta": {
+            "delta": 14,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T04:38:06.499557+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40748818",
+      "status": "valid"
+    },
+    {
+      "city": "Idaho Springs",
+      "state": "CO",
+      "displayLocation": "Idaho Springs, CO",
+      "segmentId": 40771919,
+      "segmentData": {
+        "segmentId": 40771919,
+        "segmentName": "",
+        "city": "Idaho Springs",
+        "state": "CO",
+        "totalEfforts": "3,970",
+        "totalAthletes": "28",
+        "totalDistance": "1,110.8 mi",
+        "maleLeader": {
+          "name": "Tyler Talkington",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/28623508/21246149/6/large.jpg",
+          "efforts": 1178,
+          "delta": {
+            "delta": 113,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "chelsea vendegna",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/7145735/2928465/9/large.jpg",
+          "efforts": 475,
+          "delta": {
+            "delta": 52,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T04:38:06.499557+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40771919",
+      "status": "valid"
+    },
+    {
+      "city": "Portland",
+      "state": "ME",
+      "displayLocation": "Portland, ME",
+      "segmentId": 1245312,
+      "segmentData": {
+        "segmentId": 1245312,
+        "segmentName": "",
+        "city": "Portland",
+        "state": "ME",
+        "totalEfforts": "3,181",
+        "totalAthletes": "274",
+        "totalDistance": "1,002.3 mi",
+        "maleLeader": {
+          "name": "Cole Hoffman",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/11087777/17300695/2/large.jpg",
+          "efforts": 345,
+          "delta": {
+            "delta": 33,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Tierney Beauregard",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/88376717/21220931/2/large.jpg",
+          "efforts": 262,
+          "delta": {
+            "delta": 16,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T04:38:06.499557+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/1245312",
+      "status": "valid"
+    },
+    {
+      "city": "Fayetteville",
+      "state": "AR",
+      "displayLocation": "Fayetteville, AR",
+      "segmentId": 40789269,
+      "segmentData": {
+        "segmentId": 40789269,
+        "segmentName": "",
+        "city": "Fayetteville",
+        "state": "AR",
+        "totalEfforts": "3,092",
+        "totalAthletes": "32",
+        "totalDistance": "1,044.9 mi",
+        "maleLeader": {
+          "name": "Brian Hurley",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/1846200/16056313/2/large.jpg",
+          "efforts": 661,
+          "delta": {
+            "delta": 29,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Patricia Schaller Pittman",
+          "profilePic": "https://graph.facebook.com/10103176493723117/picture?height=256&width=256",
+          "efforts": 414,
+          "delta": {
+            "delta": 57,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T04:38:06.499557+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40789269",
+      "status": "valid"
+    },
+    {
+      "city": "Grapevine",
+      "state": "TX",
+      "displayLocation": "Grapevine, TX",
+      "segmentId": 40803296,
+      "segmentData": {
+        "segmentId": 40803296,
+        "segmentName": "",
+        "city": "Grapevine",
+        "state": "TX",
+        "totalEfforts": "3,155",
+        "totalAthletes": "30",
+        "totalDistance": "531.8 mi",
+        "maleLeader": {
+          "name": "Matthew Pilcher",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/134256866/31235080/5/large.jpg",
+          "efforts": 560,
+          "delta": {
+            "delta": 72,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Michelle Brooks",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/37045729/22311730/1/large.jpg",
+          "efforts": 333,
+          "delta": {
+            "delta": 30,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T04:38:06.499557+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40803296",
+      "status": "valid"
+    },
+    {
+      "city": "Red Deer",
+      "state": "Alberta",
+      "displayLocation": "Red Deer, Alberta",
+      "segmentId": 40751328,
+      "segmentData": {
+        "segmentId": 40751328,
+        "segmentName": "",
+        "city": "Red Deer",
+        "state": "Alberta",
+        "totalEfforts": "1,994",
+        "totalAthletes": "17",
+        "totalDistance": "511.2 mi",
+        "maleLeader": {
+          "name": "Sawback Tom",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/23026044/6587950/3/large.jpg",
+          "efforts": 540,
+          "delta": {
+            "delta": 27,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Helene McDonald",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/32126918/11932186/1/large.jpg",
+          "efforts": 456,
+          "delta": {
+            "delta": null,
+            "isNewLeader": true
+          }
+        },
+        "lastUpdated": "2026-02-01T04:38:06.499557+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40751328",
+      "status": "valid"
+    },
+    {
+      "city": "New Paltz",
+      "state": "NY",
+      "displayLocation": "New Paltz, NY",
+      "segmentId": 40747964,
+      "segmentData": {
+        "segmentId": 40747964,
+        "segmentName": "",
+        "city": "New Paltz",
+        "state": "NY",
+        "totalEfforts": "1,625",
+        "totalAthletes": "26",
+        "totalDistance": "731.3 mi",
+        "maleLeader": {
+          "name": "Karl LaRocca",
+          "profilePic": "https://graph.facebook.com/10158075797833855/picture?height=256&width=256",
+          "efforts": 500,
+          "delta": {
+            "delta": 26,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "jules onamor",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/56951134/18440635/3/large.jpg",
+          "efforts": 129,
+          "delta": {
+            "delta": 2,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T04:38:06.499557+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40747964",
+      "status": "valid"
+    },
+    {
+      "city": "Harriman",
+      "state": "UT",
+      "displayLocation": "Harriman, UT",
+      "segmentId": 40570357,
+      "segmentData": {
+        "segmentId": 40570357,
+        "segmentName": "",
+        "city": "Harriman",
+        "state": "UT",
+        "totalEfforts": "1,786",
+        "totalAthletes": "42",
+        "totalDistance": "357.3 mi",
+        "maleLeader": {
+          "name": "Miles Victors",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/182454/23720399/4/large.jpg",
+          "efforts": 311,
+          "delta": {
+            "delta": null,
+            "isNewLeader": true
+          }
+        },
+        "femaleLeader": {
+          "name": "Chelise Draper",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/67528579/16845325/1/large.jpg",
+          "efforts": 95,
+          "delta": {
+            "delta": null,
+            "isNewLeader": true
+          }
+        },
+        "lastUpdated": "2026-02-01T04:38:06.499557+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40570357",
+      "status": "valid"
+    },
+    {
+      "city": "Aberdeen",
+      "state": "WA",
+      "displayLocation": "Aberdeen, WA",
+      "segmentId": 40748814,
+      "segmentData": {
+        "segmentId": 40748814,
+        "segmentName": "",
+        "city": "Aberdeen",
+        "state": "WA",
+        "totalEfforts": "1,681",
+        "totalAthletes": "10",
+        "totalDistance": "397.5 mi",
+        "maleLeader": {
+          "name": "john wiseman",
+          "profilePic": "https://d3nn82uaxijpm6.cloudfront.net/assets/avatar/athlete/large-59a8e8528934934c80cc56ea197a256eb5dc71bc6e6451ba5769cdd968c7e232.png",
+          "efforts": 559,
+          "delta": {
+            "delta": 57,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Lauri Paulsen",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/5095602/17444771/1/large.jpg",
+          "efforts": 357,
+          "delta": {
+            "delta": 39,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T04:38:06.499557+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40748814",
+      "status": "valid"
+    },
+    {
+      "city": "Stamford",
+      "state": "CT",
+      "displayLocation": "Stamford, CT",
+      "segmentId": 40827297,
+      "segmentData": {
+        "segmentId": 40827297,
+        "segmentName": "",
+        "city": "Stamford",
+        "state": "CT",
+        "totalEfforts": "1,389",
+        "totalAthletes": "55",
+        "totalDistance": "1,177.4 mi",
+        "maleLeader": {
+          "name": "Chase Smith",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/15951196/4462774/8/large.jpg",
+          "efforts": 166,
+          "delta": {
+            "delta": 22,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Charlotte Hayes",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/46085499/14792991/2/large.jpg",
+          "efforts": 143,
+          "delta": {
+            "delta": 5,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T04:38:06.499557+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40827297",
+      "status": "valid"
+    },
+    {
+      "city": "Westfield",
+      "state": "IN",
+      "displayLocation": "Westfield, IN",
+      "segmentId": 40759112,
+      "segmentData": {
+        "segmentId": 40759112,
+        "segmentName": "",
+        "city": "Westfield",
+        "state": "IN",
+        "totalEfforts": "1,227",
+        "totalAthletes": "12",
+        "totalDistance": "442.2 mi",
+        "maleLeader": {
+          "name": "Abe Rickenberg",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/28758678/10029997/16/large.jpg",
+          "efforts": 367,
+          "delta": {
+            "delta": 13,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Christi Dee",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/2794291/960602/5/large.jpg",
+          "efforts": 83,
+          "delta": {
+            "delta": 38,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T04:38:06.499557+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40759112",
+      "status": "valid"
+    },
+    {
+      "city": "Hamilton",
+      "state": "Ontario",
+      "displayLocation": "Hamilton, Ontario",
+      "segmentId": 40751550,
+      "segmentData": {
+        "segmentId": 40751550,
+        "segmentName": "",
+        "city": "Hamilton",
+        "state": "Ontario",
+        "totalEfforts": "1,330",
+        "totalAthletes": "12",
+        "totalDistance": "210.1 mi",
+        "maleLeader": {
+          "name": "Kyle Kirkwood",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/53578792/16231089/4/large.jpg",
+          "efforts": 634,
+          "delta": {
+            "delta": 130,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Sue Campbell",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/44968824/29328606/2/large.jpg",
+          "efforts": 59,
+          "delta": {
+            "delta": 27,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T04:38:06.499557+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40751550",
+      "status": "valid"
+    },
+    {
+      "city": "West Hollywood",
+      "state": "CA",
+      "displayLocation": "West Hollywood, CA",
+      "segmentId": 40765045,
+      "segmentData": {
+        "segmentId": 40765045,
+        "segmentName": "",
+        "city": "West Hollywood",
+        "state": "CA",
+        "totalEfforts": "1,088",
+        "totalAthletes": "15",
+        "totalDistance": "354.1 mi",
+        "maleLeader": {
+          "name": "No leader yet",
+          "profilePic": "",
+          "efforts": 0,
+          "delta": {
+            "delta": null,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Hillary Thornton",
+          "profilePic": "https://d3nn82uaxijpm6.cloudfront.net/assets/avatar/athlete/large-59a8e8528934934c80cc56ea197a256eb5dc71bc6e6451ba5769cdd968c7e232.png",
+          "efforts": 384,
+          "delta": {
+            "delta": 18,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T04:38:06.499557+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40765045",
+      "status": "valid"
+    },
+    {
+      "city": "Arcata",
+      "state": "CA",
+      "displayLocation": "Arcata, CA",
+      "segmentId": 40759628,
+      "segmentData": {
+        "segmentId": 40759628,
+        "segmentName": "",
+        "city": "Arcata",
+        "state": "CA",
+        "totalEfforts": "12,117",
+        "totalAthletes": "53",
+        "totalDistance": "2,343.8 mi",
+        "maleLeader": {
+          "name": "No leader yet",
+          "profilePic": "",
+          "efforts": 0,
+          "delta": {
+            "delta": null,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Jazz McGinnis",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/90764189/25669431/6/large.jpg",
+          "efforts": 3098,
+          "delta": {
+            "delta": 168,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T04:27:57.942658+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40759628",
+      "status": "valid"
+    },
+    {
+      "city": "Castle Rock",
+      "state": "CO",
+      "displayLocation": "Castle Rock, CO",
+      "segmentId": 40744240,
+      "segmentData": {
+        "segmentId": 40744240,
+        "segmentName": "",
+        "city": "Castle Rock",
+        "state": "CO",
+        "totalEfforts": "8,835",
+        "totalAthletes": "145",
+        "totalDistance": "2,453.9 mi",
+        "maleLeader": {
+          "name": "Ben Amstutz",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/109256940/25743659/1/large.jpg",
+          "efforts": 1174,
+          "delta": {
+            "delta": 33,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Teresa Castagna",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/8693514/2632696/35/large.jpg",
+          "efforts": 540,
+          "delta": {
+            "delta": 5,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T04:27:57.942658+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40744240",
+      "status": "valid"
+    },
+    {
+      "city": "Eugene",
+      "state": "OR",
+      "displayLocation": "Eugene, OR",
+      "segmentId": 40817800,
+      "segmentData": {
+        "segmentId": 40817800,
+        "segmentName": "",
+        "city": "Eugene",
+        "state": "OR",
+        "totalEfforts": "7,015",
+        "totalAthletes": "62",
+        "totalDistance": "1,861.2 mi",
+        "maleLeader": {
+          "name": "Ryan Solberg",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/30263743/9080203/4/large.jpg",
+          "efforts": 626,
+          "delta": {
+            "delta": 111,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "cadence bronson",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/63990346/41165636/7/large.jpg",
+          "efforts": 440,
+          "delta": {
+            "delta": 15,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T04:27:57.942658+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40817800",
+      "status": "valid"
+    },
+    {
+      "city": "Houston",
+      "state": "TX",
+      "displayLocation": "Houston, TX",
+      "segmentId": 40747282,
+      "segmentData": {
+        "segmentId": 40747282,
+        "segmentName": "",
+        "city": "Houston",
+        "state": "TX",
+        "totalEfforts": "7,014",
+        "totalAthletes": "65",
+        "totalDistance": "1,372.4 mi",
+        "maleLeader": {
+          "name": "Adam Kuskos",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/90089720/39568217/5/large.jpg",
+          "efforts": 1402,
+          "delta": {
+            "delta": 1,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Shelby Moser",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/93034167/22149787/3/large.jpg",
+          "efforts": 525,
+          "delta": {
+            "delta": 100,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T04:27:57.942658+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40747282",
+      "status": "valid"
+    },
+    {
+      "city": "Greenville",
+      "state": "SC",
+      "displayLocation": "Greenville, SC",
+      "segmentId": 11203356,
+      "segmentData": {
+        "segmentId": 11203356,
+        "segmentName": "",
+        "city": "Greenville",
+        "state": "SC",
+        "totalEfforts": "5,265",
+        "totalAthletes": "222",
+        "totalDistance": "1,319.0 mi",
+        "maleLeader": {
+          "name": "Steven Ellis",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/31775316/43020283/1/large.jpg",
+          "efforts": 627,
+          "delta": {
+            "delta": 12,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Jess Loudermilk",
+          "profilePic": "https://graph.facebook.com/10214083126060978/picture?height=256&width=256",
+          "efforts": 317,
+          "delta": {
+            "delta": 46,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-02-01T04:27:57.942658+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/11203356",
+      "status": "valid"
+    },
+    {
+      "city": "Waco",
+      "state": "TX",
+      "displayLocation": "Waco, TX",
+      "segmentId": 40808669,
+      "segmentData": {
+        "segmentId": 40808669,
+        "segmentName": "",
+        "city": "Waco",
+        "state": "TX",
+        "totalEfforts": "19",
+        "totalAthletes": "3",
+        "totalDistance": "8.4 mi",
+        "maleLeader": {
+          "name": "No leader yet",
+          "profilePic": "",
+          "efforts": 0,
+          "delta": {
+            "delta": null,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Rhiannon Settles",
+          "profilePic": "https://lh5.googleusercontent.com/-HpASe33s3K4/AAAAAAAAAAI/AAAAAAAAAP4/GQshW3oiHOQ/photo.jpg",
+          "efforts": 10,
+          "delta": {
+            "delta": 2,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-01-31T19:47:41.263445+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40808669",
+      "status": "valid"
+    },
+    {
+      "city": "Virginia Beach",
+      "state": "VA",
+      "displayLocation": "Virginia Beach, VA",
+      "segmentId": 40750485,
+      "segmentData": {
+        "segmentId": 40750485,
+        "segmentName": "",
+        "city": "Virginia Beach",
+        "state": "VA",
+        "totalEfforts": "614",
+        "totalAthletes": "4",
+        "totalDistance": "364.3 mi",
+        "maleLeader": {
+          "name": "Adam Morel",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/93396345/22224244/4/large.jpg",
+          "efforts": 300,
+          "delta": {
+            "delta": 22,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "No leader yet",
+          "profilePic": "",
+          "efforts": 0,
+          "delta": {
+            "delta": null,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-01-31T19:47:41.263445+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40750485",
+      "status": "valid"
+    },
+    {
+      "city": "Dartmouth",
+      "state": "NS",
+      "displayLocation": "Dartmouth, NS",
+      "segmentId": 40751687,
+      "segmentData": {
+        "segmentId": 40751687,
+        "segmentName": "",
+        "city": "Dartmouth",
+        "state": "NS",
+        "totalEfforts": "355",
+        "totalAthletes": "13",
+        "totalDistance": "72.8 mi",
+        "maleLeader": {
+          "name": "Mike DeCoffe",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/45576519/13208140/16/large.jpg",
+          "efforts": 193,
+          "delta": {
+            "delta": 47,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Carolyn F",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/61459628/26445558/5/large.jpg",
+          "efforts": 66,
+          "delta": {
+            "delta": 24,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-01-31T19:47:41.263445+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40751687",
+      "status": "valid"
+    },
+    {
+      "city": "Madison Heights",
+      "state": "WI",
+      "displayLocation": "Madison Heights, WI",
+      "segmentId": 1433169,
+      "segmentData": {
+        "segmentId": 1433169,
+        "segmentName": "",
+        "city": "Madison Heights",
+        "state": "WI",
+        "totalEfforts": "205",
+        "totalAthletes": "65",
+        "totalDistance": "42.8 mi",
+        "maleLeader": {
+          "name": "No leader yet",
+          "profilePic": "",
+          "efforts": 0,
+          "delta": {
+            "delta": null,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Rachael Wendt",
+          "profilePic": "https://graph.facebook.com/10106434113227397/picture?height=256&width=256",
+          "efforts": 44,
+          "delta": {
+            "delta": 24,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-01-31T19:47:41.263445+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/1433169",
+      "status": "valid"
+    },
+    {
+      "city": "Joshua Tree",
+      "state": "CA",
+      "displayLocation": "Joshua Tree, CA",
+      "segmentId": 40769583,
+      "segmentData": {
+        "segmentId": 40769583,
+        "segmentName": "",
+        "city": "Joshua Tree",
+        "state": "CA",
+        "totalEfforts": "181",
+        "totalAthletes": "3",
+        "totalDistance": "56.9 mi",
+        "maleLeader": {
+          "name": "martín m",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/805384/238496/12/large.jpg",
+          "efforts": 164,
+          "delta": {
+            "delta": 20,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Cindy  sanchez",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/25305926/36496888/2/large.jpg",
+          "efforts": 13,
+          "delta": {
+            "delta": 5,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-01-31T19:47:41.263445+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40769583",
+      "status": "valid"
+    },
+    {
+      "city": "Lebanon",
+      "state": "NH",
+      "displayLocation": "Lebanon, NH",
+      "segmentId": 40796096,
+      "segmentData": {
+        "segmentId": 40796096,
+        "segmentName": "",
+        "city": "Lebanon",
+        "state": "NH",
+        "totalEfforts": "89",
+        "totalAthletes": "6",
+        "totalDistance": "20.7 mi",
+        "maleLeader": {
+          "name": "No leader yet",
+          "profilePic": "",
+          "efforts": 0,
+          "delta": {
+            "delta": null,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Brittany Crocco",
+          "profilePic": "https://graph.facebook.com/10100460881222716/picture?height=256&width=256",
+          "efforts": 71,
+          "delta": {
+            "delta": 20,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-01-31T19:47:41.263445+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40796096",
+      "status": "valid"
+    },
+    {
+      "city": "Paris",
+      "state": "",
+      "displayLocation": "Paris, FRANCE",
+      "segmentId": 40822349,
+      "segmentData": {
+        "segmentId": 40822349,
+        "segmentName": "",
+        "city": "Paris",
+        "state": "",
+        "totalEfforts": "284",
+        "totalAthletes": "13",
+        "totalDistance": "64.2 mi",
+        "maleLeader": {
+          "name": "Clouet Romain",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/48637634/14162125/14/large.jpg",
+          "efforts": 60,
+          "delta": {
+            "delta": null,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Sky (is the limit)",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/203195633/43200613/1/large.jpg",
+          "efforts": 41,
+          "delta": {
+            "delta": null,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-01-31T19:47:41.263445+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40822349",
+      "status": "valid"
+    },
+    {
+      "city": "Spindale",
+      "state": "NC",
+      "displayLocation": "Spindale, NC",
+      "segmentId": 40770998,
+      "segmentData": {
+        "segmentId": 40770998,
+        "segmentName": "",
+        "city": "Spindale",
+        "state": "NC",
+        "totalEfforts": "2,963",
+        "totalAthletes": "11",
+        "totalDistance": "1,017.7 mi",
+        "maleLeader": {
+          "name": "No leader yet",
+          "profilePic": "",
+          "efforts": 0,
+          "delta": {
+            "delta": null,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Karey Bunch",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/43830218/30222980/2/large.jpg",
+          "efforts": 701,
+          "delta": {
+            "delta": 20,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-01-31T19:35:38.614581+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40770998",
+      "status": "valid"
+    },
+    {
+      "city": "Auckland",
+      "state": "",
+      "displayLocation": "Auckland, New Zealand",
+      "segmentId": 40758106,
+      "segmentData": {
+        "segmentId": 40758106,
+        "segmentName": "",
+        "city": "Auckland",
+        "state": "",
+        "totalEfforts": "168",
+        "totalAthletes": "5",
+        "totalDistance": "31.9 mi",
+        "maleLeader": {
+          "name": "Sam Paulin",
+          "profilePic": "https://graph.facebook.com/976012765804442/picture?height=256&width=256",
+          "efforts": 63,
+          "delta": {
+            "delta": null,
+            "isNewLeader": true
+          }
+        },
+        "femaleLeader": {
+          "name": "Tracey Free",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/27381445/10214517/1/large.jpg",
+          "efforts": 38,
+          "delta": {
+            "delta": 21,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-01-31T14:54:40.587814+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40758106",
+      "status": "valid"
+    },
+    {
+      "city": "Decatur",
+      "state": "GA",
+      "displayLocation": "Decatur, GA",
+      "segmentId": 40788127,
+      "segmentData": {
+        "segmentId": 40788127,
+        "segmentName": "",
+        "city": "Decatur",
+        "state": "GA",
+        "totalEfforts": "32",
+        "totalAthletes": "19",
+        "totalDistance": "5.3 mi",
+        "maleLeader": {
+          "name": "No leader yet",
+          "profilePic": "",
+          "efforts": 0,
+          "delta": {
+            "delta": null,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Rach Malina",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/13657496/4098905/1/large.jpg",
+          "efforts": 4,
+          "delta": {
+            "delta": 1,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-01-31T14:54:40.587814+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40788127",
+      "status": "valid"
+    },
+    {
+      "city": "Leander",
+      "state": "TX",
+      "displayLocation": "Leander, TX",
+      "segmentId": 40802759,
+      "segmentData": {
+        "segmentId": 40802759,
+        "segmentName": "",
+        "city": "Leander",
+        "state": "TX",
+        "totalEfforts": "12",
+        "totalAthletes": "3",
+        "totalDistance": "4.3 mi",
+        "maleLeader": {
+          "name": "Richard  Runs Trails",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/22911391/42947911/2/large.jpg",
+          "efforts": 9,
+          "delta": {
+            "delta": 4,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Sarah Jenkins",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/17238467/32661315/1/large.jpg",
+          "efforts": 1,
+          "delta": {
+            "delta": null,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-01-31T04:17:10.547508+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40802759",
+      "status": "valid"
+    },
+    {
+      "city": "Ojai",
+      "state": "CA",
+      "displayLocation": "Ojai, CA",
+      "segmentId": 40784248,
+      "segmentData": {
+        "segmentId": 40784248,
+        "segmentName": "",
+        "city": "Ojai",
+        "state": "CA",
+        "totalEfforts": "787",
+        "totalAthletes": "12",
+        "totalDistance": "200.4 mi",
+        "maleLeader": {
+          "name": "Robell Bassett",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/20524660/31100833/3/large.jpg",
+          "efforts": 201,
+          "delta": {
+            "delta": 27,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Erin Hakim",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/28433103/35676564/1/large.jpg",
+          "efforts": 169,
+          "delta": {
+            "delta": 48,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-01-28T19:54:55.145052+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40784248",
+      "status": "valid"
+    },
+    {
+      "city": "Atlanta",
+      "state": "GA",
+      "displayLocation": "Atlanta, GA #2",
+      "segmentId": 40759130,
+      "segmentData": {
+        "segmentId": 40759130,
+        "segmentName": "",
+        "city": "Atlanta",
+        "state": "GA",
+        "totalEfforts": "243",
+        "totalAthletes": "4",
+        "totalDistance": "81.7 mi",
+        "maleLeader": {
+          "name": "Eric Knauf",
+          "profilePic": "https://graph.facebook.com/10221951395551187/picture?height=256&width=256",
+          "efforts": 149,
+          "delta": {
+            "delta": 2,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Emily Hull",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/55273610/25990391/1/large.jpg",
+          "efforts": 14,
+          "delta": {
+            "delta": null,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-01-28T03:59:22.323951+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40759130",
+      "status": "valid"
+    },
+    {
+      "city": "Wake Forest",
+      "state": "NC",
+      "displayLocation": "Wake Forest, NC",
+      "segmentId": 40775063,
+      "segmentData": {
+        "segmentId": 40775063,
+        "segmentName": "",
+        "city": "Wake Forest",
+        "state": "NC",
+        "totalEfforts": "1,726",
+        "totalAthletes": "11",
+        "totalDistance": "316.8 mi",
+        "maleLeader": {
+          "name": "chad duffy",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/10648644/3277017/4/large.jpg",
+          "efforts": 605,
+          "delta": {
+            "delta": 17,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Natalia Love",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/106808253/25303803/3/large.jpg",
+          "efforts": 229,
+          "delta": {
+            "delta": 27,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-01-28T03:54:02.236548+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40775063",
+      "status": "valid"
+    },
+    {
+      "city": "Henryville",
+      "state": "PA",
+      "displayLocation": "Henryville, PA",
+      "segmentId": 40750978,
+      "segmentData": {
+        "segmentId": 40750978,
+        "segmentName": "",
+        "city": "Henryville",
+        "state": "PA",
+        "totalEfforts": "15",
+        "totalAthletes": "1",
+        "totalDistance": "22.2 mi",
+        "maleLeader": {
+          "name": "No leader yet",
+          "profilePic": "",
+          "efforts": 0,
+          "delta": {
+            "delta": null,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Valeria Wang",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/105478765/34587256/6/large.jpg",
+          "efforts": 15,
+          "delta": {
+            "delta": 4,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-01-26T03:54:53.158165+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40750978",
+      "status": "valid"
+    },
+    {
+      "city": "Hardy",
+      "state": "AR",
+      "displayLocation": "Hardy, AR",
+      "segmentId": 40780799,
+      "segmentData": {
+        "segmentId": 40780799,
+        "segmentName": "",
+        "city": "Hardy",
+        "state": "AR",
+        "totalEfforts": "32",
+        "totalAthletes": "2",
+        "totalDistance": "9.2 mi",
+        "maleLeader": {
+          "name": "Preston Rowe",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/33918028/35822938/2/large.jpg",
+          "efforts": 29,
+          "delta": {
+            "delta": 6,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "Leanne Rowe",
+          "profilePic": "https://graph.facebook.com/4178537858824327/picture?height=256&width=256",
+          "efforts": 3,
+          "delta": {
+            "delta": 1,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-01-24T19:58:58.28712+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40780799",
+      "status": "valid"
+    },
+    {
+      "city": "Lompoc",
+      "state": "CA",
+      "displayLocation": "Lompoc, CA",
+      "segmentId": 40768724,
+      "segmentData": {
+        "segmentId": 40768724,
+        "segmentName": "",
+        "city": "Lompoc",
+        "state": "CA",
+        "totalEfforts": "132",
+        "totalAthletes": "2",
+        "totalDistance": "56.4 mi",
+        "maleLeader": {
+          "name": "Erik Koenig",
+          "profilePic": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/73283922/17835712/2/large.jpg",
+          "efforts": 94,
+          "delta": {
+            "delta": 9,
+            "isNewLeader": false
+          }
+        },
+        "femaleLeader": {
+          "name": "No leader yet",
+          "profilePic": "",
+          "efforts": 0,
+          "delta": {
+            "delta": null,
+            "isNewLeader": false
+          }
+        },
+        "lastUpdated": "2026-01-24T19:58:58.28712+00:00"
+      },
+      "segmentUrl": "https://www.strava.com/segments/40768724",
+      "status": "valid"
+    },
+    {
+      "city": "Indianapolis",
+      "state": "IN",
+      "displayLocation": "Indianapolis, IN",
+      "segmentId": null,
+      "segmentData": null,
+      "segmentUrl": null,
+      "status": "need_segment"
+    },
+    {
+      "city": "Fisher",
+      "state": "IN",
+      "displayLocation": "Fisher, IN",
+      "segmentId": null,
+      "segmentData": null,
+      "segmentUrl": null,
+      "status": "need_segment"
+    },
+    {
+      "city": "Carmel",
+      "state": "IN",
+      "displayLocation": "Carmel, IN",
+      "segmentId": null,
+      "segmentData": null,
+      "segmentUrl": null,
+      "status": "need_segment"
+    }
+  ],
+  "pollRun": {
+    "id": "5f261ced-1bc3-44e6-bdcb-f54d5895a5e5",
+    "polled_at": "2026-02-01T14:19:07.108955+00:00",
+    "chapters_polled": 39,
+    "chapters_successful": 39,
+    "was_rate_limited": false,
+    "source": "scheduled"
+  },
+  "lastUpdated": "2026-02-01T14:19:07.108955+00:00"
+}

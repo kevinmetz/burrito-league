@@ -36,6 +36,9 @@ yarn-error.log*
 # vercel
 .vercel
 
+# private full Supabase archive - not for the public repo, see backup/MANIFEST.json
+/backup
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
