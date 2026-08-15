@@ -1,7 +1,8 @@
-import { getChaptersFromSupabase, ChapterFromSupabase } from '@/lib/supabase';
+import { ChapterFromSupabase } from '@/lib/supabase';
+import frozenChapters from '@/data/chapters-final-2026.json';
 
-// Revalidate every 15 minutes to match main site
-export const revalidate = 900;
+// Season is over (Burrito League 2026 ended Jan 31, 2026) - data is a frozen static snapshot
+export const revalidate = false;
 
 function parseNumber(str: string): number {
   return parseFloat(str.replace(/,/g, '')) || 0;
@@ -29,17 +30,10 @@ function calculateGlobalStats(chapters: ChapterFromSupabase[]) {
 }
 
 export default async function EmbedStatsPage() {
-  // Fetch data from Supabase
-  const supabaseData = await getChaptersFromSupabase();
-
-  let totalChapters = 0;
-  let stats = { totalEfforts: 0, totalMiles: 0, totalAthletes: 0 };
-
-  if (supabaseData) {
-    const chaptersWithData = supabaseData.chapters.filter(c => c.segmentData);
-    totalChapters = chaptersWithData.length;
-    stats = calculateGlobalStats(supabaseData.chapters);
-  }
+  const chapters = frozenChapters.chapters as ChapterFromSupabase[];
+  const chaptersWithData = chapters.filter(c => c.segmentData);
+  const totalChapters = chaptersWithData.length;
+  const stats = calculateGlobalStats(chapters);
 
   return (
     <div className="min-h-screen bg-transparent flex items-center justify-center p-4">

@@ -1,6 +1,7 @@
 import Image from "next/image";
-import { getAllChaptersData, ChapterWithData } from "@/lib/strava";
-import { getChaptersFromSupabase, ChapterFromSupabase, bootstrapIfEmpty } from "@/lib/supabase";
+import { ChapterWithData } from "@/lib/strava";
+import { ChapterFromSupabase } from "@/lib/supabase";
+import frozenChapters from "@/data/chapters-final-2026.json";
 import ChapterCard from "@/components/ChapterCard";
 import ConferenceCard from "@/components/ConferenceCard";
 import AffiliateCard from "@/components/AffiliateCard";
@@ -11,8 +12,8 @@ import GlobalStats from "@/components/GlobalStats";
 import GlobeSection from "@/components/GlobeSection";
 import ScrollHint from "@/components/ScrollHint";
 
-// Revalidate every 15 minutes - Supabase reads are cheap, and we want fresh sheet data
-export const revalidate = 900;
+// Season is over (Burrito League 2026 ended Jan 31, 2026) - data is a frozen static snapshot
+export const revalidate = false;
 
 // Mount to Coast Flagship League cities (displayed first)
 const FLAGSHIP_CITIES = [
@@ -82,44 +83,7 @@ function calculateGlobalStats(chapters: ChapterData[]) {
 }
 
 export default async function Home() {
-  let chaptersData: ChapterData[] = [];
-  let dataSource: 'supabase' | 'strava' | 'fallback' = 'fallback';
-  let lastUpdated: string | null = null;
-
-  // Try Supabase first (fast, no API calls)
-  try {
-    let supabaseResult = await getChaptersFromSupabase();
-
-    // If Supabase is empty, bootstrap with initial poll
-    if (!supabaseResult) {
-      console.log('Page: Supabase empty, bootstrapping...');
-      const didBootstrap = await bootstrapIfEmpty();
-      if (didBootstrap) {
-        // Retry fetching from Supabase after bootstrap
-        supabaseResult = await getChaptersFromSupabase();
-      }
-    }
-
-    if (supabaseResult && supabaseResult.chapters.length > 0) {
-      chaptersData = supabaseResult.chapters;
-      dataSource = 'supabase';
-      lastUpdated = supabaseResult.lastUpdated;
-      console.log(`Page: Loaded ${chaptersData.length} chapters from Supabase`);
-    }
-  } catch (error) {
-    console.error("Failed to fetch from Supabase:", error);
-  }
-
-  // Fall back to direct Strava API if Supabase still empty (bootstrap failed)
-  if (chaptersData.length === 0) {
-    try {
-      console.log('Page: Supabase still empty, falling back to direct Strava API');
-      chaptersData = await getAllChaptersData();
-      dataSource = 'strava';
-    } catch (error) {
-      console.error("Failed to fetch chapters data:", error);
-    }
-  }
+  const chaptersData: ChapterData[] = frozenChapters.chapters as ChapterFromSupabase[];
 
   const globalStats = calculateGlobalStats(chaptersData);
 
