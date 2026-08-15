@@ -8,6 +8,16 @@ A dashboard/website for tracking the grassroots "Burrito League" running competi
 
 **Learn more:** https://www.mountainoutpost.com/burritoleague/
 
+## Current Status: 2026 Season Frozen (as of 2026-08-15)
+
+The Jan 2026 challenge ended Jan 31, 2026. The site's live Supabase backend was retired (freeing up a Supabase free-tier project slot for another project) since the season's data no longer changes. See PR #1 ("Freeze 2026 season data, drop live Supabase dependency").
+
+- `page.tsx` and `embed/stats/page.tsx` now read the frozen snapshot at `src/data/chapters-final-2026.json` (118 chapters, exact output of the old `getChaptersFromSupabase()`) instead of querying Supabase live.
+- The cron/debug API routes that wrote to Supabase (`cron/poll-strava`, `cron/pre-poll`, `debug-chapters`) were deleted — polling was already paused before that.
+- The globe map's static `src/lib/coordinates.ts` needed no changes; it already covered every active chapter Supabase's `chapter_coordinates` table had.
+- **Full raw Supabase backup** (all 4 tables: `poll_runs`, `segment_snapshots`, `chapter_coordinates`, `poll_details` — 8,628 rows, plus a reconstructed schema doc) lives outside the repo at `/Users/kev/Documents/burritowork/burrito_supabase_backup/`. Not committed here since it's more granular (full poll-by-poll history, athlete names/pics) than anything the public site ever showed.
+- To rebuild for a future season: recreate the Supabase tables per `SCHEMA.md` in that backup folder, restore the JSON data, and reverse this PR's data-source swap. The GitHub Actions polling workflow (`.github/workflows/poll-strava.yml`) is still in the repo, paused via commented-out cron schedules, as a reference for the batching/timing setup.
+
 ## Background
 
 Burrito League was born from the 2025 Chipotle x Strava challenge. When the official challenge didn't return in 2026, Aravaipa founder Jamil Coury took a grassroots approach, creating "Burrito League" with the OG Tempe segment as the first chapter. The league has grown to 24+ chapters worldwide.
